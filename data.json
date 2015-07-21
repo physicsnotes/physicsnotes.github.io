@@ -1,0 +1,591 @@
+{
+  "subjects":
+  [
+    {
+      "name":"Chapter 20",
+      "equations":
+      [
+        {
+          "header":"Coulomb's Law",
+          "equation":"\\overrightarrow{F_{12}} = \\frac{kq_{1}q_{2}}{r^2}\\hat{r}\\\\\\mbox{Where }\\overrightarrow{F_{12}}\\mbox{ is the force }q_{1}\\mbox{ exerts on }q_{2}\\\\\\hat{r}\\mbox{ is the normal of the direction between the charges.}"
+        },
+        {
+          "header":"Charge Conservation",
+          "equation":"\\mbox{The net charge in a closed system is constant.}"
+        },
+        {
+          "header":"Superposition Principle",
+          "equation":"\\mbox{The superposition principle entends for electric forces as well meaning}\\\\\\mbox{the net force is the sum of the independent individual electrical forces.}"
+        },
+        {
+          "header":"Electric Field",
+          "equation":"\\mbox{The electric field at any point is the force per unit charge that a charge would experience at that point.}\\\\\\overrightarrow{E}=\\frac{\\overrightarrow{F}}{q} = \\frac{kq_{source}}{r^{2}}\\hat{r}"
+        },
+        {
+          "header":"Electric Dipole Moment, p",
+          "equation":"p=qd\\\\\\mbox{Where } d \\mbox{ is the distance between the two charges making up the dipole.}"
+        },
+        {
+          "header":"Continuous Electric Field",
+          "equation":"\\overrightarrow{E}=\\int{d\\overrightarrow{E}}=\\int{\\frac{k\\ dq}{r^{2}}\\hat{r}}"
+        },
+        {
+          "header":"Dipole field on perpendicular bisector",
+          "equation":"\\overrightarrow{E}=-\\frac{kp}{y^{3}}\\hat{i}\\\\\\mbox{ When } y \\gg \\mbox{ dipole charge distance.}"
+        },
+        {
+          "header":"Dipole field on dipole axis",
+          "equation":"\\overrightarrow{E}=\\frac{2kp}{x^{3}}\\hat{i}\\\\\\mbox{ When } x \\gg \\mbox{ dipole charge distance.}"
+        },
+        {
+          "header":"Torque on a dipole in an electric field",
+          "equation":"\\overrightarrow{\\tau} = \\overrightarrow{p} \\times \\overrightarrow{E} = qdE\\sin(\\theta)"
+        },
+        {
+          "header":"Potential energy for a dipole in an electric field",
+          "equation":"U = -\\overrightarrow{p}\\cdot\\overrightarrow{E}"
+        },
+        {
+          "header":"Insulator",
+          "equation":"\\mbox{A material in which charges are not free to move around.}"
+        },
+        {
+          "header":"Dielectric",
+          "equation":"\\mbox{Insulating materials that when an electric field is applied, the contained molecules polarize creating dipoles.}"
+        },
+        {
+          "header":"Conductor",
+          "equation":"\\mbox{A material with charges that can move freely throughout the material.}"
+        }
+      ]
+    },
+    {
+      "name":"Chapter 21",
+      "equations":
+      [
+        {
+          "header":"Electric Flux",
+          "equation":"\\Phi = \\overrightarrow{E} \\cdot \\overrightarrow{A} = EA\\cos(\\theta)\\\\\\Phi = \\int^{}_{surface}{\\overrightarrow{E} \\cdot d\\overrightarrow{A}}\\\\\\mbox{Where } \\overrightarrow{A} \\mbox{ is the outward pointing normal to the surface and has the magnitude of the surface's area.}"
+        },
+        {
+          "header":"Gauss's Law",
+          "equation": "\\Phi = \\oint{\\overrightarrow{E} \\cdot d\\overrightarrow{A}} = \\frac{q_{enclosed}}{\\epsilon_{0}}\\\\\\mbox{Where the charge must be enclosed inside the closed surface.}"
+        },
+        {
+          "header":"Electrostatic Equilibrium",
+          "equation":"\\mbox{The electric field is zero inside a conductor in electrostatic equilibrium.}\\\\\\mbox{Any net charge must be on the conductor's surface.}\\\\\\mbox{Also see note \"Electric Field for a surface of a conductor in Electrostatic Equilibrium\"}"
+        },
+        {
+          "header":"Electric Field for a surface of a conductor in Electrostatic Equilibrium (365)",
+          "equation":"E=\\frac{\\delta}{\\epsilon_{0}}\\\\\\mbox{Where }\\delta \\mbox{ is the surface charge density.}\\\\\\mbox{E is perpendicular to the surface of the conductor}"
+        },
+        {
+          "header":"Electric Field for charged sphere",
+          "equation":"\\mbox{Outside: }E = \\frac{kQ}{r^2}\\\\\\mbox{Inside: }E = \\frac{kQr}{r_{sphere}^3}\\\\\\mbox{Inside hollow: }E = 0"
+        },
+        {
+          "header":"Electric Field for charged line",
+          "equation":"\\mbox{The line must be assumed infinite in length.}\\\\\\mbox{This works well when we are checking the field close to the line and not near the edges.}\\\\\\mbox{Outside: }E = \\frac{\\lambda}{2\\pi\\epsilon_{0}r}\\mbox{ (}\\lambda\\mbox{ Is the charge density in }C/m\\mbox{)}\\\\\\mbox{Inside hollow: }E = 0"
+        },
+        {
+          "header":"Electic Field for charged plane",
+          "equation":"\\mbox{Outside: }E=\\frac{\\delta}{2\\epsilon_0}\\mbox{ (}\\delta\\mbox{ Is the charge density in } C/m^2 \\mbox{)}"
+        }
+      ]
+    },
+    {
+      "name":"Chapter 22",
+      "equations":
+      [
+        {
+          "header":"Electric Potential Energy",
+          "equation":"\\mbox{Electric potential energy is the potential energy the charge in question has that is gained by an electric field.}"
+        },
+        {
+          "header":"Electric Potential Difference",
+          "equation":"\\mbox{Electric potential difference is the potential energy per unit charge in moving some from A to B.}\\\\\\mbox{Positive means more electric potential energy for a positive charge moving from A to B, negative means less.}\\\\\\Delta V_{AB} = \\frac{\\Delta U_{AB}}{q} = -\\int^{B}_{A}{\\overrightarrow{E} \\cdot d \\overrightarrow{r}}"
+        },
+        {
+          "header":"Electric Potential Difference from a charged Point",
+          "equation":"\\Delta V_{AB} = kq(\\frac{1}{r_B} - \\frac{1}{r_A})\\\\\\mbox{Where } r_A \\mbox{ and } r_B \\mbox{ are the distances from the charge to A and B respectively.}"
+        },
+        {
+          "header":"Electric Potential Superposition",
+          "equation":"\\mbox{The resulting Electic Potential can be calculated from the sum of the independent individual electric potentials.}"
+        },
+        {
+          "header":"Zero of Potential",
+          "equation":"\\mbox{A point used as a implicit reference to find differences in potential.}\\\\\\mbox{When someone says find the potential of a point they mean with respect to the zero of potential.}"
+        },
+        {
+          "header":"Potential of a point charge",
+          "equation":"\\mbox{The zero of potential is usually defined to be infinitely away from our point of interest, in that case.}\\\\V = \\frac{kq}{r}"
+        },
+        {
+          "header":"Potential of a sphere",
+          "equation":"\\mbox{The zero of potential is infinitely away from our sphere.}\\\\V = \\frac{kq}{r}"
+        },
+        {
+          "header":"Potential of a dipole",
+          "equation":"\\mbox{Where the zero of potential is infinitely away from our point of interest}\\\\\\mbox{and that point's distance from the dipole is much larger than the dipole's length.}\\\\V = \\frac{kp\\cos{\\theta}}{r^2}\\\\\\mbox{Where }p = qd \\mbox{ and } \\theta \\mbox{ is measured from (or at least near) the center of the dipole to the point with respect to the dipole amathcal{E}s.}"
+        },
+        {
+          "header":"Potential integral",
+          "equation":"\\mbox{Using the Potential of a point charge note,}\\\\\\mbox{we can find the potential made by a more complex shape as a bunch of point charge potentials, giving.}\\\\V = \\int{\\frac{k\\ dq}{r}}"
+        },
+        {
+          "header":"Equipotentials",
+          "equation":"\\mbox{Two points are equipotentials to each other if their is no electric potential difference between them.}"
+        },
+        {
+          "header":"Electric Field from Electric Potential",
+          "equation":"\\overrightarrow{E} = -(\\frac{\\delta V}{\\delta x}\\hat{i} + \\frac{\\delta V}{\\delta y}\\hat{j} + \\frac{\\delta V}{\\delta z}\\hat{k})"
+        }
+      ]
+    },
+    {
+      "name":"Chapter 23",
+      "equations":
+      [
+        {
+          "header":"Capacitance",
+          "equation":"C = \\frac{Q}{V} \\mbox{ (} V \\mbox{ is electrical potential difference between the plates)}\\\\\\mbox{The capacitance unit is the Farad.}"
+        },
+        {
+          "header":"The Dielectric Constant for Capacitors",
+          "equation":"\\mbox{In the equation, } C = \\frac{Q}{V}\\mbox{ an insulating dielectric can weaken the electric field making } V \\mbox{ smaller and thus } C \\mbox{ bigger.}\\\\\\mbox{This factor varies with the material and is called the dielectric constant } \\kappa \\mbox{.}"
+        },
+        {
+          "header":"Capacitance for parallel-plate",
+          "equation":"C = \\kappa \\frac{\\epsilon_0 A}{d} \\mbox{(} d \\mbox{ is the distance beween the plates)}"
+        },
+        {
+          "header":"Proton Mass",
+          "equation":"m_p = 1.67 \\times 10^{-27} kg"
+        },
+        {
+          "header":"Potential Energy (U) for a Capacitor",
+          "equation":"U=\\frac{1}{2}CV^2"
+        },
+        {
+          "header":"Potential Energy (U) for a Parallel-Plate capacitor",
+          "equation":"U=\\frac{Q^2d}{2\\epsilon_0 A}"
+        },
+        {
+          "header":"Working Voltage for a Capacitor",
+          "equation":"\\mbox{The working voltage is the mamathcal{E}mum safe potential difference that when pushed past may cause dielectric breakdown.}"
+        },
+        {
+          "header":"Capacitance for parallel capacitors",
+          "equation":"\\mbox{See page 393 if instructions unclear.}\\\\C_{total} = C_1 + C_2 + ..."
+        },
+        {
+          "header":"Capacitance for a series of capacitors",
+          "equation":"\\mbox{See page 393/394 if instructions unclear.}\\\\\\frac{1}{C_{total}} = \\frac{1}{C_1} + \\frac{1}{C_2} + ...\\\\\\mbox{For two capacitors you can say, } C_{total} = \\frac{C_1 C_2}{C_1 + C_2}"
+        },
+        {
+          "header":"Property of parallel capacitors",
+          "equation":"\\mbox{Parallel capacitors have the same voltage.}"
+        },
+        {
+          "header":"Property of a series of capacitors",
+          "equation":"\\mbox{A series of capacitors have the same charge.}"
+        },
+        {
+          "header":"Energy density",
+          "equation":"u_E = \\frac{1}{2}\\epsilon_0 E^2\\\\\\mbox{Only works if E is constant.}\\\\\\mbox{Multiply this with the volume of the object to get the energy stored.}"
+        },
+        {
+          "header":"Energy stored",
+          "equation":"U = \\frac{1}{2}\\epsilon_0\\int{E^2 dV}"
+        }
+      ]
+    },
+    {
+      "name":"Chapter 24",
+      "equations":
+      [
+        {
+          "header":"Electric Current (pg 404)",
+          "equation":"\\mbox{Current is in the direction that positive charges flow,}\\\\\\mbox{if only negative charges are moving then the current's direction is opposite the flow.}\\\\I = \\frac{\\Delta Q}{\\Delta t} (A)\\mbox{, } I = \\frac{dQ}{dt} (A)\\\\\\mbox{Where } \\Delta Q \\mbox{ or } dQ \\mbox{ is the charge crossing a given area over } \\Delta t \\mbox{ or } dt"
+        },
+        {
+          "header":"Electric Current in a conductor (pg 404)",
+          "equation":"I = n*A*q*v_d\\\\n\\mbox{ is the number of charges per unit volume.}\\\\A \\mbox{ is the cross-sectional area of the conductor.}\\\\q \\mbox{ is the charge of each charge.}\\\\v_d \\mbox{ is the drift speed of a charge.}"
+        },
+        {
+          "header":"Relation of resistivity and resistance",
+          "equation":"R = \\frac{\\rho L}{A}\\mbox{ (} L \\mbox{ is length, } A \\mbox{ is the cross-sectional area)}"
+        },
+        {
+          "header":"Current Density (pg 405)",
+          "equation":"\\overrightarrow{J} = \\frac{\\overrightarrow{I}}{A} = nq\\overrightarrow{v_d}"
+        },
+        {
+          "header":"Ohm's Law (pg 406)",
+          "equation":"\\overrightarrow{J} = \\sigma \\overrightarrow{E}\\mbox{ ( } \\sigma \\mbox{ is a conductor's conductivity)}\\\\\\overrightarrow{J} = \\frac{\\overrightarrow{E}}{\\rho}\\mbox{(} \\rho \\mbox{ is a conductor's resistivity)}\\\\\\rho \\mbox{ is the reciprocal of } \\sigma \\mbox{ and has unit ohm (}\\Omega \\mbox{).}"
+        },
+        {
+          "header":"Ohm's Law, again (pg 410)",
+          "equation":"I=\\frac{V}{R} \\mbox{ (} R \\mbox{ is an object's resistance, not resistivity)}"
+        },
+        {
+          "header":"Ohmic materials (pg 406)",
+          "equation":"\\mbox{A material used in meditation.}\\\\\\mbox{A material in which it's conductivity (}\\sigma \\mbox{) is independent of the electric field.}\\\\\\mbox{This means that }\\overrightarrow{J} \\mbox{ in Ohm's Law is linearly proportional to }\\overrightarrow{E}"
+        },
+        {
+          "header":"Nonohmic(Non-Ohmic) materials (pg 406)",
+          "equation":"\\mbox{A material not used in meditation.}\\\\\\mbox{A material in which it's conductivity (}\\sigma \\mbox{) changes with the electric field.}\\\\\\mbox{This means that }\\overrightarrow{J} \\mbox{ in Ohm's Law is not linearly proportional to }\\overrightarrow{E}"
+        },
+        {
+          "header":"A metal's resistivity and it's temperature (pg 407)",
+          "equation":"\\mbox{Resistivity is almost linear with the temperature.}"
+        },
+        {
+          "header":"Electric Power (pg 412)",
+          "equation":"\\mbox{The power (in watts) from an electric current turned into other forms of energy.}\\\\P = IV \\implies P = I^2 R\\implies P = \\frac{V^2}{R}"
+        }
+      ]
+    },
+    {
+      "name":"Chapter 25",
+      "equations":
+      [
+        {
+          "header":"Electromotive Force (EMF)",
+          "equation":"\\mbox{Ignore the force part of the name, it's seems like a misnomer.}\\\\\\mbox{EMF is the potential voltage difference between a source like a battery.}\\\\\\mbox{It is measured in volts and a capital cursive E is used to denote it: }\\mathcal{E}"
+        },
+        {
+          "header":"Electric Current using a battery",
+          "equation":"\\mbox{Nothing new, but it's used throughout this chapter.}\\\\I = \\frac{\\mathcal{E}}{R}\\mbox{ (}\\mathcal{E} \\mbox{ is the voltage of the battery)}"
+        },
+        {
+          "header":"Resistance for resistors in series",
+          "equation":"R_{total} = R_1 + R_2 + ..."
+        },
+        {
+          "header":"Resistance for resistors in parallel",
+          "equation":"\\frac{1}{R_{total}} = \\frac{1}{R_1} + \\frac{1}{R_2} + ...\\\\\\mbox{For two resistors you can say, }R_{total} = \\frac{R_1 R_2}{R_1 + R_2}"
+        },
+        {
+          "header":"Kirchhoff's Laws (pg 426)",
+          "equation":"\\mbox{1. The sum of voltage changes in a closed circuit is zero.}\\\\\\mbox{2. The sum of currents at any node is zero (A node is a point where 3+ wires meet).}\\\\\\mbox{Example 25.4 is great, notice } I_2 \\mbox{ is backwards, direction doesn't matter (it gets fixed by the sign).}"
+        },
+        {
+          "header":"Voltmeter (pg 428)",
+          "equation":"\\mbox{Measures the voltage across two points.}\\\\\\mbox{Must be placed parallel to the circuit, an ideal voltmeter has infinite resistance.}"
+        },
+        {
+          "header":"Ammeter (pg 429)",
+          "equation":"\\mbox{Measures the current flowing through itself.}\\\\\\mbox{Must be placed in series to the circuit, an ideal ammeter has no resistance.}"
+        },
+        {
+          "header":"Ohmmeter (pg 429)",
+          "equation":"\\mbox{Measures the resistance.}\\\\\\mbox{You can use an ammeter with a known voltage to the same effect.}"
+        },
+        {
+          "header":"Multimeters (pg 429)",
+          "equation":"\\mbox{Does what a voltmeter, ammeter, and ohmmeter all do.}\\\\\\mbox{This is like the triforce of electrical instruments.}"
+        },
+        {
+          "header":"RC Circuit (pg 240)",
+          "equation":"\\mbox{RC stands for resistor capacitor.}\\\\\\mbox{A battery connected to a capacitor with a resistor somewhere and a switch.}"
+        },
+        {
+          "header":"RC Charging Current (pg 430-431)",
+          "equation":"I = \\frac{\\mathcal{E}}{R}e^{-\\frac{t}{RC}}"
+        },
+        {
+          "header":"RC Charging Voltage (pg 431)",
+          "equation":"V_C = \\mathcal{E} (1 - e^{-\\frac{t}{RC}})"
+        },
+        {
+          "header":"RC Discharging Current (pg 432)",
+          "equation":"I = \\frac{V_0}{R}e^{-\\frac{t}{RC}}\\mbox{ (} V_0 \\mbox{ is the capacitor's initial voltage)}"
+        },
+        {
+          "header":"RC Discharging Voltage (pg 432)",
+          "equation":"V = V_0 e^{-\\frac{t}{RC}} \\mbox{ (} V_0 \\mbox{ is the capacitor's initial voltage)}"
+        }
+      ]
+    },
+    {
+      "name":"Chapter 26",
+      "equations":
+      [
+        {
+          "header":"The Phenomena of Magnetism",
+          "equation":"\\mbox{The phenomena of magnetism involve moving electric charge.}"
+        },
+        {
+          "header":"Permeability",
+          "equation":"\\mbox{Thus far, it's never really mentioned explicitly in this book but this is what I could gather from wikipedia.}\\\\\\mbox{The permeability is related to a material's ability to create and support magnetic fields within itself.}"
+        },
+        {
+          "header":"Direction of magnetic field",
+          "equation":"\\mbox{If you point your thumb in the direction of the current,}\\\\\\mbox{your other fingers curl in the magnetic field's direction.}"
+        },
+        {
+          "header":"Magnetic Force (pg 440)",
+          "equation":"\\overrightarrow{F_B} = q\\overrightarrow{v} \\times \\overrightarrow{B}\\\\q \\mbox{ is the charge's charge.}\\\\\\overrightarrow{v} \\mbox{ is the velocity of the charge.}\\\\\\overrightarrow{B}\\mbox{ is the magnetic field and has unit Tesla (T).}"
+        },
+        {
+          "header":"Particle moving perpendicularly to a uniform magnetic field (pg 442)",
+          "equation":"\\mbox{The partical experiences uniform circular motion.}\\\\r = \\frac{mv}{qB}"
+        },
+        {
+          "header":"Period and frequency of particle in a uniform magnetic field (pg 442)",
+          "equation":"T = \\frac{2\\pi m}{qB}\\implies f = \\frac{qB}{2\\pi m}\\\\f \\mbox{ is called the cyclotron frequency.}"
+        },
+        {
+          "header":"Magnetic force on a current (pg 444)",
+          "equation":"\\overrightarrow{F} = I\\overrightarrow{l} \\times \\overrightarrow{B}\\\\\\overrightarrow{l} \\mbox{ has magnitude equal to the wire's length and direction of the current.}"
+        },
+        {
+          "header":"Perm",
+          "equation":"\\overrightarrow{F_B} = q\\overrightarrow{v} \\times \\overrightarrow{B}\\\\q \\mbox{ is the charge's charge.}\\\\\\overrightarrow{v} \\mbox{ is the velocity of the charge.}\\\\\\overrightarrow{B}\\mbox{ is the magnetic field and has unit Tesla (T).}"
+        },
+        {
+          "header":"The Biot-Savart Law (pg 446)",
+          "equation":"\\mbox{Pronounced like Bee-O Sav-var.}\\\\\\overrightarrow{B} = \\frac{\\mu_0}{4\\pi}\\int{\\frac{I d\\overrightarrow{l} \\times \\hat{r}}{r^2}}\\\\\\mu_0 \\mbox{ is the permeability constant.}\\\\d\\overrightarrow{l} \\mbox{ is the vector along the current.}\\\\\\hat{r} \\mbox{ is the unit vector from the source to the point where we are evaluating the field.}"
+        },
+        {
+          "header":"Magnetic field of infinitely long wire",
+          "equation":"\\mbox{See page 447-448 for deriviation (it's really good practice).}\\\\B = \\frac{\\mu_0 I}{2\\pi y}"
+        },
+        {
+          "header":"Magnetic Dipole Moment (pg 449)",
+          "equation":"\\overrightarrow{\\mu} = NI\\overrightarrow{A}\\\\N \\mbox{ is how many current loops there are.}\\\\\\overrightarrow{A} \\mbox{ is the loop area pointing perpendicular to the loop.}"
+        },
+        {
+          "header":"Magnetic Field for Dipole on dipole amathcal{E}s (pg 449)",
+          "equation":"B = \\frac{\\mu_0}{2\\pi} \\frac{\\mu}{x^3} \\mbox{(}\\mu\\mbox{ is the magnetic dipole moment)}"
+        },
+        {
+          "header":"Magnetic Flux",
+          "equation":"\\mbox{This is kinda implicit but it's nice if you forget.}\\\\\\Phi_B=\\int{\\overrightarrow{B} \\cdot d\\overrightarrow{A}}\\mbox{ (} d\\overrightarrow{A} \\mbox{ is the normal of the surface)}"
+        },
+        {
+          "header":"Gauss' Law for Magnetism (Magnetic Flux) (pg 450)",
+          "equation":"\\mbox{Neat law, first off all magnetic fields are closed loops.}\\\\\\mbox{From this we can say that the magnetic flux emerging from any } \\textbf{closed}\\mbox{ surface is zero.}\\\\\\Phi_B =\\oint{\\overrightarrow{B} \\cdot d\\overrightarrow{A}} = 0 \\mbox{ (} d\\overrightarrow{A} \\mbox{ is the normal of the surface)} "
+        },
+        {
+          "header":"Torque on a Magnetic Dipole (pg 450)",
+          "equation":"\\overrightarrow{\\tau} = \\overrightarrow{\\mu} \\times \\overrightarrow{B}"
+        },
+        {
+          "header":"Potential energy for a Magnetic Dipole (pg 450)",
+          "equation":"U = -\\overrightarrow{\\mu} \\cdot \\overrightarrow{B}"
+        },
+        {
+          "header":"Ferromagnetism Overview (pg 452)",
+          "equation":"\\mbox{The book goes way more in depth by the way.}\\\\\\mbox{Magnetism caused by a group of atoms (called a magnetic domain) with magnetic moments all aligned the same direction.}\\\\\\mbox{You can achieve this effect by applying an external magnetic field to the metal causing the atoms to align with the field.}\\\\\\mbox{If the material is still magnetic after the magnetic field is removed, the material is a hard ferromagnet. It is a soft ferromagnet otherwise.}"
+        },
+        {
+          "header":"Ampere's Law for steady current (or really slow ones) (pg 454-455)",
+          "equation":"\\oint{\\overrightarrow{B} \\cdot d\\overrightarrow{r}} = \\mu_0 I_{encircled}\\mbox{ (} d\\overrightarrow{r} \\mbox{ runs along the surface of the enclosing object)}\\\\\\mbox{Note if }\\oint{\\overrightarrow{B} \\cdot d\\overrightarrow{r}} \\neq 0 \\mbox{ then } I_{encircled} \\mbox{ must be non-zero.}"
+        },
+        {
+          "header":"Solenoids (pg 458-459)",
+          "equation":"\\mbox{A tightly wound coil with current going through it.}\\\\\\mbox{In a perfect solenoid, the outside the magnetic field is zero.}\\\\\\mbox{In a perfect solenoid, the inside magnetic field is constant: }\\\\B = \\mu_0nI\\mbox{ (}n \\mbox{ is how many loops there are per unit length)}"
+        },
+        {
+          "header":"Magnetic field for a Solenoid (pg 458)",
+          "equation":"B = \\mu_0nI\\mbox{ (}n \\mbox{ is how many loops there are per unit length)}"
+        }
+      ]
+    },
+    {
+      "name":"Chapter 27",
+      "equations":
+      [
+        {
+          "header":"Flux through a Solenoid",
+          "equation":"\\Phi_B = BA = \\mu_0 nI\\pi R^2"
+        },
+        {
+          "header":"Mechanical Power supplied to pull loop (pg 472-473)",
+          "equation":"\\mbox{You really should check the book on this one.}\\\\P = \\frac{B^2 l^2 v^2}{R}\\\\l\\mbox{ is the length of the side perpendicular to v.}"
+        },
+        {
+          "header":"Lenz's Law (pg 471-473)",
+          "equation":"\\mbox{The direction of an induced emf's or current's magnetic field}\\\\\\mbox{will oppose the change in the magnetic flux of the creator.}"
+        },
+        {
+          "header":"Faraday's law of induction for circuits (pg 472)",
+          "equation":"\\mathcal{E} = -\\frac{d\\Phi_B}{dt}\\\\\\mathcal{E} \\mbox{ is the induced EMF for a} \\textbf{ circuit}\\mbox{.}"
+        },
+        {
+          "header":"Eddy Currents (pg 474-475)",
+          "equation":"\\mbox{A conductive material moving in a magnetic field will create a large induced current and thus a large loss of power.}\\\\\\mbox{What this does is makes it very hard to move it in or out of a magnetic field, essentially sapping kinetic energy.}"
+        },
+        {
+          "header":"Inductance (pg 476)",
+          "equation":"\\mbox{Inductance is changing the magnetic flux by way of changing the current of the source}\\\\\\mbox{which in turn would change the magnetic field it produces and thus the magnetic flux.}"
+        },
+        {
+          "header":"Mutual Inductance (pg 476)",
+          "equation":"\\mbox{Take two coils next to each other, a changing current in one of the coils causes an induced emf in the other one.}"
+        },
+        {
+          "header":"Self Inductance (pg 476)",
+          "equation":"\\mbox{An ironic property of inductance.}\\\\\\mbox{Self inductance is when a circuit's own magnetic field opposes it's own change.}\\\\\\mbox{This makes it harder to change the current in a circuit.}"
+        },
+        {
+          "header":"An Inductor (pg 476)",
+          "equation":"\\mbox{A device used to help cause self-inductance by creating a more concentrated magnetic flux.}\\\\\\mbox{An ideal inductor would have zero resistance.}"
+        },
+        {
+          "header":"An Inductor (pg 476)",
+          "equation":"\\mbox{A device used to help cause self-inductance by creating a more concentrated magnetic flux.}\\\\\\mbox{An ideal inductor would have zero resistance.}\\\\\\mbox{In circuit diagrams, they are drawn as curls.}"
+        },
+        {
+          "header":"Self Inductance Formula (pg 477)",
+          "equation":"L = \\frac{\\Phi}{I} (H)\\\\\\Phi \\mbox{ is the magnetic flux through the inductor.}\\\\I \\mbox{ is the current through the inductor.}"
+        },
+        {
+          "header":"Faraday's law of induction for inductors (pg 477)",
+          "equation":"\\mathcal{E}_L = -L \\frac{dI}{dt}\\\\\\mbox{The inductor's emf opposes the change in current as expected.}\\\\\\mbox{Because of this, it's sometimes called the }\\textbf{back emf}\\mbox{.}"
+        },
+        {
+          "header":"Charge in a RL circuit (pg 479)",
+          "equation":"\\mbox{RL stands for Resistor-Inductor (Since L is used for inductors)}\\\\I = \\frac{\\mathcal{E}}{R} (1 - e^{-\\frac{Rt}{L}}) \\mbox{ (} \\mathcal{E} \\mbox{ is the voltage of the source)}"
+        },
+        {
+          "header":"Inductor's power (pg 481)",
+          "equation":"P = LI \\frac{dI}{dt}"
+        },
+        {
+          "header":"Inductor's energy stored (pg 482)",
+          "equation":"U = \\frac{1}{2} L I^2"
+        },
+        {
+          "header":"Magnetic Energy Density (pg 482)",
+          "equation":"u_B = \\frac{B^2}{2\\mu_0}"
+        },
+        {
+          "header":"Induced Electric Field (pg 483-484)",
+          "equation":"\\mbox{A changing magnetic field always creates an induced electric field.}\\\\\\mbox{The electric field then creates the induced current } \\textbf{if}\\mbox{ there is a circuit.}\\\\\\mbox{These electric fields are usually closed loops which means they're nonconservative.}"
+        },
+        {
+          "header":"Faraday's Law of induction (pg 483)",
+          "equation":"\\mbox{This is the most general form and applies to any changing magnetic field.}\\\\\\oint_{loop}{E \\cdot d\\overrightarrow{r}} = -\\frac{d\\Phi_B}{dt}\\\\d\\overrightarrow{r} \\mbox{ runs along the loop of the lefthand integral.}\\\\\\overrightarrow{E}\\mbox{ is the induced electric field (see note on induced electric fields).}\\\\\\Phi_B \\mbox{ is the magnetic flux of any open surface contained in the loop.}"
+        },
+        {
+          "header":"Diamagnetism (pg 485)",
+          "equation":"\\mbox{It's best to just read the small page on it.}"
+        }
+      ]
+    },
+    {
+      "name":"Constants",
+      "equations":
+      [
+        {
+          "header":"Elementary Charge",
+          "equation":"\\mbox{It's defined as the charge of a single electron or proton.}\\\\e = 1.60 \\times 10^{-19} C"
+        },
+        {
+          "header":"That k constant",
+          "equation":"\\mbox{The one used in say, Coulombs Law.}\\\\k = 9.0\\times10^{9}\\frac{N*m^{2}}{C^{2}}"
+        },
+        {
+          "header":"Permittivity Constant",
+          "equation":"\\epsilon_{0} = \\frac{1}{4 \\pi k} = \\frac{1}{\\mu_0c^2} = 8.85 \\times 10^{-12}"
+        },
+        {
+          "header":"Electron Mass",
+          "equation":"m_e = 9.11 \\times 10^{-31} kg"
+        },
+        {
+          "header":"Proton Mass",
+          "equation":"m_p = 1.67 \\times 10^{-27} kg"
+        },
+        {
+          "header":"Dielectric Constants and Dielectric Breakdown",
+          "equation":"\\mbox{I really don't want to write all these out. Check page 393.}"
+        },
+        {
+          "header":"Resistivity for some Materials",
+          "equation":"\\mbox{I'm not going to write these down, check out page 406.}"
+        },
+        {
+          "header":"Permeability Constant",
+          "equation":"\\mbox{The measure of permeability inside a vacuum.}\\\\\\mu_0 = 4\\pi \\times 10^{-7} \\frac{N}{A^2}"
+        }
+      ]
+    },
+    {
+      "name":"Units",
+      "equations":
+      [
+        {
+          "header":"Coulomb",
+          "equation":"6.25\\times10^{18} \\mbox{ elementary charges}"
+        },
+        {
+          "header":"Electric Field",
+          "equation":"\\overrightarrow{E} = \\frac{N}{C} =\\frac{V}{m}"
+        },
+        {
+          "header":"Newton",
+          "equation":"\\frac{kg}{m/s^2}"
+        },
+        {
+          "header":"Joule",
+          "equation":"N \\cdot m"
+        },
+        {
+          "header":"Volt",
+          "equation":"\\frac{J}{C}"
+        },
+        {
+          "header":"Electronvolt (eV)",
+          "equation":"\\mbox{One Elementary Charge times one Volt}\\\\eV = 1.6 \\times 10^{-19}J"
+        },
+        {
+          "header":"Farad (Capacitance unit)",
+          "equation":"F=\\frac{C}{V}"
+        },
+        {
+          "header":"Ampere (Amp)",
+          "equation":"A=\\frac{C}{S}"
+        },
+        {
+          "header":"Ohm",
+          "equation":"\\Omega = \\frac{V}{A}"
+        },
+        {
+          "header":"Tesla",
+          "equation":"T = \\frac{N \\cdot s}{C \\cdot m}"
+        },
+        {
+          "header":"Gauss",
+          "equation":"G = 10^{-4} \\cdot T"
+        },
+        {
+          "header":"Henry",
+          "equation":"H = \\frac{T \\cdot m^2}{A}"
+        }
+      ]
+    },
+    {
+      "name":"Old Stuff",
+      "equations":
+      [
+        {
+          "header":"Circular Motion",
+          "equation":"a = \\frac{v^{2}}{r}"
+        },
+        {
+          "header":"Momentum",
+          "equation":"p = mv"
+        },
+        {
+          "header":"Relation of frequency and period",
+          "equation":"f = \\frac{1}{T}"
+        }
+      ]
+    }
+  ]
+}

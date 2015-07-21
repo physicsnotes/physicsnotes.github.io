@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+  <title>Physics Notes</title>
+</head>
+<body>
+<script type="text/javascript" src="notegen.js"></script>
+
+<style>
+
+@keyframes fadeAndScaleOut {
+    0% {
+      transform: scale(1.0, 1.0);
+      opacity: 1.0;
+    }
+
+    100% {
+      transform: scale(0.8, 0.8);
+      opacity: 0.0;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+      opacity: 1.0;
+    }
+
+    100% {
+      opacity: 0.0;
+    }
+}
+
+body {
+  background-image: url("bgnoise.png");
+  background-repeat: repeat;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#masterDiv {
+  padding: 0;
+}
+
+#searchDiv img {
+  position: absolute;
+  left: 25px;
+  top: 11px;
+}
+
+#search {
+  margin: auto auto;
+  height: 30px;
+  width: 345px;
+  border: 1.2px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  color: #62666a;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 23px;
+  padding-left: 42px;
+  padding-right: 5px;
+  padding-bottom: 10px;
+  border-radius: 8px;
+
+  -webkit-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+  -moz-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+  box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+}
+
+#search:focus {
+  background-color: #92bacd;
+  outline: 0;
+}
+
+#quizNoteHolder {
+  z-index: 200;
+  position: fixed;
+  top: calc(50% - 70px);
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+#quizShowButton {
+  font-size: 29px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #d4ffff;
+  padding: 8px;
+  margin: 5px 0px;
+  cursor: pointer;
+  background-color: #66dfdf;
+  border-radius: 8px;
+  -webkit-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+  -moz-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+  box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#quizShowButton:active {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 11px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+#quizNextButton {
+  z-index: 200;
+  position: fixed;
+  top: 100%;
+  font-size: 29px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 70px;
+  left: 50%;
+  color: #e0fbf8;
+  padding: 8px;
+  margin: auto 0px;
+  cursor: pointer;
+  background-color: #75d5f9;
+  border-radius: 8px;
+  -webkit-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+  -moz-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+  box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+  transform: translate(calc(50px), calc(-100% - 70px));
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#quizNextButton:active {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+#quizQuitButton {
+  z-index: 200;
+  position: fixed;
+  top: 100%;
+  font-size: 29px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 70px;
+  left: 50%;
+  color: #ffd6d6;
+  padding: 8px;
+  margin: auto 0px;
+  cursor: pointer;
+  background-color: #f97575;
+  border-radius: 8px;
+  -webkit-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+  -moz-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+  box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+  transform: translate(calc(-100% - 50px), calc(-100% - 70px));
+}
+
+#quizQuitButton:active {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.equationHeader {
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+
+  color: #313131;
+
+  -webkit-box-shadow: 2px 2px 9px -1px rgba(0,0,0,.5);
+  -moz-box-shadow: 2px 2px 9px -1px rgba(0,0,0,.5);
+  box-shadow: 2px 2px 9px -1px rgba(0,0,0,.5);
+
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.equation {
+  font-size: 19px;
+
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+
+  background-image: url("hatchShade.svg");
+  background-repeat: repeat-x;
+  background-position: left bottom;
+
+  padding-left: 10px;
+  padding-right: 10px;
+
+  text-align: center;
+
+  position: relative;
+  bottom: 2px;
+
+  -webkit-box-shadow: 2px 2px 9px -1px rgba(0,0,0,.5);
+  -moz-box-shadow: 2px 2px 9px -1px rgba(0,0,0,.5);
+  box-shadow: 2px 2px 9px -1px rgba(0,0,0,.5);
+}
+
+.subjectTable {
+  display: block;
+  position: relative;
+
+  border-radius: 5px;
+
+  -webkit-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+  -moz-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+  box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+  padding-top: 60px;
+  margin: 10px 10px 10px 10px;
+  background-image: url("noise.png");
+  background-repeat: repeat;
+}
+
+.subjectTitle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #313131;
+  padding-left: 35px;
+  padding-right: 5px;
+
+  border-top-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+
+  font-family: Arial, Helvetica, serif;
+
+  font-size: 40px;
+}
+
+.hideOpenButton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #313131;
+  padding-left: 5px;
+  padding-right: 5px;
+
+  font-family: Arial, Helvetica, serif;
+
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.quizButton {
+  position: absolute;
+  top: 0;
+  right: 0px;
+  cursor: pointer;
+  background-color: red;
+  padding: 8px;
+
+  color: #313131;
+  font-family: Arial, Helvetica, serif;
+  font-size: 19px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.subjectBody {
+  display: block;
+  overflow: hidden;
+  max-height: 5px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+.equationDiv {
+  width: auto;
+  float: left;
+  margin: 10px;
+}
+
+.Chapter20Table {
+  background-color: #ddd08d;
+}
+
+.Chapter20Header {
+  background-color: #eee49d;
+}
+
+.Chapter20Equation {
+  background-color: #f6f5cb;
+}
+
+.Chapter21Table {
+  background-color: #505842;
+}
+
+.Chapter21Header {
+  background-color: #768858;
+}
+
+.Chapter21Equation {
+  background-color: #daf0cf;
+}
+
+.Chapter22Table {
+  background-color: #3f5243;
+}
+
+.Chapter22Header {
+  background-color: #468352;
+}
+
+.Chapter22Equation {
+  background-color: #dbf4ce;
+}
+
+.Chapter23Table {
+  background-color: #f66647;
+}
+
+.Chapter23Header {
+  background-color: #f4aba6;
+}
+
+.Chapter23Equation {
+  background-color: #f7e5e4;
+}
+
+.Chapter24Table {
+  background-color: #a8a6f4;
+}
+
+.Chapter24Header {
+  background-color: #827dd9;
+}
+
+.Chapter24Equation {
+  background-color: #ebdaf5;
+}
+
+.Chapter25Table {
+  background-color: #f2a6f4;
+}
+
+.Chapter25Header {
+  background-color: #d38cdb;
+}
+
+.Chapter25Equation {
+  background-color: #f5ebfb;
+}
+
+.Chapter26Table {
+  background-color: #e3e285;
+}
+
+.Chapter26Header {
+  background-color: #f1f477;
+}
+
+.Chapter26Equation {
+  background-color: #f9f5e2;
+}
+
+.Chapter27Table {
+  background-color: #d8a3ed;
+}
+
+.Chapter27Header {
+  background-color: #a685e3;
+}
+
+.Chapter27Equation {
+  background-color: #e9e2f9;
+}
+
+.UnitsTable {
+  background-color: #4d5175;
+}
+
+.UnitsHeader {
+  background-color: #767fd5;
+}
+
+.UnitsEquation {
+  background-color: #dbe4f6;
+}
+
+.ConstantsTable {
+  background-color: #ba4874;
+}
+
+.ConstantsHeader {
+  background-color: #de79a0;
+}
+
+.ConstantsEquation {
+  background-color: #f5dbf6;
+}
+
+.OldStuffTable {
+  background-color: #323030;
+}
+
+.OldStuffHeader {
+  background-color: #797979;
+}
+
+.OldStuffEquation {
+  background-color: #bebebe;
+}
+</style>
+
+<div id="searchDiv">
+  <input type="text" placeholder="Search..." id="search">
+  <img src="search.svg">
+</div>
+
+<script type="text/javascript" src="/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="search.js"></script>
+<script type="text/javascript" src="quiz.js"></script>
+
+</body>
+</html>
