@@ -77,7 +77,7 @@
         },
         {
           "header":"Electric Field for a surface of a conductor in Electrostatic Equilibrium (365)",
-          "equation":"E=\\frac{\\delta}{\\epsilon_{0}}\\\\\\mbox{Where }\\delta \\mbox{ is the surface charge density.}\\\\\\mbox{E is perpendicular to the surface of the conductor}"
+          "equation":"E=\\frac{\\sigma}{\\epsilon_{0}}\\\\\\mbox{Where }\\sigma \\mbox{ is the surface charge density.}\\\\\\mbox{E is perpendicular to the surface of the conductor}"
         },
         {
           "header":"Electric Field for charged sphere",
@@ -89,7 +89,7 @@
         },
         {
           "header":"Electic Field for charged plane",
-          "equation":"\\mbox{Outside: }E=\\frac{\\delta}{2\\epsilon_0}\\mbox{ (}\\delta\\mbox{ Is the charge density in } C/m^2 \\mbox{)}"
+          "equation":"\\mbox{Outside: }E=\\frac{\\sigma}{2\\epsilon_0}\\mbox{ (}\\sigma\\mbox{ Is the charge density in } C/m^2 \\mbox{)}"
         }
       ]
     },
@@ -327,7 +327,7 @@
         },
         {
           "header":"Magnetic Force (pg 440)",
-          "equation":"\\overriPotential Energy for a Inductorghtarrow{F_B} = q\\overrightarrow{v} \\times \\overrightarrow{B}\\\\q \\mbox{ is the charge's charge.}\\\\\\overrightarrow{v} \\mbox{ is the velocity of the charge.}\\\\\\overrightarrow{B}\\mbox{ is the magnetic field and has unit Tesla (T).}"
+          "equation":"\\overrightarrow{F_B} = q\\overrightarrow{v} \\times \\overrightarrow{B}\\\\q \\mbox{ is the charge's charge.}\\\\\\overrightarrow{v} \\mbox{ is the velocity of the charge.}\\\\\\overrightarrow{B}\\mbox{ is the magnetic field and has unit Tesla (T).}"
         },
         {
           "header":"Particle moving perpendicularly to a uniform magnetic field (pg 442)",
@@ -437,7 +437,7 @@
         },
         {
           "header":"An Inductor (pg 476)",
-          "equation":"\\mbox{A device used to help cause self-inductance by creating a more concentrated magnetic flux.}\\\\\\mbox{An ideal inductor would have zero resistance.}\\\\\\mbox{In circuit diagrams, they are drawn as curls.}"
+          "equation":"\\mbox{A device used to help cause self-inductance by creating a more concentrated magnetic flux.}\\\\\\mbox{An ideal inductor would have zero resistance.}\\\\\\mbox{In circuit diagrams, they are drawn as multiple loop-the-loops.}"
         },
         {
           "header":"Self Inductance Formula (pg 477)",
@@ -483,7 +483,7 @@
       [
         {
           "header":"Sinusoidal AC Current and Voltage (pg 492)",
-          "equation":"V = V_p\\sin(\\omega t + \\delta_v)\\\\I = I_p\\sin(\\omega t + \\delta_I)"
+          "equation":"V = V_p\\sin(\\omega t + \\phi_v)\\\\I = I_p\\sin(\\omega t + \\phi_I)"
         },
         {
           "header":"Root-Mean-Square (RMS) (pg 491)",
@@ -499,7 +499,7 @@
         },
         {
           "header":"Resistor in AC (pg 492)",
-          "equation":"I = \\frac{V}{R} = \\frac{V_p}{R}\\sin(\\omega t + \\delta)"
+          "equation":"I = \\frac{V}{R} = \\frac{V_p}{R}\\sin(\\omega t + \\phi)"
         },
         {
           "header":"Capacitor Current in AC (pg 493)",
@@ -523,7 +523,49 @@
         },
         {
           "header":"Ideal LC Circuits (pg 497-498)",
-          "equation":"\\mbox{An LC Circuit stands for Inductor-Capacitor circuit and is similar to the mass-spring system,}\\\\\\mbox{oscillating from potential energy to kinetic energy, back and forth.}\\\\\\mbox{Since this is ideal, the total energy(}U \\mbox{) is constant thus } \\frac{dU}{dt} = 0 \\mbox{ from this we can say:}\\\\q = q_P \\cos(\\omega t)\\mbox{, }\\omega = \\frac{1}{\\sqrt{LC}}"
+          "equation":"\\mbox{A LC Circuit stands for Inductor-Capacitor circuit and is similar to the mass-spring system,}\\\\\\mbox{oscillating from potential energy to kinetic energy, back and forth.}\\\\\\mbox{Since this is ideal, the total energy (}U \\mbox{) is constant thus } \\frac{dU}{dt} = 0 \\mbox{, from this we can say:}\\\\q = q_P \\cos(\\omega t)\\mbox{, and, }\\omega = \\frac{1}{\\sqrt{LC}}"
+        },
+        {
+          "header":"RLC Circuits (pg 499-501)",
+          "equation":"\\mbox{A RLC Circuit stands for Resistor-Inductor-Capacitor circuit.}\\\\q(t) = q_P \\cdot e^{-\\frac{Rt}{2L}}\\cos(\\omega t)"
+        },
+        {
+          "header":"RLC Resonant Frequency (pg 499-501)",
+          "equation":"\\mbox{Connecting an AC generator to the circuit, the}\\\\\\mbox{resonant frequency for the generator is: } \\omega = \\frac{1}{\\sqrt{LC}}"
+        },
+        {
+          "header":"RLC Peak Voltage and Current (pg 500)",
+          "equation":"V_P = \\sqrt{V_{RP}^2 + (V_{LP} - V_{CP})^2}\\\\I_P = \\frac{V_P}{\\sqrt{R^2 + (X_L - X_C)^2}} = \\frac{V_P}{Z}"
+        },
+        {
+          "header":"Impedance (pg 500)",
+          "equation":"\\mbox{A measure of resistance including the effects of capacitance and inductance.}\\\\Z = \\sqrt{R^2 + (X_L - X_C)^2} (\\Omega)"
+        },
+        {
+          "header":"Phase difference and Reactance/Resistance relation (pg 501)",
+          "equation":"\\tan(\\phi) = \\frac{X_L - X_C}{R}\\\\\\mbox{ Where } \\phi = \\phi_V - \\phi_I \\mbox{ and is the phase difference between voltage and current.}\\\\\\mbox{A positive }\\phi \\mbox{ means voltage leads current, negative means current leads voltage.}"
+        },
+        {
+          "header":"Power in AC Circuits (pg 502)",
+          "equation":"\\langle P \\rangle = I_{rms} V_{rms} \\cos(\\phi)\\\\\\mbox{Where }\\langle \\rangle \\mbox{ mean time average over one cycle.}\\\\\\mbox{Thus } \\langle P \\rangle \\mbox{ is the average power over one cycle.}\\\\\\cos(\\phi) \\mbox{ is called the }\\textbf{power factor}\\mbox{.}"
+        },
+        {
+          "header":"Transformer (pg 503)",
+          "equation":"\\mbox{Transformers consist of two wires wrapped opposite of another usually around a magnetic core.}\\\\\\mbox{One of the coils will have an AC current going through it, that one is the primary.}\\\\\\mbox{Using the power of induced emf the primary will create a current in the other one, known as the secondary.}\\\\\\mbox{A step-up transformer increases the voltage from primary to secondary, a step-down transformer does the opposite.}\\\\\\mbox{In circuit diagrams they are drawn as two parallel multiple loop-the-loops with two also parallel bars in the middle.}\\\\\\mbox{Also they're robots in disguise.}"
+        },
+        {
+          "header":"Transformer Voltages Change (pg 503)",
+          "equation":"V_{secondary} = \\frac{N_{secondary}}{N_{primary}}V_{primary}\\\\N\\mbox{ is the amount of coil turns}"
+        }
+      ]
+    },
+    {
+      "name":"Chapter 29",
+      "equations":
+      [
+        {
+          "header":"Test",
+          "equation":"\\mbox{Johnny Bravo!}"
         }
       ]
     },
