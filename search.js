@@ -3,7 +3,7 @@ $('#search').on('input', function(event)
   if(!doneGeneratingNotes)
     return;
 
-  var search = $(this).val().toUpperCase();
+  var searchKeywords = $(this).val().toUpperCase().split(' ');
   var subjectTables = $('.subjectTable').each(function(index)
   {
     //A boolean for if all the notes are gone in a subject
@@ -13,14 +13,27 @@ $('#search').on('input', function(event)
     $(this).find('.subjectBody').children().each(function(ind)
     {
       var headerText = $(this).find('.equationHeader').html().toUpperCase();
-      if(headerText.indexOf(search) === -1)
+      var noteHidden = false;
+
+      for(var i = 0; i < searchKeywords.length; ++i)
       {
-        $(this).hide();
+        var keyword = searchKeywords[i];
+
+        if(headerText.indexOf(keyword) === -1)
+        {
+          noteHidden = true;
+          break;
+        }
       }
-      else
+
+      if(!noteHidden)
       {
         allNotesGone = false;
         $(this).show();
+      }
+      else
+      {
+        $(this).hide();
       }
     });
 

@@ -164,7 +164,7 @@
           "equation":"m_p = 1.67 \\times 10^{-27} kg"
         },
         {
-          "header":"Potential Energy (U) for a Capacitor",
+          "header":"Potential Energy for a Capacitor",
           "equation":"U=\\frac{1}{2}CV^2"
         },
         {
@@ -327,7 +327,7 @@
         },
         {
           "header":"Magnetic Force (pg 440)",
-          "equation":"\\overrightarrow{F_B} = q\\overrightarrow{v} \\times \\overrightarrow{B}\\\\q \\mbox{ is the charge's charge.}\\\\\\overrightarrow{v} \\mbox{ is the velocity of the charge.}\\\\\\overrightarrow{B}\\mbox{ is the magnetic field and has unit Tesla (T).}"
+          "equation":"\\overriPotential Energy for a Inductorghtarrow{F_B} = q\\overrightarrow{v} \\times \\overrightarrow{B}\\\\q \\mbox{ is the charge's charge.}\\\\\\overrightarrow{v} \\mbox{ is the velocity of the charge.}\\\\\\overrightarrow{B}\\mbox{ is the magnetic field and has unit Tesla (T).}"
         },
         {
           "header":"Particle moving perpendicularly to a uniform magnetic field (pg 442)",
@@ -456,7 +456,7 @@
           "equation":"P = LI \\frac{dI}{dt}"
         },
         {
-          "header":"Inductor's energy stored (pg 482)",
+          "header":"Potential Energy for an Inductor (pg 482)",
           "equation":"U = \\frac{1}{2} L I^2"
         },
         {
@@ -473,7 +473,57 @@
         },
         {
           "header":"Diamagnetism (pg 485)",
-          "equation":"\\mbox{It's best to just read the small page on it.}"
+          "equation":"\\mbox{All materials are diamagnetic to some extent.}\\\\\\mbox{Diamagnetism is the phenomena of when you apply a magnetic field to it,}\\\\\\mbox{it creates an induced magnetic field and gets repelled from the original magnetic field.}\\\\\\mbox{It's best to just read the small page on it.}"
+        }
+      ]
+    },
+    {
+      "name":"Chapter 28",
+      "equations":
+      [
+        {
+          "header":"Sinusoidal AC Current and Voltage (pg 492)",
+          "equation":"V = V_p\\sin(\\omega t + \\delta_v)\\\\I = I_p\\sin(\\omega t + \\delta_I)"
+        },
+        {
+          "header":"Root-Mean-Square (RMS) (pg 491)",
+          "equation":"\\mbox{}\\\\a_{rms} = \\sqrt{\\frac{1}{n}(a_1^2 + a_2^2 + ... + a_n^2)}"
+        },
+        {
+          "header":"Root-Mean-Square (RMS) (pg 491)",
+          "equation":"a_{rms} = \\sqrt{\\frac{1}{n}(a_1^2 + a_2^2 + ... + a_n^2)}"
+        },
+        {
+          "header":"Peak value and RMS relation for a sine wave (pg 491)",
+          "equation":"\\mbox{The peak value for a sine wave is related to the RMS:}\\\\a_{peak} = \\sqrt{2} \\cdot a_{rms}"
+        },
+        {
+          "header":"Resistor in AC (pg 492)",
+          "equation":"I = \\frac{V}{R} = \\frac{V_p}{R}\\sin(\\omega t + \\delta)"
+        },
+        {
+          "header":"Capacitor Current in AC (pg 493)",
+          "equation":"I = \\omega CV_p \\sin(\\omega t + \\frac{\\pi}{2})\\\\I_p = \\omega C V_p = \\frac{V_p}{1 / {\\omega C}} = \\frac{V_p}{X_C}"
+        },
+        {
+          "header":"Capacitive Reactance (pg 493)",
+          "equation":"X_C = \\frac{1}{\\omega C} (\\Omega)"
+        },
+        {
+          "header":"Inductor Current in AC (pg 494)",
+          "equation":"I = \\frac{V_p}{\\omega L}\\sin(\\omega t - \\frac{\\pi}{2})\\\\I_P = \\frac{V_P}{\\omega L} = \\frac{V_P}{X_L}"
+        },
+        {
+          "header":"Inductive Reactance (pg 494)",
+          "equation":"X_L = \\omega L (\\Omega)"
+        },
+        {
+          "header":"Phasor Diagrams (pg 495)",
+          "equation":"\\mbox{A vector representing the phase and amplitude in AC circuits.}\\\\\\mbox{A phasor is a vector rotating counterclockwise with the angular frequency and whose length is the amplitude.}\\\\\\mbox{Taking the y component of the phasor gives you V(t) or I(t) at that moment.}"
+        },
+        {
+          "header":"Ideal LC Circuits (pg 497-498)",
+          "equation":"\\mbox{An LC Circuit stands for Inductor-Capacitor circuit and is similar to the mass-spring system,}\\\\\\mbox{oscillating from potential energy to kinetic energy, back and forth.}\\\\\\mbox{Since this is ideal, the total energy(}U \\mbox{) is constant thus } \\frac{dU}{dt} = 0 \\mbox{ from this we can say:}\\\\q = q_P \\cos(\\omega t)\\mbox{, }\\omega = \\frac{1}{\\sqrt{LC}}"
         }
       ]
     },
@@ -520,8 +570,12 @@
       "equations":
       [
         {
+          "header":"Hertz",
+          "equation":"Hz = \\frac{cycle}{s}"
+        },
+        {
           "header":"Coulomb",
-          "equation":"6.25\\times10^{18} \\mbox{ elementary charges}"
+          "equation":"C = 6.25\\times10^{18} \\cdot e"
         },
         {
           "header":"Electric Field",
@@ -549,7 +603,7 @@
         },
         {
           "header":"Ampere (Amp)",
-          "equation":"A=\\frac{C}{S}"
+          "equation":"A=\\frac{C}{s}"
         },
         {
           "header":"Ohm",
@@ -576,6 +630,10 @@
         {
           "header":"Circular Motion",
           "equation":"a = \\frac{v^{2}}{r}"
+        },
+        {
+          "header":"Angular Momentum",
+          "equation":"\\omega = 2\\pi f"
         },
         {
           "header":"Momentum",
