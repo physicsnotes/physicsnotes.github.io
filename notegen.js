@@ -16,18 +16,38 @@ function createNote(subjectName, headerStr, equationStr)
   var table = document.createElement("table");
   equationDiv.appendChild(table);
 
-  //Create the header row
-  var headerRow = document.createElement("tr");
-  table.appendChild(headerRow);
+  //Extract the page reference from the header if it's in the form: (pg *)
+  var pageRegExp = new RegExp('(\\(pg .*\\))');
+  var regExpResult = headerStr.match(pageRegExp);
+  var pageRef = null;
+
+  //See if we have a hit
+  if(regExpResult != null)
+  {
+    //The header had the magic page form, add the page reference element
+    var pageRefText = regExpResult[1];
+    pageRef = document.createElement("b");
+    pageRef.className = "pageReference";
+
+    //Add the page reference's text
+    pageRef.appendChild(document.createTextNode(pageRefText));
+
+    //Remove the page reference text from the header string
+    headerStr = headerStr.replace(pageRegExp, '');
+  }
 
   //Create the header text holding element
   var header = document.createElement("th");
   header.className = subjectName + "Header equationHeader";
-  headerRow.appendChild(header);
+  table.appendChild(header);
 
   //Create the header text
   var headerText = document.createTextNode(headerStr);
   header.appendChild(headerText);
+
+  //Append the page reference if we have one
+  if(pageRef != null)
+  header.appendChild(pageRef);
 
   //Create the equation row
   var equationRow = document.createElement("tr");
@@ -38,7 +58,7 @@ function createNote(subjectName, headerStr, equationStr)
   equation.className = subjectName + "Equation equation";
   equationRow.appendChild(equation);
 
-  //Create the equation text with magic symbols used to tell mathjax that yes, we want them to mess with this
+  //Create the equation text with magic symbols used to tell mathjax that yes, we want it to mess with this
   var equationText = document.createTextNode("\\[" + equationStr + "\\]");
   equation.appendChild(equationText);
 

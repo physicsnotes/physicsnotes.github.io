@@ -22,7 +22,7 @@
           "equation":"\\mbox{The electric field at any point is the force per unit charge that a charge would experience at that point.}\\\\\\overrightarrow{E}=\\frac{\\overrightarrow{F}}{q} = \\frac{kq_{source}}{r^{2}}\\hat{r}"
         },
         {
-          "header":"Electric Dipole Moment, p",
+          "header":"Electric Dipole Moment",
           "equation":"p=qd\\\\\\mbox{Where } d \\mbox{ is the distance between the two charges making up the dipole.}"
         },
         {
@@ -358,7 +358,7 @@
           "equation":"\\overrightarrow{\\mu} = NI\\overrightarrow{A}\\\\N \\mbox{ is how many current loops there are.}\\\\\\overrightarrow{A} \\mbox{ is the loop area pointing perpendicular to the loop.}"
         },
         {
-          "header":"Magnetic Field for Dipole on dipole amathcal{E}s (pg 449)",
+          "header":"Magnetic Field for Dipole on Dipole Axis (pg 449)",
           "equation":"B = \\frac{\\mu_0}{2\\pi} \\frac{\\mu}{x^3} \\mbox{(}\\mu\\mbox{ is the magnetic dipole moment)}"
         },
         {
@@ -382,8 +382,8 @@
           "equation":"\\mbox{The book goes way more in depth by the way.}\\\\\\mbox{Magnetism caused by a group of atoms (called a magnetic domain) with magnetic moments all aligned the same direction.}\\\\\\mbox{You can achieve this effect by applying an external magnetic field to the metal causing the atoms to align with the field.}\\\\\\mbox{If the material is still magnetic after the magnetic field is removed, the material is a hard ferromagnet. It is a soft ferromagnet otherwise.}"
         },
         {
-          "header":"Ampere's Law for steady current (or really slow ones) (pg 454-455)",
-          "equation":"\\oint{\\overrightarrow{B} \\cdot d\\overrightarrow{r}} = \\mu_0 I_{encircled}\\mbox{ (} d\\overrightarrow{r} \\mbox{ runs along the surface of the enclosing object)}\\\\\\mbox{Note if }\\oint{\\overrightarrow{B} \\cdot d\\overrightarrow{r}} \\neq 0 \\mbox{ then } I_{encircled} \\mbox{ must be non-zero.}"
+          "header":"Ampere's Law for steady currents (pg 454-455)",
+          "equation":"\\oint{\\overrightarrow{B} \\cdot d\\overrightarrow{r}} = \\mu_0 I_{encircled}\\mbox{ (} d\\overrightarrow{r} \\mbox{ runs along an enclosing loop.)}\\\\I_{encircled} \\mbox{ is the current going through any open surface bounded by the loop.}\\\\\\mbox{Note: See page 512 to see what 'bounded by the loop' means.}"
         },
         {
           "header":"Solenoids (pg 458-459)",
@@ -564,8 +564,8 @@
       "equations":
       [
         {
-          "header":"Test",
-          "equation":"\\mbox{Johnny Bravo!}"
+          "header":"Ampere's Law 2.0 (Maxwell Edition) (pg 512)",
+          "equation":"\\mbox{Addition made by Maxwell, allowing for non-steady currents.}\\\\\\mbox{See other note on Ampere's Law for proper usage.}\\\\\\oint{\\overrightarrow{E} \\cdot d\\overrightarrow{r}} = \\mu_0 I_{encircled} + \\mu_0\\epsilon_0 \\frac{d\\Phi_E}{dt}\\\\\\mbox{Where } \\Phi_E \\mbox{ is the electric flux through the bounded open surface.}"
         }
       ]
     },
