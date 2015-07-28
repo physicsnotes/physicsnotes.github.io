@@ -65,11 +65,11 @@
       [
         {
           "header":"Electric Flux",
-          "equation":"\\Phi = \\overrightarrow{E} \\cdot \\overrightarrow{A} = EA\\cos(\\theta)\\\\\\Phi = \\int^{}_{surface}{\\overrightarrow{E} \\cdot d\\overrightarrow{A}}\\\\\\mbox{Where } \\overrightarrow{A} \\mbox{ is the outward pointing normal to the surface and has the magnitude of the surface's area.}"
+          "equation":"\\Phi_E = \\overrightarrow{E} \\cdot \\overrightarrow{A} = EA\\cos(\\theta)\\\\\\Phi_E = \\int^{}_{surface}{\\overrightarrow{E} \\cdot d\\overrightarrow{A}}\\\\\\mbox{Where } \\overrightarrow{A} \\mbox{ is the outward pointing normal to the surface and has the magnitude of the surface's area.}"
         },
         {
-          "header":"Gauss's Law",
-          "equation": "\\Phi = \\oint{\\overrightarrow{E} \\cdot d\\overrightarrow{A}} = \\frac{q_{enclosed}}{\\epsilon_{0}}\\\\\\mbox{Where the charge must be enclosed inside the closed surface.}"
+          "header":"Gauss's Law for Electric Flux",
+          "equation": "\\Phi_E = \\oint{\\overrightarrow{E} \\cdot d\\overrightarrow{A}} = \\frac{q_{enclosed}}{\\epsilon_{0}}\\\\\\mbox{Where the charge must be enclosed inside the closed surface.}"
         },
         {
           "header":"Electrostatic Equilibrium",
@@ -127,7 +127,7 @@
         },
         {
           "header":"Potential of a dipole",
-          "equation":"\\mbox{Where the zero of potential is infinitely away from our point of interest}\\\\\\mbox{and that point's distance from the dipole is much larger than the dipole's length.}\\\\V = \\frac{kp\\cos{\\theta}}{r^2}\\\\\\mbox{Where }p = qd \\mbox{ and } \\theta \\mbox{ is measured from (or at least near) the center of the dipole to the point with respect to the dipole amathcal{E}s.}"
+          "equation":"\\mbox{Where the zero of potential is infinitely away from our point of interest}\\\\\\mbox{and that point's distance from the dipole is much larger than the dipole's length.}\\\\V = \\frac{kp\\cos{\\theta}}{r^2}\\\\\\mbox{Where }p = qd \\mbox{ and } \\theta \\mbox{ is measured from (or at least near) the center of the dipole to the point with respect to the dipole's axis.}"
         },
         {
           "header":"Potential integral",
@@ -148,20 +148,20 @@
       "equations":
       [
         {
+          "header":"Capacitors",
+          "equation":"\\mbox{The most common is called the parallel-plate capacitor, described below.}\\\\\\mbox{Two conducting plates help close to one another which}\\\\\\mbox{can store charge using the potential difference between the plates.}\\\\\\mbox{In circuit diagrams, they are drawn as two parallel lines.}"
+        },
+        {
           "header":"Capacitance",
-          "equation":"C = \\frac{Q}{V} \\mbox{ (} V \\mbox{ is electrical potential difference between the plates)}\\\\\\mbox{The capacitance unit is the Farad.}"
+          "equation":"C = \\frac{Q}{V} \\mbox{ (} V \\mbox{ is electrical potential difference between the plates)}\\\\\\mbox{The capacitance unit is the }\\linkNote{12.8}{farad}\\mbox{.}"
         },
         {
           "header":"The Dielectric Constant for Capacitors",
           "equation":"\\mbox{In the equation, } C = \\frac{Q}{V}\\mbox{ an insulating dielectric can weaken the electric field making } V \\mbox{ smaller and thus } C \\mbox{ bigger.}\\\\\\mbox{This factor varies with the material and is called the dielectric constant } \\kappa \\mbox{.}"
         },
         {
-          "header":"Capacitance for parallel-plate",
-          "equation":"C = \\kappa \\frac{\\epsilon_0 A}{d} \\mbox{(} d \\mbox{ is the distance beween the plates)}"
-        },
-        {
-          "header":"Proton Mass",
-          "equation":"m_p = 1.67 \\times 10^{-27} kg"
+          "header":"Capacitance for capacitors",
+          "equation":"\\mbox{This is for parallel-plate capacitors.}\\\\C = \\frac{\\epsilon_0 A}{d} \\mbox{(} d \\mbox{ is the distance beween the plates)}"
         },
         {
           "header":"Potential Energy for a Capacitor",
@@ -173,7 +173,11 @@
         },
         {
           "header":"Working Voltage for a Capacitor",
-          "equation":"\\mbox{The working voltage is the mamathcal{E}mum safe potential difference that when pushed past may cause dielectric breakdown.}"
+          "equation":"\\mbox{The working voltage is the minimum safe potential difference that when pushed past may cause dielectric breakdown.}"
+        },
+        {
+          "header":"Electric field for a Capacitor (pg 390)",
+          "equation":"\\mbox{This is the field between the plates for parallel-plate capacitors.}\\\\\\\\E = \\frac{V}{d} \\mbox{ (} d \\mbox{ is the distance between the plates)}"
         },
         {
           "header":"Capacitance for parallel capacitors",
@@ -366,7 +370,7 @@
           "equation":"\\mbox{This is kinda implicit but it's nice if you forget.}\\\\\\Phi_B=\\int{\\overrightarrow{B} \\cdot d\\overrightarrow{A}}\\mbox{ (} d\\overrightarrow{A} \\mbox{ is the normal of the surface)}"
         },
         {
-          "header":"Gauss' Law for Magnetism (Magnetic Flux) (pg 450)",
+          "header":"Gauss' Law for Magnetic Flux (pg 450)",
           "equation":"\\mbox{Neat law, first off all magnetic fields are closed loops.}\\\\\\mbox{From this we can say that the magnetic flux emerging from any } \\textbf{closed}\\mbox{ surface is zero.}\\\\\\Phi_B =\\oint{\\overrightarrow{B} \\cdot d\\overrightarrow{A}} = 0 \\mbox{ (} d\\overrightarrow{A} \\mbox{ is the normal of the surface)} "
         },
         {
@@ -412,7 +416,7 @@
           "equation":"\\mbox{The direction of an induced emf's or current's magnetic field}\\\\\\mbox{will oppose the change in the magnetic flux of the creator.}"
         },
         {
-          "header":"Faraday's law of induction for circuits (pg 472)",
+          "header":"Faraday's Law of Induction (for circuits) (pg 472)",
           "equation":"\\mathcal{E} = -\\frac{d\\Phi_B}{dt}\\\\\\mathcal{E} \\mbox{ is the induced EMF for a} \\textbf{ circuit}\\mbox{.}"
         },
         {
@@ -444,7 +448,7 @@
           "equation":"L = \\frac{\\Phi}{I} (H)\\\\\\Phi \\mbox{ is the magnetic flux through the inductor.}\\\\I \\mbox{ is the current through the inductor.}"
         },
         {
-          "header":"Faraday's law of induction for inductors (pg 477)",
+          "header":"Faraday's Law of Induction (for inductors) (pg 477)",
           "equation":"\\mathcal{E}_L = -L \\frac{dI}{dt}\\\\\\mbox{The inductor's emf opposes the change in current as expected.}\\\\\\mbox{Because of this, it's sometimes called the }\\textbf{back emf}\\mbox{.}"
         },
         {
@@ -468,7 +472,7 @@
           "equation":"\\mbox{A changing magnetic field always creates an induced electric field.}\\\\\\mbox{The electric field then creates the induced current } \\textbf{if}\\mbox{ there is a circuit.}\\\\\\mbox{These electric fields are usually closed loops which means they're nonconservative.}"
         },
         {
-          "header":"Faraday's Law of induction (pg 483)",
+          "header":"Faraday's Law of Induction (pg 483)",
           "equation":"\\mbox{This is the most general form and applies to any changing magnetic field.}\\\\\\oint_{loop}{E \\cdot d\\overrightarrow{r}} = -\\frac{d\\Phi_B}{dt}\\\\d\\overrightarrow{r} \\mbox{ runs along the loop of the lefthand integral.}\\\\\\overrightarrow{E}\\mbox{ is the induced electric field (see note on induced electric fields).}\\\\\\Phi_B \\mbox{ is the magnetic flux of any open surface contained in the loop.}"
         },
         {
@@ -564,8 +568,16 @@
       "equations":
       [
         {
+          "header":"Maxwell's Equations (pg 513)",
+          "equation":"\\mbox{To honor Maxwell for making Ampere's Law 2.0, the following equations are called Maxwell's Equations in his honor:}\\\\\\linkNote{2.2}{Gauss's Law for Electric Flux}\\\\\\linkNote{7.14}{Gauss's Law for Magnetic Flux}\\\\\\linkNote{8.18}{Faraday's Law of Induction} \\\\\\linkNote{10.2}{Ampere's Law (2.0)}"
+        },
+        {
           "header":"Ampere's Law 2.0 (Maxwell Edition) (pg 512)",
-          "equation":"\\mbox{Addition made by Maxwell, allowing for non-steady currents.}\\\\\\mbox{See other note on Ampere's Law for proper usage.}\\\\\\oint{\\overrightarrow{E} \\cdot d\\overrightarrow{r}} = \\mu_0 I_{encircled} + \\mu_0\\epsilon_0 \\frac{d\\Phi_E}{dt}\\\\\\mbox{Where } \\Phi_E \\mbox{ is the electric flux through the bounded open surface.}"
+          "equation":"\\mbox{Addition made by Maxwell, allowing for non-steady currents.}\\\\\\mbox{See other note on Ampere's Law for proper usage.}\\\\\\oint{\\overrightarrow{E} \\cdot d\\overrightarrow{r}} = \\mu_0 I_{encircled} + \\mu_0\\epsilon_0 \\frac{d\\Phi_E}{dt}\\\\\\mbox{Where } \\Phi_E \\mbox{ is the electric field flux through the bounded open surface.}\\\\\\mbox{Historically, }\\epsilon_0 \\frac{d\\Phi_E}{dt}\\mbox{ is called the } \\textbf{displacement current}\\mbox{.}"
+        },
+        {
+          "header":"Test",
+          "equation":""
         }
       ]
     },
@@ -637,10 +649,10 @@
         },
         {
           "header":"Electronvolt (eV)",
-          "equation":"\\mbox{One Elementary Charge times one Volt}\\\\eV = 1.6 \\times 10^{-19}J"
+          "equation":"\\mbox{One elementary charge times one volt:}\\\\eV = 1.6 \\times 10^{-19}J"
         },
         {
-          "header":"Farad (Capacitance unit)",
+          "header":"Farad",
           "equation":"F=\\frac{C}{V}"
         },
         {
@@ -674,7 +686,7 @@
           "equation":"a = \\frac{v^{2}}{r}"
         },
         {
-          "header":"Angular Momentum",
+          "header":"Angular Frequency",
           "equation":"\\omega = 2\\pi f"
         },
         {
