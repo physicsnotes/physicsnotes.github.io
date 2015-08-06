@@ -7,7 +7,7 @@
       [
         {
           "header":"Coulomb's Law",
-          "equation":"\\overrightarrow{F_{12}} = \\frac{kq_{1}q_{2}}{r^2}\\hat{r}\\\\\\mbox{Where }\\overrightarrow{F_{12}}\\mbox{ is the force }q_{1}\\mbox{ exerts on }q_{2}\\\\\\hat{r}\\mbox{ is the normal of the direction between the charges.}"
+          "equation":"\\overrightarrow{F_{12}} = \\frac{kq_{1}q_{2}}{r^2}\\hat{r}\\\\\\mbox{Where }\\overrightarrow{F_{12}}\\mbox{ is the force }q_{1}\\mbox{ exerts on }q_{2}\\\\k \\mbox{ is a }\\linkNote{11.2}{constant}\\mbox{.}\\\\\\hat{r}\\mbox{ is the normal of the direction between the charges.}"
         },
         {
           "header":"Charge Conservation",
@@ -73,7 +73,7 @@
         },
         {
           "header":"Electrostatic Equilibrium",
-          "equation":"\\mbox{The electric field is zero inside a conductor in electrostatic equilibrium.}\\\\\\mbox{Any net charge must be on the conductor's surface.}\\\\\\mbox{Also see note \"Electric Field for a surface of a conductor in Electrostatic Equilibrium\"}"
+          "equation":"\\mbox{The electric field is zero inside a conductor in electrostatic equilibrium.}\\\\\\mbox{Any net charge must be on the conductor's surface.}\\\\\\mbox{Also see this }\\linkNote{2.4}{note}\\mbox{.}"
         },
         {
           "header":"Electric Field for a surface of a conductor in Electrostatic Equilibrium (365)",
@@ -196,11 +196,11 @@
           "equation":"\\mbox{A series of capacitors have the same charge.}"
         },
         {
-          "header":"Energy density",
-          "equation":"u_E = \\frac{1}{2}\\epsilon_0 E^2\\\\\\mbox{Only works if E is constant.}\\\\\\mbox{Multiply this with the volume of the object to get the energy stored.}"
+          "header":"Electric Field Energy Density",
+          "equation":"u_E = \\frac{1}{2}\\epsilon_0 E^2\\\\\\mbox{Only works if the field is uniform.}\\\\\\mbox{Multiply this by the volume of the object to get the energy stored.}"
         },
         {
-          "header":"Energy stored",
+          "header":"Electric Field Energy",
           "equation":"U = \\frac{1}{2}\\epsilon_0\\int{E^2 dV}"
         }
       ]
@@ -215,7 +215,7 @@
         },
         {
           "header":"Electric Current in a conductor (pg 404)",
-          "equation":"I = n*A*q*v_d\\\\n\\mbox{ is the number of charges per unit volume.}\\\\A \\mbox{ is the cross-sectional area of the conductor.}\\\\q \\mbox{ is the charge of each charge.}\\\\v_d \\mbox{ is the drift speed of a charge.}"
+          "equation":"I = n*A*q*v_d\\\\\\mbox{Tip: }I \\mbox{ = nack-vid}\\\\n\\mbox{ is the number of charges per unit volume.}\\\\A \\mbox{ is the cross-sectional area of the conductor.}\\\\q \\mbox{ is the charge of each charge.}\\\\v_d \\mbox{ is the drift speed of a charge.}"
         },
         {
           "header":"Relation of resistivity and resistance",
@@ -261,7 +261,7 @@
         },
         {
           "header":"Electric Current using a battery",
-          "equation":"\\mbox{Nothing new, but it's used throughout this chapter.}\\\\I = \\frac{\\mathcal{E}}{R}\\mbox{ (}\\mathcal{E} \\mbox{ is the voltage of the battery)}"
+          "equation":"\\linkNote{2.3}{Nothing new}\\mbox{, but it's used throughout this chapter.}\\\\I = \\frac{\\mathcal{E}}{R}\\mbox{ (}\\mathcal{E} \\mbox{ is the voltage of the battery)}"
         },
         {
           "header":"Resistance for resistors in series",
@@ -371,7 +371,7 @@
         },
         {
           "header":"Gauss' Law for Magnetic Flux (pg 450)",
-          "equation":"\\mbox{Neat law, first off all magnetic fields are closed loops.}\\\\\\mbox{From this we can say that the magnetic flux emerging from any } \\textbf{closed}\\mbox{ surface is zero.}\\\\\\Phi_B =\\oint{\\overrightarrow{B} \\cdot d\\overrightarrow{A}} = 0 \\mbox{ (} d\\overrightarrow{A} \\mbox{ is the normal of the surface)} "
+          "equation":"\\mbox{Neat law, from thiss we can say all magnetic fields have no beginning or end.}\\\\\\mbox{From this we can say that the magnetic flux emerging from any } \\textbf{closed}\\mbox{ surface is zero.}\\\\\\Phi_B =\\oint{\\overrightarrow{B} \\cdot d\\overrightarrow{A}} = 0 \\mbox{ (} d\\overrightarrow{A} \\mbox{ is the normal of the surface)} "
         },
         {
           "header":"Torque on a Magnetic Dipole (pg 450)",
@@ -386,15 +386,15 @@
           "equation":"\\mbox{The book goes way more in depth by the way.}\\\\\\mbox{Magnetism caused by a group of atoms (called a magnetic domain) with magnetic moments all aligned the same direction.}\\\\\\mbox{You can achieve this effect by applying an external magnetic field to the metal causing the atoms to align with the field.}\\\\\\mbox{If the material is still magnetic after the magnetic field is removed, the material is a hard ferromagnet. It is a soft ferromagnet otherwise.}"
         },
         {
-          "header":"Ampere's Law for steady currents (pg 454-455)",
-          "equation":"\\oint{\\overrightarrow{B} \\cdot d\\overrightarrow{r}} = \\mu_0 I_{encircled}\\mbox{ (} d\\overrightarrow{r} \\mbox{ runs along an enclosing loop.)}\\\\I_{encircled} \\mbox{ is the current going through any open surface bounded by the loop.}\\\\\\mbox{Note: See page 512 to see what 'bounded by the loop' means.}"
+          "header":"Ampere's Law 1.0 (pg 454-455)",
+          "equation":"\\mbox{For steady currents only.}\\\\\\oint{\\overrightarrow{B} \\cdot d\\overrightarrow{r}} = \\mu_0 I_{encircled}\\mbox{ (} d\\overrightarrow{r} \\mbox{ runs along an enclosing loop.)}\\\\I_{encircled} \\mbox{ is the current going through any open surface bounded by the loop.}\\\\\\mbox{Note: See page 512 to see what 'bounded by the loop' means.}"
         },
         {
           "header":"Solenoids (pg 458-459)",
           "equation":"\\mbox{A tightly wound coil with current going through it.}\\\\\\mbox{In a perfect solenoid, the outside the magnetic field is zero.}\\\\\\mbox{In a perfect solenoid, the inside magnetic field is constant: }\\\\B = \\mu_0nI\\mbox{ (}n \\mbox{ is how many loops there are per unit length)}"
         },
         {
-          "header":"Magnetic field for a Solenoid (pg 458)",
+          "header":"Magnetic Field for a Solenoid (pg 458)",
           "equation":"B = \\mu_0nI\\mbox{ (}n \\mbox{ is how many loops there are per unit length)}"
         }
       ]
@@ -429,15 +429,10 @@
         },
         {
           "header":"Mutual Inductance (pg 476)",
-          "equation":"\\mbox{Take two coils next to each other, a changing current in one of the coils causes an induced emf in the other one.}"
-        },
+          "equation":"\\mbox{Take two coils next to each other, a changing current in one of the coils causes an induced emf in the other one.}"        },
         {
           "header":"Self Inductance (pg 476)",
           "equation":"\\mbox{An ironic property of inductance.}\\\\\\mbox{Self inductance is when a circuit's own magnetic field opposes it's own change.}\\\\\\mbox{This makes it harder to change the current in a circuit.}"
-        },
-        {
-          "header":"An Inductor (pg 476)",
-          "equation":"\\mbox{A device used to help cause self-inductance by creating a more concentrated magnetic flux.}\\\\\\mbox{An ideal inductor would have zero resistance.}"
         },
         {
           "header":"An Inductor (pg 476)",
@@ -464,7 +459,7 @@
           "equation":"U = \\frac{1}{2} L I^2"
         },
         {
-          "header":"Magnetic Energy Density (pg 482)",
+          "header":"Magnetic Field Energy Density (pg 482)",
           "equation":"u_B = \\frac{B^2}{2\\mu_0}"
         },
         {
@@ -492,10 +487,6 @@
         {
           "header":"Root-Mean-Square (RMS) (pg 491)",
           "equation":"\\mbox{}\\\\a_{rms} = \\sqrt{\\frac{1}{n}(a_1^2 + a_2^2 + ... + a_n^2)}"
-        },
-        {
-          "header":"Root-Mean-Square (RMS) (pg 491)",
-          "equation":"a_{rms} = \\sqrt{\\frac{1}{n}(a_1^2 + a_2^2 + ... + a_n^2)}"
         },
         {
           "header":"Peak value and RMS relation for a sine wave (pg 491)",
@@ -568,16 +559,86 @@
       "equations":
       [
         {
-          "header":"Maxwell's Equations (pg 513)",
-          "equation":"\\mbox{To honor Maxwell for making Ampere's Law 2.0, the following equations are called Maxwell's Equations in his honor:}\\\\\\linkNote{2.2}{Gauss's Law for Electric Flux}\\\\\\linkNote{7.14}{Gauss's Law for Magnetic Flux}\\\\\\linkNote{8.18}{Faraday's Law of Induction} \\\\\\linkNote{10.2}{Ampere's Law (2.0)}"
+          "header":"Ampere's Law (2.0) (pg 512)",
+          "equation":"\\mbox{Addition made by Maxwell, allowing for non-steady currents.}\\\\\\mbox{See other note on }\\linkNote{7.18}{Ampere's Law}\\mbox{ for proper usage.}\\\\\\oint{\\overrightarrow{E} \\cdot d\\overrightarrow{r}} = \\mu_0 I_{encircled} + \\mu_0\\epsilon_0 \\frac{d\\Phi_E}{dt}\\\\\\mbox{Where } \\Phi_E \\mbox{ is the electric field flux through the bounded open surface.}\\\\\\mbox{Historically, }\\epsilon_0 \\frac{d\\Phi_E}{dt}\\mbox{ is called the } \\textbf{displacement current}\\mbox{.}"
         },
         {
-          "header":"Ampere's Law 2.0 (Maxwell Edition) (pg 512)",
-          "equation":"\\mbox{Addition made by Maxwell, allowing for non-steady currents.}\\\\\\mbox{See other note on Ampere's Law for proper usage.}\\\\\\oint{\\overrightarrow{E} \\cdot d\\overrightarrow{r}} = \\mu_0 I_{encircled} + \\mu_0\\epsilon_0 \\frac{d\\Phi_E}{dt}\\\\\\mbox{Where } \\Phi_E \\mbox{ is the electric field flux through the bounded open surface.}\\\\\\mbox{Historically, }\\epsilon_0 \\frac{d\\Phi_E}{dt}\\mbox{ is called the } \\textbf{displacement current}\\mbox{.}"
+          "header":"Maxwell's Equations (pg 513)",
+          "equation":"\\mbox{For making }\\linkNote{10.1}{Ampere's Law (2.0)}\\mbox{, the following equations are called Maxwell's Equations in his honor:}\\\\\\linkNote{2.2}{Gauss's Law for Electric Flux}\\\\\\linkNote{7.14}{Gauss's Law for Magnetic Flux}\\\\\\linkNote{8.18}{Faraday's Law of Induction} \\\\\\linkNote{10.1}{Ampere's Law (2.0)}"
         },
+        {
+          "header":"Maxwell's Equations in a Vacuum (pg 513)",
+          "equation":"\\mbox{These are for }\\textbf{vacuums}\\mbox{.}\\\\\\oint{\\overrightarrow{E} \\cdot d\\overrightarrow{A}} = 0 \\linkNote{2.2}{\\mbox{ (Gauss, }\\overrightarrow{E} \\mbox{)}}\\mbox{, }\\oint{\\overrightarrow{B} \\cdot d\\overrightarrow{A}} = 0 \\linkNote{7.14}{\\mbox{ (Gauss, } \\overrightarrow{B}\\mbox{)}}\\\\\\oint{\\overrightarrow{E}\\cdot d \\overrightarrow{r}} = -\\frac{d\\Phi_B}{dt}\\linkNote{8.17}{\\mbox{ (Faraday)}}\\mbox{, }\\oint{\\overrightarrow{B}\\cdot d\\overrightarrow{r}} = \\mu_0 \\epsilon_0 \\frac{d\\Phi_E}{dt}\\linkNote{10.1}{\\mbox{ (Ampere)}}"
+        },
+        {
+          "header":"Electromagnetic Wave (pg 514-520)",
+          "equation":"\\mbox{A changing electric field induces a magnetic field and a mangetic field induces an electric field.}\\\\\\mbox{This can possibly create a wave called an electromagnetic wave that propagates through space.}\\\\\\mbox{The wave itself is a }\\linkNote{13.8}{transverse wave}\\mbox{.}"
+        },
+        {
+          "header":"Electromagnetic Plane Wave (pg 514-520)",
+          "equation":"\\mbox{Please read the book, this note skips over a lot.}\\\\\\mbox{The plane wave's electric and magnetic field are perpendicular to the direction of the wave and each other.}\\\\\\mbox{The electric and magnetic field also both share a sinusoidal structure as well as being in phase with each other.}\\\\\\mbox{Figure 29.3a is only a cross-section, it would look the same anywhere along the plane made by }z\\mbox{ and } y \\mbox{.}"
+        },
+        {
+          "header":"Electromagnetic Plane Wave Fields (pg 515)",
+          "equation":"\\overrightarrow{E}(x, t) = E_p \\sin(kx - \\omega t)\\hat{e}\\\\\\overrightarrow{B}(x, t) = B_p \\sin(kx - \\omega t)\\hat{b}\\\\k \\mbox{ is the }\\linkNote{13.6}{wavenumber}\\mbox{.}\\\\\\mbox{The direction of } \\hat{e} \\mbox{ and }\\hat{b} \\mbox{ could be anything except that }\\hat{e} \\mbox{ and }\\hat{b}\\\\\\mbox{ must be perpendicular to each other and to the direction the wave is traveling.}\\\\\\hat{e} \\times \\hat{b} = \\mbox{the direction the wave is traveling.}"
+        },
+        {
+          "header":"Conditions for Electromagnetic Plane Wave Fields (pg 517)",
+          "equation":"\\mbox{The following two equations must hold for an electromagnetic plane wave to exist:}\\\\kE_p=\\omega B_p\\\\kB_p = \\epsilon_0\\mu_0\\omega E_p\\\\k \\mbox{ is the }\\linkNote{13.6}{wavenumber}\\mbox{.}"
+        },
+        {
+          "header":"Electromagnetic Wave Speed In Vacuum (pg 517-518)",
+          "equation":"\\mbox{wave speed} = \\frac{\\omega}{k} = \\frac{1}{\\sqrt{\\epsilon_0 \\mu_0}} = \\linkNote{11.9}{c}"
+        },
+        {
+          "header":"Magnetic and Electric relation for Electromagnetic Waves  (pg 518)",
+          "equation":"\\mbox{This is true at anytime on the wave, not just at the peaks.}\\\\E = cB"
+        },
+        {
+          "header":"Polarization (pg 519-520)",
+          "equation":"\\mbox{The orientation of the wave's fields are arbitrary, but can be polarized into an orientation.}\\\\\\mbox{This direction known as the }\\textbf{polarization}\\mbox{ is the direction of the electric field.}\\\\\\mbox{When light hits a surface it becomes polarized as well as when it passes through certain materials.}"
+        },
+        {
+          "header":"Polarizer (pg 519-520)",
+          "equation":"\\mbox{A polarizer is like a filter that only allows light with certain polarization to pass.}\\\\\\mbox{See }\\linkNote{10.12}{transmission axis}\\mbox{ as well.}"
+        },
+        {
+          "header":"Transmission Axis (pg 520)",
+          "equation":"\\mbox{An axis on a polarizer that is like a fuzzy slit in which light thats electric field kinda matches up with the slit will let pass.}\\\\\\mbox{See the }\\linkNote{10.13}{Law of Malus}\\mbox{ note.}"
+        },
+        {
+          "header":"Law of Malus (Polarization and Intensity) (pg 520)",
+          "equation":"S = S_0 \\cos^2(\\theta)\\\\S \\mbox{ is the intensity coming out.}\\\\S_0 \\mbox{ is the intensity coming in.}\\\\\\theta \\mbox{ is the angle between the electric field and the } \\linkNote{10.12}{transmission axis}\\mbox{.}"
+        },
+        {
+          "header":"Producing Electromagnetic Waves (pg 522)",
+          "equation":"\\mbox{All that's needed is an alternating electric or mangetic wave, from that induction does the rest.}\\\\\\mbox{Perferable wavelengths (giving and receiving) are close to the same size as the system.}"
+        },
+        {
+          "header":"Electromagnetic Wave Intensity (pg 523)",
+          "equation":"\\overrightarrow{S} = \\frac{\\overrightarrow{E} \\times \\overrightarrow{B}}{\\mu_0}\\\\\\overrightarrow{S} \\mbox{ is called the }\\textbf{Poynting vector}\\mbox{.}"
+        },
+        {
+          "header":"Average Electromagnetic Wave Intensity (pg 524)",
+          "equation":"\\bar{S} = \\frac{E_p B_p}{2 \\mu_0}\\\\\\mbox{Replacing B: } \\bar{S} = \\frac{E_{p}^2}{2\\mu_0 c}\\\\\\mbox{Replacing E: }\\bar{S} = \\frac{cB_{p}^2}{2\\mu_0}"
+        },
+        {
+          "header":"Electromagnetic Wave Intensity for Localized Sources (pg 524-525)",
+          "equation":"S = \\frac{P}{4\\pi r^2} \\mbox{(Where }S \\mbox{ and }P\\mbox{ could be either peak or average intensity and power)}"
+        },
+        {
+          "header":"Radiation Pressure (pg 525)",
+          "equation":"P_{rad} = \\frac{\\bar{S}}{c}\\\\\\mbox{It is double if the object reflects electromagnetic waves.}"
+        }
+      ]
+    },
+    {
+      "name":"Chapter 30",
+      "equations":
+      [
         {
           "header":"Test",
-          "equation":""
+          "equation":"\\mbox{Johnny Bravo!}"
         }
       ]
     },
@@ -591,7 +652,7 @@
         },
         {
           "header":"That k constant",
-          "equation":"\\mbox{The one used in say, Coulombs Law.}\\\\k = 9.0\\times10^{9}\\frac{N*m^{2}}{C^{2}}"
+          "equation":"\\mbox{The one used in say, }\\linkNote{1.1}{Coulomb's law}\\mbox{.}\\\\k = 9.0\\times10^{9}\\frac{N*m^{2}}{C^{2}}"
         },
         {
           "header":"Permittivity Constant",
@@ -616,6 +677,10 @@
         {
           "header":"Permeability Constant",
           "equation":"\\mbox{The measure of permeability inside a vacuum.}\\\\\\mu_0 = 4\\pi \\times 10^{-7} \\frac{N}{A^2}"
+        },
+        {
+          "header":"The Speed of Light",
+          "equation":"c = \\frac{1}{\\sqrt{\\epsilon_0 \\mu_0}} = 3.00 \\times 10^8 \\frac{m}{s}"
         }
       ]
     },
@@ -625,7 +690,7 @@
       [
         {
           "header":"Hertz",
-          "equation":"Hz = \\frac{cycle}{s}"
+          "equation":"\\mbox{Hz} = \\frac{cycle}{s}"
         },
         {
           "header":"Coulomb",
@@ -637,15 +702,15 @@
         },
         {
           "header":"Newton",
-          "equation":"\\frac{kg}{m/s^2}"
+          "equation":"N = \\frac{kg}{m/s^2}"
         },
         {
           "header":"Joule",
-          "equation":"N \\cdot m"
+          "equation":"J = N \\cdot m"
         },
         {
           "header":"Volt",
-          "equation":"\\frac{J}{C}"
+          "equation":"V = \\frac{J}{C}"
         },
         {
           "header":"Electronvolt (eV)",
@@ -674,6 +739,10 @@
         {
           "header":"Henry",
           "equation":"H = \\frac{T \\cdot m^2}{A}"
+        },
+        {
+          "header":"Watt",
+          "equation":"W = \\frac{J}{s}"
         }
       ]
     },
@@ -696,6 +765,38 @@
         {
           "header":"Relation of frequency and period",
           "equation":"f = \\frac{1}{T}"
+        },
+        {
+          "header":"Wavelength",
+          "equation":"\\mbox{The distance between any two points on the wave with the same phase.}\\\\\\lambda = \\frac{v}{f} \\mbox{(Where }v \\mbox{ is the wave's phase velocity.}"
+        },
+        {
+          "header":"Wavenumber",
+          "equation":"k = \\frac{2\\pi}{\\lambda}"
+        },
+        {
+          "header":"Wave speed",
+          "equation":"\\mbox{speed} = \\frac{\\omega}{k} \\implies \\mbox{speed} = f\\lambda"
+        },
+        {
+          "header":"Transverse Waves",
+          "equation":"\\mbox{A wave that oscillates perpendicular to the direction it is traveling.}\\\\\\mbox{Water ripples are transverse waves.}"
+        },
+        {
+          "header":"Longitudinal Waves",
+          "equation":"\\mbox{A wave that oscillates parallel to the direction it is traveling.}\\\\\\mbox{Imagine dominos that can stand back up.}"
+        },
+        {
+          "header":"Intensity",
+          "equation":"\\mbox{Intensity is the rate that power goes through an area.}\\\\\\mbox{The unit for intensity is: } \\frac{W}{m^2}"
+        },
+        {
+          "header":"Pressure",
+          "equation":"p = \\frac{F}{A}"
+        },
+        {
+          "header":"The Force of Gravity",
+          "equation":"F = \\frac{GM_1 M_2}{r^2}"
         }
       ]
     }

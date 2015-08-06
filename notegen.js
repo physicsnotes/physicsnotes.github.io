@@ -17,6 +17,7 @@ function toggleHideOpen(subjectBody)
 
     subjectBody.css("overflow-x", "auto");
 
+    hideOpenButton.css("top", "-2px");
     hideOpenButton.css("left", "5px");
     hideOpenButton.text("-");
   }
@@ -26,6 +27,7 @@ function toggleHideOpen(subjectBody)
 
     subjectBody.css("overflow-x", "hidden");
 
+    hideOpenButton.css("top", "0");
     hideOpenButton.css("left", "0");
     hideOpenButton.text("+");
   }
@@ -83,13 +85,13 @@ function createNote(subjectName, headerStr, equationStr, subjectCount, noteCount
   if(pageRef != null)
     header.appendChild(pageRef);
 
-  
+
   //Extract any note links in the form: \\linkNote{CHAPTER_ID.NOTE_ID}{MATH_JAX_EXPRESSION}
   var noteLinkRegExpExt = new RegExp('\\\\linkNote\\s*\\{\\s*([\\d.]+)\\s*\\}\\s*\\{(\\\\.*)\\}');
-  
+
   //Extract any note links in the form: \\linkNote{CHAPTER_ID.NOTE_ID}{MESSAGE}
   var noteLinkRegExp = new RegExp('\\\\linkNote\\s*\\{\\s*([\\d.]+)\\s*\\}\\s*\\{([^{}]*)\\}');
-  
+
   while(true)
   {
     //Test with the extended more detailed regex first
@@ -100,8 +102,8 @@ function createNote(subjectName, headerStr, equationStr, subjectCount, noteCount
       var noteLinkMsg = regExpResult[2];
       equationStr = equationStr.replace(noteLinkRegExpExt, '\\class{noteLink ' + noteID + '}{' + noteLinkMsg + '}');
     }
-    else 
-    {  
+    else
+    {
       //Test the one that assumes the message means \\mbox{message}
       regExpResult = noteLinkRegExp.exec(equationStr);
       if(regExpResult == null)
@@ -205,7 +207,7 @@ function populate(json)
     toggleHideOpen(subjectBody);
   });
 
-  $(".linkHeader").click(function() 
+  $(".linkHeader").click(function()
   {
     window.prompt("Copy to clipboard:", "\\\\linkNote{" + $(this).data('link') + "}{Message}");
   });

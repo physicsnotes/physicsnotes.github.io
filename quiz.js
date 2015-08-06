@@ -2,17 +2,16 @@ var mathJaxReady = false;
 MathJax.Hub.Register.StartupHook("End", function()
 {
   mathJaxReady = true;
-
   $('.noteLink').click(function()
   {
     var noteID = '#noteRef-' + $(this).attr('class').split(' ')[2].replace('.', '\\.')
     var subjectBody = $(noteID).parent();
     var hideOpenButton = subjectBody.parent().find('.hideOpenButton');
-    
+
     //Show the subject and the note if it's hidden by search
     subjectBody.parent().show();
     $(noteID).show();
-    
+
     if(hideOpenButton.html() == '+')
     {
       toggleHideOpen(subjectBody);
@@ -33,7 +32,7 @@ MathJax.Hub.Register.StartupHook("End", function()
       {
         $(noteID).animate(
         {
-          color: '#313131'
+          color: '#000000'
         }, 250);
       }, 900);
     });
