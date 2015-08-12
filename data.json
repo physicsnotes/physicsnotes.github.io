@@ -637,8 +637,110 @@
       "equations":
       [
         {
-          "header":"Test",
-          "equation":"\\mbox{Johnny Bravo!}"
+          "header":"The Law of Reflection (Light Reflection) (pg 532)",
+          "equation":"\\mbox{The angle with respect to the normal of the surface where the light}\\\\\\mbox{hits is equal to the light coming out's angle with respect to the normal:}\\\\\\theta = \\theta' \\\\\\theta \\mbox{ is the angle of incidence (the light coming in).}\\\\\\theta' \\mbox{ is the angle of reflection (the light coming out).}"
+        },
+        {
+          "header":"Specular Reflection (pg 533)",
+          "equation":"\\mbox{A material has specular reflection if the entire light beam is reflected without distortions.}\\\\\\mbox{Smooth surfaces have specular reflection.}"
+        },
+        {
+          "header":"Diffuse Reflection (pg 533)",
+          "equation":"\\mbox{A material has diffuse reflection if the light beam gets scattered.}\\\\\\linkNote{11.1}{The Law of Reflection}\\mbox{ still holds for the individual rays however.}\\\\\\mbox{Rough surfaces have diffuse reflection.}"
+        },
+        {
+          "header":"Partial Reflection (pg 533)",
+          "equation":"\\mbox{A material has partial reflection if the light will usually not reflect under certain conditions.}\\\\\\mbox{The least reflection occurs when the rays are close to the normal and increases with larger angles.}\\\\\\mbox{Glass is a surface with partial reflection behavior.}"
+        },
+        {
+          "header":"Refraction (pg 534-536)",
+          "equation":"\\mbox{Light passing through a material with different }\\linkNote{11.6}{index of refraction}\\mbox{ will cause the light to change direction.}"
+        },
+        {
+          "header":"Index of Refraction (pg 534)",
+          "equation":"n\\mbox{(index)} = \\frac{c}{v}\\\\\\mbox{From this: }\\lambda = \\frac{c}{nf}\\\\\\mbox{See also the }\\linkNote{12.10}{Indices of Refraction}\\mbox{.}"
+        },
+        {
+          "header":"Snell's Law (Refraction Angles) (pg 534-535)",
+          "equation":"n_1 \\sin(\\theta_1) = n_2 \\sin(\\theta_2)\\\\\\theta_1 \\mbox{ and } \\theta_2 \\mbox{ are with respect to the normal and the ray.}\\\\\\mbox{Passing through a material with greater }n\\mbox{ will cause the angle to get closer to the normal.}"
+        },
+        {
+          "header":"Brewster's Angle (Angle of Refraction) (pg 536)",
+          "equation":"\\textbf{Read the book, this part I'm not fully confident about.}\\\\\\mbox{Questions: If rays whose electric fields that are on the same plane are refracted only,}\\\\\\mbox{and rays whose electric field are perpendicular to the plane are reflected;}\\\\\\mbox{what about rays that are neither?}"
+        },
+        {
+          "header":"Total Internal Reflection (pg 536-537)",
+          "equation":"\\mbox{Sometimes calculating }\\theta_2 \\mbox{ in } \\linkNote{11.7}{Snell's law} \\mbox{ will yield an angle that is greater or equal to 90°} \\mbox{.}\\\\\\mbox{When this happens, the ray goes back into the material it was coming from.}\\\\\\mbox{When }\\theta_2 = 90° \\mbox{, }\\theta_1 \\mbox{ is called the }\\textbf{critical angle.}"
+        },
+        {
+          "header":"Calculating the Critical Angle (pg 536)",
+          "equation":"\\mbox{See }\\linkNote{11.9}{this} \\mbox{ for definition.}\\\\\\sin(\\theta_c) = \\frac{n_1}{n_2}"
+        },
+        {
+          "header":"Dispersion (pg 538-539)",
+          "equation":"\\mbox{A light ray's refraction angle also depends on the wavelength of the ray.}\\\\\\mbox{Light with a smaller wavelength refracts more.}"
+        }
+      ]
+    },
+    {
+      "name":"Chapter 31",
+      "equations":
+      [
+        {
+          "header":"Other Sources",
+          "equation":"\\mbox{Khan Academy has a }\\textbf{great} \\mbox{ playlist for this chapter.}\\\\\\mbox{https://www.khanacademy.org/science/physics/geometric-optics/mirrors-and-lenses/v/virtual-image}"
+        },
+        {
+          "header":"Parabola Axis",
+          "equation":"\\mbox{The parabolic axis is the axis that would make the parabola symmetrical.}"
+        },
+        {
+          "header":"Parabola Vertex / Parabola Apex",
+          "equation":"\\mbox{The book calls this point the } \\textbf{apex}\\mbox{.}\\\\\\mbox{The only point on a parabola that intersects with it's axis.}"
+        },
+        {
+          "header":"Parabola Focus / Focal Point",
+          "equation":"\\mbox{The focus or focal point is a point inside the concave part of a parabola.}\\\\\\mbox{The }\\textbf{focal length}\\mbox{ is the distance the focal is from the vertex.}\\\\\\mbox{Regardless if the parabola is concave or convex, the following are true:}\\\\\\begin{matrix}1. & \\mbox{Light rays coming parallel to the axis reflect on an axis through the focus.}\\\\2. & \\mbox{Light rays whose direction goes through the focus reflect parrallel to the axis.}\\end{matrix}"
+        },
+        {
+          "header":"Parabola Center of Curvature",
+          "equation":"\\mbox{A point on the parabola's axis that is twice the distance the focal point is from the vertex.}"
+        },
+        {
+          "header":"Paraxial Rays",
+          "equation":"\\mbox{A ray that runs close to and is nearly parallel to the parabola's axis.}"
+        },
+        {
+          "header":"Image (pg 544-545)",
+          "equation":"\\mbox{An image is the observer's view of an object even if that view is changed by a mirror or lense.}"
+        },
+        {
+          "header":"Virtual Image (pg 544)",
+          "equation":"\\mbox{If where your brain thinks the light rays are coming from are not where the light rays are, it is a virtual image.}\\\\\\mbox{Flat mirrors create virtual images, see figure 31.1a.}"
+        },
+        {
+          "header":"Real Image (pg 544)",
+          "equation":"\\mbox{If where your brain thinks the light rays are coming from are where the light rays are, it is a real image.}\\\\\\mbox{Convex parabolic mirrors create real images, see figure 31.6a.}"
+        },
+        {
+          "header":"Flat Mirrors (pg 545)",
+          "equation":"\\mbox{An image and the corresponding object both have the same distance from the mirror.}\\\\\\mbox{The image is reversed from front to back, not left to right.}"
+        },
+        {
+          "header":"Concave Mirrors (pg 545-547)",
+          "equation":"\\mbox{Most concave mirrors are actually spherical creating an error called }\\textbf{spherical aberration}\\mbox{.}\\\\\\mbox{If the mirror is on the right side and you read out left to right what comes and,}\\\\O \\mbox{ is for the object, } C \\mbox{ for center, and } F \\mbox{ is for focus. One of the following will happen:}\\\\OCF \\mbox{: Image is real, inverted and reduced.}\\\\COF \\mbox{: Image is real, inverted and enlarged.}\\\\CFO \\mbox{: Image is virtual, upright and enlarged.}"
+        },
+        {
+          "header":"Convex Mirrors (pg 547-548)",
+          "equation":"\\mbox{A convex mirror gives a wide angle view.}\\\\\\mbox{Convex mirrors create virtual, upright, reduced images.}"
+        },
+        {
+          "header":"Magnification (pg 547)",
+          "equation":"M \\mbox{ (magnification)} = \\frac{h'}{h} = -\\frac{s'}{s}\\\\h' \\mbox { is the height of the image.}\\\\h \\mbox { is the height of the object.}\\\\s' \\mbox { is the image's distance from the vertex.}\\\\s \\mbox { is the object's distance from the vertex.}\\\\\\mbox{A negative }M \\mbox{ means the image is inverted.}"
+        },
+        {
+          "header":"The Mirror Equation (pg 547-548)",
+          "equation":"\\frac{1}{s} + \\frac{1}{s'} = \\frac{1}{f}\\\\s \\mbox { is the object's distance from the vertex.}\\\\s' \\mbox{ is the image's distance from the vertex and is negative if the image is behind the mirror.}\\\\ f \\mbox{ is the focal length and is negative if the mirror is convex.}"
         }
       ]
     },
@@ -668,11 +770,11 @@
         },
         {
           "header":"Dielectric Constants and Dielectric Breakdown",
-          "equation":"\\mbox{I really don't want to write all these out. Check page 393.}"
+          "equation":"\\begin{matrix} \\textbf{Dielectric Material} & \\textbf{Dielectric Constant} & \\textbf{Breakdown Field (MV/m)} \\\\\\mbox{Air} & 1.0006 & 3 \\\\\\mbox{Aluminum Oxide} & 8.4 & 670 \\\\\\mbox{Glass (Pyrex)} & 5.6 & 14 \\\\\\mbox{Paper} & 3.5 & 14 \\\\\\mbox{Plexiglass} & 3.4 & 40 \\\\\\mbox{Polyethylene} & 2.3 & 50 \\\\\\mbox{Polystyrene} & 2.6 & 25 \\\\\\mbox{Quartz} & 3.8 & 8 \\\\\\mbox{Tantalum Oxide} & 26 & 500 \\\\\\mbox{Teflon} & 2.1 & 60 \\\\\\mbox{Water} & 80 & \\mbox{depends on time and purity} \\end{matrix}"
         },
         {
           "header":"Resistivity for some Materials",
-          "equation":"\\mbox{I'm not going to write these down, check out page 406.}"
+          "equation":"\\begin{matrix}\\textbf{Material} & \\textbf{Resistivity (}\\bf{\\Omega \\cdot m}\\textbf{)}\\\\\\mbox{Aluminum} & 2.65\\times10^{-8}\\\\\\mbox{Copper} & 1.68\\times10^{-8}\\\\\\mbox{Gold} & 2.24\\times10^{-8}\\\\\\mbox{Iron} & 9.71\\times10^{-8}\\\\\\mbox{Mercury} & 9.84\\times10^{-7}\\\\\\mbox{Silver} & 1.59\\times10^{-8}\\\\\\mbox{1-molar CuSO}_4 & 3.9\\times10^{-4}\\\\\\mbox{1-molar HCl} & 1.7\\times10^{-2}\\\\\\mbox{1-molar NaCl} & 1.4\\times10^{-4} \\\\\\mbox{H}_2\\mbox{O} & 2.6\\times10^{5}\\\\\\mbox{Human BlooOoOd} & 0.70\\\\\\mbox{Seawater (typical)} & 0.22\\\\\\mbox{Ceramics} & 10^{11}-10^{14}\\\\\\mbox{Glass} & 10^{10}-10^{14}\\\\\\mbox{Polystyrene} & 10^{15}-10^{17}\\\\\\mbox{Rubber} & 10^{13}-10^{16}\\\\\\mbox{Wood (dry)} & 10^{8}-10^{14}\\end{matrix}"
         },
         {
           "header":"Permeability Constant",
@@ -681,6 +783,10 @@
         {
           "header":"The Speed of Light",
           "equation":"c = \\frac{1}{\\sqrt{\\epsilon_0 \\mu_0}} = 3.00 \\times 10^8 \\frac{m}{s}"
+        },
+        {
+          "header":"Indices of Refraction (pg 534)",
+          "equation":"\\begin{matrix}\\textbf{Substance} & \\textbf{Index of Refraction}\\\\\\mbox{Air} & 1.000293 \\\\\\mbox{Carbon Dioxide} & 1.00045 \\\\\\mbox{Water} & 1.333 \\\\\\mbox{Ethyl Alcohol} & 1.361 \\\\\\mbox{Glycerine} & 1.473 \\\\\\mbox{Benzene} & 1.501 \\\\\\mbox{Diiodomethane} & 1.738 \\\\\\mbox{Ice} & 1.309 \\\\\\mbox{Polystyrene} & 1.49 \\\\\\mbox{Glass} & 1.5-1.9 \\\\\\mbox{Sodium Chloride} & 1.544 \\\\\\mbox{Diamond} & 2.419 \\\\\\mbox{Rutile} & 2.62 \\end{matrix}"
         }
       ]
     },
