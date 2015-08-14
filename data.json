@@ -741,6 +741,22 @@
         {
           "header":"The Mirror Equation (pg 547-548)",
           "equation":"\\frac{1}{s} + \\frac{1}{s'} = \\frac{1}{f}\\\\s \\mbox { is the object's distance from the vertex.}\\\\s' \\mbox{ is the image's distance from the vertex and is negative if the image is behind the mirror.}\\\\ f \\mbox{ is the focal length and is negative if the mirror is convex.}"
+        },
+        {
+          "header":"Lens",
+          "equation":"\\mbox{Lenses let light pass through but may refract the light.}\\\\\\mbox{An obvious example would be a contact lens.}\\\\\\mbox{Lenses can be convex and concave or even both(LINKKKKK).}"
+        },
+        {
+          "header":"Lens Axis",
+          "equation":"\\mbox{Your finger points along the axis when you put on a contact lens.}"
+        },
+        {
+          "header":"Thin Lens Approximation",
+          "equation":"\\mbox{This approximation is assumed for all lenses except explicitly stated.}\\\\\\mbox{The following things are true when assuming it:}\\\\\\begin{matrix}1.&\\mbox{A ray parallel to the lens axis refracts through the focal point.}\\\\2.&\\mbox{A ray that passes through the focal point refracts parallel to the lens axis.}\\\\3.&\\mbox{A ray through the center does not refract.}\\end{matrix}"
+        },
+        {
+          "header":"The Lens Equation",
+          "equation":"\\frac{1}{s} + \\frac{1}{s'} = \\frac{1}{f}\\\\s \\mbox { is the object's distance from the lens.}\\\\s' \\mbox{ is the image's distance from the lens and is negative if the image is on the same side as the object.}\\\\ f \\mbox{ is the focal length and is negative if the lens is a diverging lens.}"
         }
       ]
     },
