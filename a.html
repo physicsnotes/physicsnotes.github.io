@@ -80,6 +80,74 @@ body {
   outline: 0;
 }
 
+#editor {
+    display: none;
+}
+
+#editorSaveButton {
+  position: fixed;
+  right: 34px;
+  width: 90px;
+  bottom: 70px;
+  font-size: 29px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #d4ffff;
+  padding: 8px;
+  margin: 5px 0px;
+  background-color: #66dfdf;
+}
+
+#editorCancelButton {
+  position: fixed;
+  bottom: 17px;
+  right: 34px;
+  width: 90px;
+  font-size: 29px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #ffd6d6;
+  padding: 8px;
+  margin: auto 0px;
+  background-color: #f97575;
+}
+
+#editorSaveButton {
+  font-size: 29px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #d4ffff;
+  padding: 8px;
+  margin: 5px 0px;
+  background-color: #66dfdf;
+}
+
+#editorPreview {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background-color: #b3b3b3;
+  width: 100%;
+  max-width: 100%;
+  height: calc(100vh - 300px);
+  max-height: calc(100vh - 300px);
+
+  overflow: auto;
+}
+
+#editorNote {
+  padding-left: 25px !important; /*Used to counteract weird padding on right side*/
+  float: none !important;
+  max-height: inherit;
+  max-width: inherit;
+}
+
+#editorInputDiv {
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+}
+
 #quizNoteHolder {
   z-index: 200;
   position: fixed;
@@ -494,9 +562,20 @@ body {
   <img src="search.svg">
 </div>
 
+<div id="editor">
+  <div id="editorPreview"></div>
+  <div id="editorInputDiv">
+    <input id="editorHeaderInput" placeholder="Title" spellcheck="false" type="text">
+    <textarea id="editorEquationInput" placeholder="Note" spellcheck="false" rows="5"></textarea>
+  </div>
+  <div id="editorSaveButton">Save</div>
+  <div id="editorCancelButton">Cancel</div>
+</div>
+
 <script type="text/javascript" src="/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/javascript" src="search.js"></script>
 <script type="text/javascript" src="quiz.js"></script>
+<script type="text/javascript" src="editor.js"></script>
 
 </body>
 </html>

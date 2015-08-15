@@ -105,25 +105,7 @@ function quit()
   quizNotes = [];
   removeNote();
 
-  prepareForAnimation($('#masterDiv'));
-  $('#masterDiv').css
-  ({
-    'animation-name': 'fadeAndScaleOut',
-    'animation-duration': '0.4s',
-    'animation-timing-function': 'ease-in',
-    'animation-fill-mode': 'forwards',
-    'animation-direction': 'reverse'
-  });
-
-  prepareForAnimation($('#searchDiv'));
-  $('#searchDiv').css
-  ({
-    'animation-name': 'fadeOut',
-    'animation-duration': '0.4s',
-    'animation-timing-function': 'ease-in',
-    'animation-fill-mode': 'forwards',
-    'animation-direction': 'reverse'
-  });
+  showNotesAndSearch();
 
   prepareForAnimation($('#quizNextButton'));
   $('#quizNextButton').css
@@ -186,17 +168,8 @@ function showRandomNote()
   equation.append(quizShowButton);
 }
 
-function startQuiz(quizSubjectBody)
+function hideNotesAndSearch()
 {
-  if(!doneGeneratingNotes || !mathJaxReady || quizTime)
-    return;
-
-  quizTime = true;
-
-  $('#quizNextButton').html("Next");
-
-  quizNotes = quizSubjectBody.children();
-
   prepareForAnimation($('#masterDiv'));
   $('#masterDiv').css
   ({
@@ -216,6 +189,43 @@ function startQuiz(quizSubjectBody)
     'animation-fill-mode': 'forwards',
     'animation-direction': 'normal'
   });
+}
+
+function showNotesAndSearch()
+{
+  prepareForAnimation($('#masterDiv'));
+  $('#masterDiv').css
+  ({
+    'animation-name': 'fadeAndScaleOut',
+    'animation-duration': '0.4s',
+    'animation-timing-function': 'ease-in',
+    'animation-fill-mode': 'forwards',
+    'animation-direction': 'reverse'
+  });
+
+  prepareForAnimation($('#searchDiv'));
+  $('#searchDiv').css
+  ({
+    'animation-name': 'fadeOut',
+    'animation-duration': '0.4s',
+    'animation-timing-function': 'ease-in',
+    'animation-fill-mode': 'forwards',
+    'animation-direction': 'reverse'
+  });
+}
+
+function startQuiz(quizSubjectBody)
+{
+  if(!doneGeneratingNotes || !mathJaxReady || quizTime)
+    return;
+
+  quizTime = true;
+
+  $('#quizNextButton').html("Next");
+
+  quizNotes = quizSubjectBody.children();
+
+  hideNotesAndSearch();
 
   $('#quizNextButton').show();
   prepareForAnimation($('#quizNextButton'));
