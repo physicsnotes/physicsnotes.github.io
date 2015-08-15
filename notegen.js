@@ -187,6 +187,7 @@ function populate(json)
     subjectTable.appendChild(subjectBody);
     $(subjectBody).slideUp(1);
 
+    //Create the notes for the subject
     for(var e = 0; e < equations.length; ++e)
     {
       var equationObj = equations[e];
