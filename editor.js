@@ -6,7 +6,7 @@ function editorNewNote()
 {
   $('#editorNote').remove();
 
-  var editorNote = createNote('Chapter20', editorHeaderStr, editorEquationStr, 0, 0);
+  var editorNote = createNote('Chapter20', editorHeaderStr, editorEquationStr);
   editorNote.id = 'editorNote';
   $(editorNote).find('.noteConfig').remove();
 
@@ -21,6 +21,8 @@ function closeEditor()
     return;
 
   editorState = "hidden";
+  editorHeaderStr = "";
+  editorEquationStr = "";
 
   setTimeout(function()
   {
@@ -46,14 +48,19 @@ function closeEditor()
 
 function showEditor()
 {
-  if(editorState === "active")
+  if(editorState === 'active')
     return;
-  editorHeaderStr = "Note Title";
-  editorEquationStr = "\\mbox{Note Body}";
+    
+  if(editorHeaderStr === '')
+    editorHeaderStr = 'Note Title';
+  
+  if(editorEquationStr === '')
+    editorEquationStr = '\\mbox{Note Body}'
+    
   editorNewNote();
 
-  $('#editorHeaderInput').val('Note Title');
-  $('#editorEquationInput').val('Note Body');
+  $('#editorHeaderInput').val(editorHeaderStr);
+  $('#editorEquationInput').html(editorEquationStr);
 
   editorState = "active";
 
@@ -105,6 +112,9 @@ function createEditor()
 
   $('#configEdit').click(function()
   {
+    var noteID = $(configTaggedObject).parent().parent().attr('id');
+    editorHeaderStr = noteData[noteID].header;
+    editorEquationStr = noteData[noteID].equation;
     showEditor();
   });
 }

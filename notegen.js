@@ -1,10 +1,14 @@
 var doneGeneratingNotes = false;
 var configTaggedObject = null;
+var configAnimating = false;
+var json = null;
+var noteData = new Object();
 
 $.getJSON("data.json",
 function(data)
 {
-  populate(data);
+  json = data;
+  populate();
 });
 
 function toggleHideOpen(subjectBody)
@@ -34,12 +38,11 @@ function toggleHideOpen(subjectBody)
   }
 }
 
-function createNote(subjectName, headerStr, equationStr, subjectCount, noteCount)
+function createNote(subjectName, headerStr, equationStr)
 {
   //Create the div that is a note
   var note = document.createElement("div");
   note.className = "note";
-  note.id = 'noteRef-' + subjectCount + '.' + noteCount;
 
   //Extract the page reference from the header if it's in the form: (pg *)
   var pageRegExp = new RegExp('(\\(pg .*\\))');
@@ -121,7 +124,7 @@ function createNote(subjectName, headerStr, equationStr, subjectCount, noteCount
   return note;
 }
 
-function populate(json)
+function populate()
 {
   var curSubjectCount = 0;
 
@@ -139,7 +142,7 @@ function populate(json)
     var subject = subjects[s];
     var subjectTitleStr = subject.name;
     var subjectName = subjectTitleStr.replace(' ', '');
-    var equations = subject.equations;
+    var notes = subject.notes;
 
     //Create the subject table holding the notes
     var subjectTable = document.createElement("div");
@@ -178,11 +181,17 @@ function populate(json)
     $(subjectBody).slideUp(1);
 
     //Create the notes for the subject
-    for(var e = 0; e < equations.length; ++e)
+    for(var n = 0; n < notes.length; ++n)
     {
-      var equationObj = equations[e];
+      var noteObj = notes[n];
 
-      subjectBody.appendChild(createNote(subjectName, equationObj.header, equationObj.equation, curSubjectCount, e + 1));
+      var note = createNote(subjectName, noteObj.header, noteObj.equation);
+
+      //Register note object
+      note.id = 'noteRef-' + noteObj.id;
+      noteData[note.id] = noteObj;
+
+      subjectBody.appendChild(note);
     }
   }
 
@@ -213,9 +222,14 @@ function populate(json)
 
   $(".noteConfig").click(function()
   {
+    if(configAnimating)
+      return;
+
+    configAnimating = true;
     configTaggedObject = $(this);
+
     updateConfigPos();
-    
+
     $("#config").show();
 
     //Remove the animation class from the config bubble options
@@ -249,6 +263,7 @@ function populate(json)
     setTimeout(function()
     {
       $("#configDelete").addClass("slideLeft");
+      configAnimating = false;
     }, 200);
   });
   doneGeneratingNotes = true;
