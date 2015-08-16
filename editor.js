@@ -1,3 +1,4 @@
+var editorState = "hidden";
 var editorHeaderStr = "Note Title";
 var editorEquationStr = "\\mbox{Note Body}";
 
@@ -16,13 +17,16 @@ function editorNewNote()
 
 function closeEditor()
 {
-  showNotesAndSearch();
+  if(editorState === "hidden")
+    return;
 
-  $('#editor').show();
+  editorState = "hidden";
 
-  /*setTimeout(function(){
+  setTimeout(function()
+  {
     $('#editor').hide();
-  }, 500);*/
+    showNotesAndSearch();
+  }, 500);
 
   prepareForAnimation($('#editor'));
   $('#editor').css
@@ -37,21 +41,29 @@ function closeEditor()
 
 function showEditor()
 {
+  if(editorState === "active")
+    return;
+
+  editorState = "active";
+
   $('#config').hide();
 
   hideNotesAndSearch();
 
-  $('#editor').show();
-  prepareForAnimation($('#editor'));
+  setTimeout(function()
+  {
+    $('#editor').show();
+    prepareForAnimation($('#editor'));
 
-  $('#editor').css
-  ({
-    'animation-name': 'fadeAndScaleOut',
-    'animation-duration': '0.4s',
-    'animation-timing-function': 'ease-in',
-    'animation-fill-mode': 'forwards',
-    'animation-direction': 'reverse'
-  });
+    $('#editor').css
+    ({
+      'animation-name': 'fadeAndScaleOut',
+      'animation-duration': '0.4s',
+      'animation-timing-function': 'ease-in',
+      'animation-fill-mode': 'forwards',
+      'animation-direction': 'reverse'
+    });
+  }, 600);
 }
 
 function createEditor()
@@ -73,6 +85,11 @@ function createEditor()
   });
 
   $('#editorCancelButton').click(function()
+  {
+    closeEditor();
+  });
+
+  $('#editorSaveButton').click(function()
   {
     closeEditor();
   });

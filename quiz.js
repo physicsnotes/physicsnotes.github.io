@@ -174,7 +174,7 @@ function hideNotesAndSearch()
   {
     $('#masterDiv').hide();
     $('#searchDiv').hide();
-  }, 100);
+  }, 600);
 
   prepareForAnimation($('#masterDiv'));
   $('#masterDiv').css
@@ -195,8 +195,6 @@ function hideNotesAndSearch()
     'animation-fill-mode': 'forwards',
     'animation-direction': 'normal'
   });
-
-
 }
 
 function showNotesAndSearch()
