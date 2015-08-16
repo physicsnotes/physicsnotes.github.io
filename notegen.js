@@ -69,13 +69,11 @@ function createNote(subjectName, headerStr, equationStr, subjectCount, noteCount
   header.className = subjectName + "Header equationHeader";
   table.appendChild(header);
 
-  //Create the link header
-  var linkHeader = document.createElement("th");
-  linkHeader.className = "linkHeader";
-  linkHeader.appendChild(document.createTextNode("link"));
-  $(linkHeader).data("link", "" + subjectCount + "." + noteCount + "");
-
-  table.appendChild(linkHeader);
+  //Create the note config
+  var noteConfig = document.createElement("img");
+  noteConfig.src = "circle.png"
+  noteConfig.className = "noteConfig";
+  table.appendChild(noteConfig);
 
   //Create the header text
   var headerText = document.createTextNode(headerStr);
@@ -84,7 +82,6 @@ function createNote(subjectName, headerStr, equationStr, subjectCount, noteCount
   //Append the page reference if we have one
   if(pageRef != null)
     header.appendChild(pageRef);
-
 
   //Extract any note links in the form: \\linkNote{CHAPTER_ID.NOTE_ID}{MATH_JAX_EXPRESSION}
   var noteLinkRegExpExt = new RegExp('\\\\linkNote\\s*\\{\\s*([\\d.]+)\\s*\\}\\s*\\{(\\\\.*)\\}');
@@ -211,6 +208,26 @@ function populate(json)
   $(".linkHeader").click(function()
   {
     window.prompt("Copy to clipboard:", "\\\\linkNote{" + $(this).data('link') + "}{Message}");
+  });
+
+  $(document).click(function(e)
+  {
+    if($(e.target).closest("#config, .noteConfig").length === 0)
+    {
+      $("#config").hide();
+    }
+  });
+
+  $(".noteConfig").click(function()
+  {
+    var position = $(this).offset();
+
+    $("#config").show();
+    $("#config").css(
+    {
+      'left' : position.left,
+      'top' : position.top - 120
+    });
   });
 
   doneGeneratingNotes = true;

@@ -80,14 +80,87 @@ body {
   outline: 0;
 }
 
+#config {
+  border-radius: 8px;
+  position: absolute;
+  display: none;
+  background-color: #f1f0f0;
+  width: 200px;
+  height: 76px;
+  z-index: 20;
+}
+
+#config div {
+  color: #62666a;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 19px;
+  padding-left: 15px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  cursor: pointer;
+}
+
+#config div:hover {
+  text-decoration: underline;
+}
+
+#configTail {
+  position: relative;
+  top: -4px;
+  left: 9px
+}
+
 #editor {
     display: none;
+}
+
+#editorEquationInput {
+  resize: none;
+  display: block;
+  width: calc(100vw - 202px);
+  height: 200px;
+  border: 1.2px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  color: #62666a;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 23px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 10px;
+  border-radius: 8px;
+
+  -webkit-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+  -moz-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+  box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+}
+
+#editorHeaderInput {
+  display: block;
+  margin: auto auto;
+  height: 30px;
+  width: calc(100vw - 202px);
+  border: 1.2px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  color: #62666a;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 23px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 10px;
+  border-radius: 8px;
+
+  -webkit-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+  -moz-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+  box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
 }
 
 #editorSaveButton {
   position: fixed;
   right: 34px;
   width: 90px;
+  height: 35px
   bottom: 70px;
   font-size: 29px;
   text-align: center;
@@ -99,10 +172,11 @@ body {
 }
 
 #editorCancelButton {
-  position: fixed;
-  bottom: 17px;
+  position: absolute;
+  top: calc(100vh - 138px);
   right: 34px;
   width: 90px;
+  height: 35px;
   font-size: 29px;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
@@ -113,11 +187,17 @@ body {
 }
 
 #editorSaveButton {
+  position: absolute;
+  top: calc(100vh - 78px);
+  right: 34px;
+  width: 90px;
+  height: 35px
   font-size: 29px;
+  text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   color: #d4ffff;
   padding: 8px;
-  margin: 5px 0px;
+  margin: auto 0px;
   background-color: #66dfdf;
 }
 
@@ -143,7 +223,7 @@ body {
 
 #editorInputDiv {
   position: fixed;
-  bottom: 0;
+  top: calc(100vh - 290px);
   text-align: center;
   width: 100%;
 }
@@ -247,18 +327,24 @@ body {
   border-top-right-radius: 8px;
 }
 
-.linkHeader {
+.noteConfig {
+  width: 60%;
+  height: 60%;
+
+  position: relative;;
+  top: 3px;
+  left: -32px;
+
   font-size: 12px;
   font-family: Arial, Helvetica, sans-serif;
 
-  position: relative;;
-  left: -33px;
-  opacity: 0;
+  cursor: pointer;
+
+  opacity: 0.4;
 }
 
-.linkHeader:hover {
-  cursor: pointer;
-  opacity: 1;
+.noteConfig:hover {
+  opacity: 0.9;
 }
 
 .pageReference {
@@ -557,19 +643,26 @@ body {
 
 </style>
 
+<div id="editor">
+  <div id="editorPreview"></div>
+  <div id="editorInputDiv">
+    <input id="editorHeaderInput" placeholder="Note Title" spellcheck="false" value="Note Title" type="text">
+    <textarea id="editorEquationInput" placeholder="Note Body" spellcheck="false" rows="5">\mbox{Note Body}</textarea>
+  </div>
+  <div id="editorSaveButton">Save</div>
+  <div id="editorCancelButton">Cancel</div>
+</div>
+
 <div id="searchDiv">
   <input type="text" placeholder="Search..." id="search">
   <img src="search.svg">
 </div>
 
-<div id="editor">
-  <div id="editorPreview"></div>
-  <div id="editorInputDiv">
-    <input id="editorHeaderInput" placeholder="Title" spellcheck="false" type="text">
-    <textarea id="editorEquationInput" placeholder="Note" spellcheck="false" rows="5"></textarea>
-  </div>
-  <div id="editorSaveButton">Save</div>
-  <div id="editorCancelButton">Cancel</div>
+<div id="config">
+  <div id="configEdit">Edit</div>
+  <div>Link</div>
+  <div>Delete</div>
+  <img id="configTail" src="tail.png"></img>
 </div>
 
 <script type="text/javascript" src="/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>

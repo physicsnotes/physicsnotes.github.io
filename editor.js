@@ -1,23 +1,57 @@
-var editorCurNote = null;
-var editorOldNote = null;
-var editorHeaderStr = "";
-var editorEquationStr = "";
+var editorHeaderStr = "Note Title";
+var editorEquationStr = "\\mbox{Note Body}";
 
 function editorNewNote()
 {
-  editorOldNote = editorCurNote;
-  editorCurNote = createNote("Chapter20", editorHeaderStr, editorEquationStr, 0, 0);
+  $('#editorNote').remove();
 
-  if(editorOldNote == null)
-  {
-    $("#editorPreview").append(editorCurNote);
-  }
-  else
-  {
-    $(editorOldNote).replaceWith(editorCurNote);
-  }
+  var editorNote = createNote('Chapter20', editorHeaderStr, editorEquationStr, 0, 0);
+  editorNote.id = 'editorNote';
+  $(editorNote).find('.noteConfig').remove();
 
-  MathJax.Hub.Queue(["Typeset", MathJax.Hub, editorCurNote]);
+  $('#editorPreview').append(editorNote);
+
+  MathJax.Hub.Queue(["Typeset", MathJax.Hub, editorNote]);
+}
+
+function closeEditor()
+{
+  showNotesAndSearch();
+
+  $('#editor').show();
+
+  /*setTimeout(function(){
+    $('#editor').hide();
+  }, 500);*/
+
+  prepareForAnimation($('#editor'));
+  $('#editor').css
+  ({
+    'animation-name': 'fadeAndScaleOut',
+    'animation-duration': '0.4s',
+    'animation-timing-function': 'ease-in',
+    'animation-fill-mode': 'forwards',
+    'animation-direction': 'normal'
+  });
+}
+
+function showEditor()
+{
+  $('#config').hide();
+
+  hideNotesAndSearch();
+
+  $('#editor').show();
+  prepareForAnimation($('#editor'));
+
+  $('#editor').css
+  ({
+    'animation-name': 'fadeAndScaleOut',
+    'animation-duration': '0.4s',
+    'animation-timing-function': 'ease-in',
+    'animation-fill-mode': 'forwards',
+    'animation-direction': 'reverse'
+  });
 }
 
 function createEditor()
@@ -36,6 +70,16 @@ function createEditor()
     editorEquationStr = $(this).val();
 
     editorNewNote();
+  });
+
+  $('#editorCancelButton').click(function()
+  {
+    closeEditor();
+  });
+
+  $('#configEdit').click(function()
+  {
+    showEditor();
   });
 }
 

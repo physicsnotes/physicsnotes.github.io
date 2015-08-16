@@ -170,6 +170,12 @@ function showRandomNote()
 
 function hideNotesAndSearch()
 {
+  setTimeout(function()
+  {
+    $('#masterDiv').hide();
+    $('#searchDiv').hide();
+  }, 100);
+
   prepareForAnimation($('#masterDiv'));
   $('#masterDiv').css
   ({
@@ -189,10 +195,15 @@ function hideNotesAndSearch()
     'animation-fill-mode': 'forwards',
     'animation-direction': 'normal'
   });
+
+
 }
 
 function showNotesAndSearch()
 {
+  $('#masterDiv').show();
+  $('#searchDiv').show();
+
   prepareForAnimation($('#masterDiv'));
   $('#masterDiv').css
   ({
@@ -211,6 +222,12 @@ function showNotesAndSearch()
     'animation-timing-function': 'ease-in',
     'animation-fill-mode': 'forwards',
     'animation-direction': 'reverse'
+  });
+
+  $('#masterDiv').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e)
+  {
+    alert("done");
+    $('#masterDiv').show();
   });
 }
 
