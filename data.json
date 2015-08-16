@@ -17,7 +17,18 @@
           "equation":"\\mbox{The net charge in a closed system is constant.}"
         }
       ]
+    },
+    {
+      "id":"2",
+      "name":"Chapter 21",
+      "notes":
+      [
+        {
+          "id":"2.1",
+          "header":"Electric Flux",
+          "equation":"\\Phi_E = \\overrightarrow{E} \\cdot \\overrightarrow{A} = EA\\cos(\\theta)\\\\\\Phi_E = \\int^{}_{surface}{\\overrightarrow{E} \\cdot d\\overrightarrow{A}}\\\\\\mbox{Where } \\overrightarrow{A} \\mbox{ is the outward pointing normal to the surface and has the magnitude of the surface's area.}"
+        }
+      ]
     }
   ]
 }
-        

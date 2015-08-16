@@ -189,7 +189,12 @@ function populate()
 
       //Register note object
       note.id = 'noteRef-' + noteObj.id;
-      noteData[note.id] = noteObj;
+      noteData[note.id] =
+      {
+        header: noteObj.header,
+        equation: noteObj.equation,
+        subject: subjectName
+      };
 
       subjectBody.appendChild(note);
     }
