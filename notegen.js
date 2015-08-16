@@ -1,4 +1,5 @@
 var doneGeneratingNotes = false;
+var configTaggedObject = null;
 
 $.getJSON("data.json",
 function(data)
@@ -212,15 +213,60 @@ function populate(json)
 
   $(".noteConfig").click(function()
   {
-    var position = $(this).offset();
-
+    configTaggedObject = $(this);
+    updateConfigPos();
+    
     $("#config").show();
+
+    //Remove the animation class from the config bubble options
+    $("#configBubble").children("div").each(function(index)
+    {
+      $(this).removeClass("slideLeft");
+      $(this).css('padding-left', '205px');
+    });
+
+    prepareForAnimation($("#configBubble"));
+
+    $('#configBubble').css
+    ({
+      'animation-name': 'configPopUp',
+      'animation-duration': '0.2s',
+      'animation-timing-function': 'ease-in',
+      'animation-fill-mode': 'forwards',
+      'animation-direction': 'normal',
+    });
+
+    setTimeout(function()
+    {
+      $("#configEdit").addClass("slideLeft");
+    }, 100);
+
+    setTimeout(function()
+    {
+      $("#configLink").addClass("slideLeft");
+    }, 150);
+
+    setTimeout(function()
+    {
+      $("#configDelete").addClass("slideLeft");
+    }, 200);
+  });
+  doneGeneratingNotes = true;
+}
+
+function updateConfigPos()
+{
+  if(configTaggedObject != null)
+  {
+    var position = configTaggedObject.offset();
+
     $("#config").css(
     {
       'left' : position.left,
       'top' : position.top - 120
     });
-  });
-
-  doneGeneratingNotes = true;
+  }
 }
+
+//Keep the config next to the tagged object
+setInterval(updateConfigPos, 100);

@@ -25,6 +25,28 @@
     }
 }
 
+@keyframes configSlideLeft {
+    0% {
+      padding-left: 205px;
+    }
+
+    100% {
+      padding-left: 15px;
+    }
+}
+
+@keyframes configPopUp {
+    0% {
+      height: 20px;
+      margin-top: 60px;
+    }
+
+    100% {
+      height: 80px;
+      margin-top: 0px;
+    }
+}
+
 @keyframes fadeOut {
     0% {
       opacity: 1.0;
@@ -33,6 +55,14 @@
     100% {
       opacity: 0.0;
     }
+}
+
+.slideLeft {
+  animation-name: configSlideLeft;
+  animation-duration: 0.2s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+  animation-direction': normal;
 }
 
 body {
@@ -83,16 +113,22 @@ body {
 }
 
 #config {
-  border-radius: 8px;
   position: absolute;
+
   display: none;
-  background-color: #f1f0f0;
-  width: 200px;
-  height: 82px;
+
   z-index: 20;
 }
 
-#config div {
+#configBubble {
+  border-radius: 8px;
+  background-color: #f1f0f0;
+  width: 200px;
+  height: 80px;
+  overflow: hidden;
+}
+
+#configBubble > div {
   color: #62666a;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 19px;
@@ -102,11 +138,12 @@ body {
   cursor: pointer;
 }
 
-#config div:hover {
+#configBubble > div:hover {
   text-decoration: underline;
 }
 
 #configTail {
+  z-index: -1;
   display: block;
   position: relative;
   top: -4px;
@@ -421,6 +458,8 @@ body {
   padding-bottom: 25px;
   background-image: url("noise.png");
   background-repeat: repeat;
+
+  min-width: 500px;
 }
 
 .subjectTitle {
@@ -686,10 +725,12 @@ body {
 </div>
 
 <div id="config">
+<div id="configBubble">
   <div id="configEdit">Edit</div>
-  <div>Link</div>
-  <div>Delete</div>
-  <img id="configTail" src="tail.png"></img>
+  <div id="configLink">Link</div>
+  <div id="configDelete">Delete</div>
+</div>
+<img id="configTail" src="tail.png"></img>
 </div>
 
 <script type="text/javascript" src="/MathJax/MathJax.js?config=default"></script>
