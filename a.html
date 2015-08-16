@@ -201,15 +201,31 @@ body {
   background-color: #66dfdf;
 }
 
+#editorPreviewParent {
+  border-radius: 8px;
+
+  width: 100%;
+
+  height: calc(100vh - 299px);
+
+  background-color:rgba(175, 175, 175, 0.38);
+  -webkit-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+  -moz-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+  box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+}
+
 #editorPreview {
   display:flex;
   justify-content:center;
   align-items:center;
-  background-color: #b3b3b3;
-  width: 100%;
-  max-width: 100%;
-  height: calc(100vh - 300px);
-  max-height: calc(100vh - 300px);
+
+  width: calc(100vw - 37px);
+  max-width: calc(100vw - 37px);
+
+  height: calc(100vh - 305px);
+  max-height: calc(100vh - 305px);
+
+  margin-left: 10px;
 
   overflow: auto;
 }
@@ -641,10 +657,18 @@ body {
   background-color: #bebebe;
 }
 
+.MathJax .merror {
+  background-color: transparent  !important;
+  color: #ed4848 !important;
+  border: none !important;
+}
+
 </style>
 
 <div id="editor">
-  <div id="editorPreview"></div>
+  <div id="editorPreviewParent">
+    <div id="editorPreview"></div>
+  </div>
   <div id="editorInputDiv">
     <input id="editorHeaderInput" placeholder="Note Title" spellcheck="false" value="Note Title" type="text">
     <textarea id="editorEquationInput" placeholder="Note Body" spellcheck="false" rows="5">\mbox{Note Body}</textarea>
@@ -665,7 +689,7 @@ body {
   <img id="configTail" src="tail.png"></img>
 </div>
 
-<script type="text/javascript" src="/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="/MathJax/MathJax.js?config=default"></script>
 <script type="text/javascript" src="search.js"></script>
 <script type="text/javascript" src="quiz.js"></script>
 <script type="text/javascript" src="editor.js"></script>
