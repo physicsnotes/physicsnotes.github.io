@@ -35,14 +35,10 @@ function toggleHideOpen(subjectBody)
 
 function createNote(subjectName, headerStr, equationStr, subjectCount, noteCount)
 {
-  //Create the div holding the note
-  var equationDiv = document.createElement("div");
-  equationDiv.className = "equationDiv";
-  equationDiv.id = 'noteRef-' + subjectCount + '.' + noteCount;
-
-  //Create the note table
-  var table = document.createElement("table");
-  equationDiv.appendChild(table);
+  //Create the div that is a note
+  var note = document.createElement("div");
+  note.className = "note";
+  note.id = 'noteRef-' + subjectCount + '.' + noteCount;
 
   //Extract the page reference from the header if it's in the form: (pg *)
   var pageRegExp = new RegExp('(\\(pg .*\\))');
@@ -65,19 +61,19 @@ function createNote(subjectName, headerStr, equationStr, subjectCount, noteCount
   }
 
   //Create the header text holding element
-  var header = document.createElement("th");
+  var header = document.createElement("div");
   header.className = subjectName + "Header equationHeader";
-  table.appendChild(header);
+  note.appendChild(header);
+
+  //Create the header text
+  var headerText = document.createTextNode(headerStr);
+  header.appendChild(headerText);
 
   //Create the note config
   var noteConfig = document.createElement("img");
   noteConfig.src = "circle.png"
   noteConfig.className = "noteConfig";
-  table.appendChild(noteConfig);
-
-  //Create the header text
-  var headerText = document.createTextNode(headerStr);
-  header.appendChild(headerText);
+  header.appendChild(noteConfig);
 
   //Append the page reference if we have one
   if(pageRef != null)
@@ -112,20 +108,16 @@ function createNote(subjectName, headerStr, equationStr, subjectCount, noteCount
     }
   }
 
-  //Create the equation row
-  var equationRow = document.createElement("tr");
-  table.appendChild(equationRow);
-
-  //Create the equation holder
-  var equation = document.createElement("td");
+  //Create the equation div
+  var equation = document.createElement("div");
   equation.className = subjectName + "Equation equation";
-  equationRow.appendChild(equation);
+  note.appendChild(equation);
 
   //Create the equation text with magic symbols used to tell mathjax that yes, we want it to mess with this
   var equationText = document.createTextNode("\\[" + equationStr + "\\]");
   equation.appendChild(equationText);
 
-  return equationDiv;
+  return note;
 }
 
 function populate(json)
@@ -149,12 +141,12 @@ function populate(json)
     var equations = subject.equations;
 
     //Create the subject table holding the notes
-    var subjectTable = document.createElement("table");
+    var subjectTable = document.createElement("div");
     subjectTable.className = subjectName + "Table subjectTable";
     masterDiv.appendChild(subjectTable);
 
     //Create the title row for the table
-    var subjectTitleRow = document.createElement("tr");
+    var subjectTitleRow = document.createElement("div");
     subjectTable.appendChild(subjectTitleRow);
 
     //Create the title for the title row
@@ -179,7 +171,7 @@ function populate(json)
     subjectTitleRow.appendChild(quizButton);
 
     //Create the body where the notes are going
-    var subjectBody = document.createElement("tbody");
+    var subjectBody = document.createElement("div");
     subjectBody.className = "subjectBody";
     subjectTable.appendChild(subjectBody);
     $(subjectBody).slideUp(1);
@@ -195,13 +187,13 @@ function populate(json)
 
   $(".quizButton").click(function()
   {
-    var quizSubjectBody = $(this).parent().parent().find("tbody");
+    var quizSubjectBody = $(this).parent().parent().find(".subjectBody");
     startQuiz(quizSubjectBody);
   });
 
   $(".hideOpenButton").click(function()
   {
-    var subjectBody = $(this).parent().parent().find("tbody");
+    var subjectBody = $(this).parent().parent().find(".subjectBody");
     toggleHideOpen(subjectBody);
   });
 
