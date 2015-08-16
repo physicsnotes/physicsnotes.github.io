@@ -2,6 +2,7 @@ var editorState = "hidden";
 var editorHeaderStr = "";
 var editorEquationStr = "";
 var editorSubjectStr = "";
+var editorUpdateMathJaxTimeout = null;
 
 function editorNewNote()
 {
@@ -9,11 +10,18 @@ function editorNewNote()
 
   var editorNote = createNote(editorSubjectStr, editorHeaderStr, editorEquationStr);
   editorNote.id = 'editorNote';
-  $(editorNote).find('.noteConfig').remove();
+  $(editorNote).find('.noteConfig').hide();
 
   $('#editorPreview').append(editorNote);
 
-  MathJax.Hub.Queue(["Typeset", MathJax.Hub, editorNote]);
+  if(editorUpdateMathJaxTimeout != null)
+  {
+    clearTimeout(editorUpdateMathJaxTimeout);
+  }
+  editorUpdateMathJaxTimeout = setTimeout(function()
+  {
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, $('#editorNote')[0]]);
+  }, 500);
 }
 
 function closeEditor()
@@ -52,6 +60,11 @@ function showEditor()
   if(editorState === 'active')
     return;
 
+  editorState = "active";
+
+  hideNotesAndSearch();
+  $('#config').hide();
+
   if(editorHeaderStr === '')
     editorHeaderStr = 'Note Title';
 
@@ -61,16 +74,13 @@ function showEditor()
   $('#editorPreviewTitle').removeClass().addClass(editorSubjectStr + 'Header');
   $('#editorPreviewParent').removeClass().addClass(editorSubjectStr + 'Table');
 
-  editorNewNote();
-
   $('#editorHeaderInput').val(editorHeaderStr);
   $('#editorEquationInput').html(editorEquationStr);
 
-  editorState = "active";
+  editorNewNote();
 
-  $('#config').hide();
-
-  hideNotesAndSearch();
+  //For whatever reason Mathjax needs a kick in the pants to get the ball rolling
+  MathJax.Hub.Queue(["Typeset", MathJax.Hub, $('#editorNote')[0]]);
 
   setTimeout(function()
   {
