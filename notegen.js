@@ -227,7 +227,9 @@ function populate()
 
   $(".noteConfig").click(function()
   {
-    if(configAnimating)
+    //Leave early if we are still animating,
+    //Or not hidden and the new tagged object is the same as the old one
+    if(configAnimating || $("#config").is(":visible") && (configTaggedObject != null && configTaggedObject[0] == $(this)[0]))
       return;
 
     configAnimating = true;
