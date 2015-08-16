@@ -91,6 +91,7 @@ function prepareForAnimation(jQueryElem)
   if you have to, please ask the wonderful people designing
   CSS why we can't have nice things like the ability to play another animation after the first
   */
+
   var newElem = jQueryElem.clone(true);
   jQueryElem.before(newElem);
   jQueryElem.remove();

@@ -1,6 +1,6 @@
 var editorState = "hidden";
-var editorHeaderStr = "Note Title";
-var editorEquationStr = "\\mbox{Note Body}";
+var editorHeaderStr = "";
+var editorEquationStr = "";
 
 function editorNewNote()
 {
@@ -28,7 +28,12 @@ function closeEditor()
     showNotesAndSearch();
   }, 500);
 
+  //The odd copy of the textarea string is explained by this unfortunate bug in jquery here:
+  //http://bugs.jquery.com/ticket/3016
+  var textareaStr = $('#editorEquationInput').val();
   prepareForAnimation($('#editor'));
+  $('#editorEquationInput').val(textareaStr);
+
   $('#editor').css
   ({
     'animation-name': 'fadeAndScaleOut',
@@ -43,6 +48,12 @@ function showEditor()
 {
   if(editorState === "active")
     return;
+  editorHeaderStr = "Note Title";
+  editorEquationStr = "\\mbox{Note Body}";
+  editorNewNote();
+
+  $('#editorHeaderInput').val('Note Title');
+  $('#editorEquationInput').val('Note Body');
 
   editorState = "active";
 
@@ -68,8 +79,6 @@ function showEditor()
 
 function createEditor()
 {
-  editorNewNote();
-
   $('#editorHeaderInput').on('input', function()
   {
     editorHeaderStr = $(this).val();
