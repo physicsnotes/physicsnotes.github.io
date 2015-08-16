@@ -2,6 +2,8 @@
 <html>
 
 <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
   <script type="text/javascript" src="jquery-1.11.3.min.js"></script>
   <script type="text/javascript" src="jquery-ui.min.js"></script>
   <title>Physics Notes</title>
@@ -86,7 +88,7 @@ body {
   display: none;
   background-color: #f1f0f0;
   width: 200px;
-  height: 76px;
+  height: 82px;
   z-index: 20;
 }
 
@@ -105,13 +107,28 @@ body {
 }
 
 #configTail {
+  display: block;
   position: relative;
   top: -4px;
   left: 9px
 }
 
 #editor {
-    display: none;
+  display: none;
+}
+
+#editorPreviewTitle {
+  background-color: #a4a4a4;
+  padding-left: 9px !important;
+  padding-right: 9px !important;
+  z-index: -1 !important;
+
+  border-top-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+
+  font-family: Arial, Helvetica, serif;
+
+  font-size: 40px;
 }
 
 #editorEquationInput {
@@ -120,7 +137,6 @@ body {
   width: calc(100vw - 202px);
   height: 200px;
   border: 1.2px;
-  margin-bottom: 10px;
   margin-left: 10px;
   color: #62666a;
   font-family: Arial, Helvetica, sans-serif;
@@ -156,24 +172,9 @@ body {
   box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
 }
 
-#editorSaveButton {
-  position: fixed;
-  right: 34px;
-  width: 90px;
-  height: 35px
-  bottom: 70px;
-  font-size: 29px;
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #d4ffff;
-  padding: 8px;
-  margin: 5px 0px;
-  background-color: #66dfdf;
-}
-
 #editorCancelButton {
   position: absolute;
-  top: calc(100vh - 138px);
+  top: calc(100vh - 78px);
   right: 34px;
   width: 90px;
   height: 35px;
@@ -188,10 +189,10 @@ body {
 
 #editorSaveButton {
   position: absolute;
-  top: calc(100vh - 78px);
+  top: calc(100vh - 142px);
   right: 34px;
   width: 90px;
-  height: 35px
+  height: 35px;
   font-size: 29px;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
@@ -212,6 +213,7 @@ body {
   -webkit-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
   -moz-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
   box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+  overflow: hidden;
 }
 
 #editorPreview {
@@ -667,6 +669,7 @@ body {
 
 <div id="editor">
   <div id="editorPreviewParent">
+    <b id="editorPreviewTitle">Preview</b>
     <div id="editorPreview"></div>
   </div>
   <div id="editorInputDiv">
