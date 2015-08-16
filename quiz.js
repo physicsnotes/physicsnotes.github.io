@@ -101,6 +101,9 @@ function quit()
 {
   if(quizTime === false)
     return;
+
+  $('.noteConfig').show();
+
   quizTime = false;
 
   quizNotes = [];
@@ -146,6 +149,7 @@ function showRandomNote()
 {
   if(quizTime === false)
     return;
+
   if(quizNotes.length === 0)
   {
     quit();
@@ -159,6 +163,9 @@ function showRandomNote()
   var randomNoteIndex = Math.floor(Math.random() * quizNotes.length);
   quizNote = $(quizNotes[randomNoteIndex]).clone();
   quizNote.show();
+
+  $(quizNote).find('.noteConfig').remove();
+
   $('#quizNoteHolder').append(quizNote);
   quizNotes.splice(randomNoteIndex, 1);
 
