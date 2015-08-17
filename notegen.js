@@ -28,7 +28,7 @@ function openConfigAt(obj)
   $("#config").show();
 
   //Remove the animation class from the config bubble options
-  $("#configBubble").children("div").each(function(index)
+  $("#configDisplay").children("div").each(function(index)
   {
     $(this).removeClass("slideLeft");
     $(this).css('padding-left', '90px');
@@ -48,18 +48,18 @@ function openConfigAt(obj)
   setTimeout(function()
   {
     $("#configEdit").addClass("slideLeft");
-  }, 100);
+  }, 200);
 
   setTimeout(function()
   {
     $("#configLink").addClass("slideLeft");
-  }, 150);
+  }, 250);
 
   setTimeout(function()
   {
     $("#configDelete").addClass("slideLeft");
     configAnimating = false;
-  }, 200);
+  }, 300);
 }
 
 function toggleHideOpen(subjectBody)
@@ -128,7 +128,7 @@ function createNote(subjectName, headerStr, equationStr)
 
   //Create the note config
   var noteConfig = document.createElement("img");
-  noteConfig.src = "circle.png"
+  noteConfig.src = "circle.svg";
   noteConfig.className = "noteConfig";
   header.appendChild(noteConfig);
 
@@ -275,7 +275,7 @@ function populate()
 
     //Create the add note object
     var addNote = document.createElement("div");
-    addNote.className = "addNote " + subjectName + "Equation";
+    addNote.className = "addNote " + subjectName + "Header";
     addNote.appendChild
     (document.createTextNode("+"));
     subjectBody.appendChild(addNote);
@@ -327,8 +327,8 @@ function updateConfigPos()
 
     $("#config").css(
     {
-      'left' : position.left,
-      'top' : position.top - 120
+      'left' : position.left - 13,
+      'top' : position.top - 85
     });
   }
 }
