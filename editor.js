@@ -2,6 +2,7 @@ var editorState = "hidden";
 var editorHeaderStr = "";
 var editorEquationStr = "";
 var editorSubjectStr = "";
+var editorNoteID = "";
 var editorUpdateMathJaxTimeout = null;
 
 function editorNewNote()
@@ -18,6 +19,7 @@ function editorNewNote()
   {
     clearTimeout(editorUpdateMathJaxTimeout);
   }
+
   editorUpdateMathJaxTimeout = setTimeout(function()
   {
     MathJax.Hub.Queue(["Typeset", MathJax.Hub, $('#editorNote')[0]]);
@@ -32,6 +34,7 @@ function closeEditor()
   editorState = "hidden";
   editorHeaderStr = "";
   editorEquationStr = "";
+  editorNoteID = "";
 
   setTimeout(function()
   {
@@ -121,6 +124,14 @@ function createEditor()
 
   $('#editorSaveButton').click(function()
   {
+    var savedNote = createNote(editorSubjectStr, editorHeaderStr, editorEquationStr);
+
+    if(editorNoteID !== "")
+    {
+      $('#' + editorNoteID).replaceWith(savedNote);
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub, savedNote]);
+    }
+
     closeEditor();
   });
 
@@ -130,6 +141,7 @@ function createEditor()
     editorHeaderStr = noteData[noteID].header;
     editorEquationStr = noteData[noteID].equation;
     editorSubjectStr = noteData[noteID].subject;
+    editorNoteID = noteID;
     showEditor();
   });
 }

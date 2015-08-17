@@ -7,12 +7,12 @@
       "notes":
       [
         {
-          "id":"1.1",
+          "id":"1a1",
           "header":"Coulomb's Law",
-          "equation":"\\overrightarrow{F_{12}} = \\frac{kq_{1}q_{2}}{r^2}\\hat{r}\\\\\\mbox{Where }\\overrightarrow{F_{12}}\\mbox{ is the force }q_{1}\\mbox{ exerts on }q_{2}\\\\k \\mbox{ is a }\\linkNote{11.2}{constant}\\mbox{.}\\\\\\hat{r}\\mbox{ is the normal of the direction between the charges.}"
+          "equation":"\\overrightarrow{F_{12}} = \\frac{kq_{1}q_{2}}{r^2}\\hat{r}\\\\\\mbox{Where }\\overrightarrow{F_{12}}\\mbox{ is the force }q_{1}\\mbox{ exerts on }q_{2}\\\\k \\mbox{ is a }\\linkNote{2a1}{constant}\\mbox{.}\\\\\\hat{r}\\mbox{ is the normal of the direction between the charges.}"
         },
         {
-          "id":"1.2",
+          "id":"1a2",
           "header":"Charge Conservation",
           "equation":"\\mbox{The net charge in a closed system is constant.}"
         }
@@ -24,7 +24,7 @@
       "notes":
       [
         {
-          "id":"2.1",
+          "id":"2a1",
           "header":"Electric Flux",
           "equation":"\\Phi_E = \\overrightarrow{E} \\cdot \\overrightarrow{A} = EA\\cos(\\theta)\\\\\\Phi_E = \\int^{}_{surface}{\\overrightarrow{E} \\cdot d\\overrightarrow{A}}\\\\\\mbox{Where } \\overrightarrow{A} \\mbox{ is the outward pointing normal to the surface and has the magnitude of the surface's area.}"
         }

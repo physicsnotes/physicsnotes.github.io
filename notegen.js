@@ -84,10 +84,10 @@ function createNote(subjectName, headerStr, equationStr)
     header.appendChild(pageRef);
 
   //Extract any note links in the form: \\linkNote{CHAPTER_ID.NOTE_ID}{MATH_JAX_EXPRESSION}
-  var noteLinkRegExpExt = new RegExp('\\\\linkNote\\s*\\{\\s*([\\d.]+)\\s*\\}\\s*\\{(\\\\.*)\\}');
+  var noteLinkRegExpExt = new RegExp('\\\\linkNote\\s*\\{\\s*([\\da]+)\\s*\\}\\s*\\{(\\\\.*)\\}');
 
   //Extract any note links in the form: \\linkNote{CHAPTER_ID.NOTE_ID}{MESSAGE}
-  var noteLinkRegExp = new RegExp('\\\\linkNote\\s*\\{\\s*([\\d.]+)\\s*\\}\\s*\\{([^{}]*)\\}');
+  var noteLinkRegExp = new RegExp('\\\\linkNote\\s*\\{\\s*([\\da]+)\\s*\\}\\s*\\{([^{}]*)\\}');
 
   while(true)
   {
@@ -120,6 +120,55 @@ function createNote(subjectName, headerStr, equationStr)
   //Create the equation text with magic symbols used to tell mathjax that yes, we want it to mess with this
   var equationText = document.createTextNode("\\[" + equationStr + "\\]");
   equation.appendChild(equationText);
+
+  $(noteConfig).click(function()
+  {
+    //Leave early if we are still animating,
+    //Or not hidden and the new tagged object is the same as the old one
+    if(configAnimating || $("#config").is(":visible") && (configTaggedObject != null && configTaggedObject[0] == $(this)[0]))
+      return;
+
+    configAnimating = true;
+    configTaggedObject = $(this);
+
+    updateConfigPos();
+
+    $("#config").show();
+
+    //Remove the animation class from the config bubble options
+    $("#configBubble").children("div").each(function(index)
+    {
+      $(this).removeClass("slideLeft");
+      $(this).css('padding-left', '205px');
+    });
+
+    prepareForAnimation($("#configBubble"));
+
+    $('#configBubble').css
+    ({
+      'animation-name': 'configPopUp',
+      'animation-duration': '0.2s',
+      'animation-timing-function': 'ease-in',
+      'animation-fill-mode': 'forwards',
+      'animation-direction': 'normal',
+    });
+
+    setTimeout(function()
+    {
+      $("#configEdit").addClass("slideLeft");
+    }, 100);
+
+    setTimeout(function()
+    {
+      $("#configLink").addClass("slideLeft");
+    }, 150);
+
+    setTimeout(function()
+    {
+      $("#configDelete").addClass("slideLeft");
+      configAnimating = false;
+    }, 200);
+  });
 
   return note;
 }
@@ -188,7 +237,7 @@ function populate()
       var note = createNote(subjectName, noteObj.header, noteObj.equation);
 
       //Register note object
-      note.id = 'noteRef-' + noteObj.id;
+      note.id = noteObj.id;
       noteData[note.id] =
       {
         header: noteObj.header,
@@ -225,54 +274,6 @@ function populate()
     }
   });
 
-  $(".noteConfig").click(function()
-  {
-    //Leave early if we are still animating,
-    //Or not hidden and the new tagged object is the same as the old one
-    if(configAnimating || $("#config").is(":visible") && (configTaggedObject != null && configTaggedObject[0] == $(this)[0]))
-      return;
-
-    configAnimating = true;
-    configTaggedObject = $(this);
-
-    updateConfigPos();
-
-    $("#config").show();
-
-    //Remove the animation class from the config bubble options
-    $("#configBubble").children("div").each(function(index)
-    {
-      $(this).removeClass("slideLeft");
-      $(this).css('padding-left', '205px');
-    });
-
-    prepareForAnimation($("#configBubble"));
-
-    $('#configBubble').css
-    ({
-      'animation-name': 'configPopUp',
-      'animation-duration': '0.2s',
-      'animation-timing-function': 'ease-in',
-      'animation-fill-mode': 'forwards',
-      'animation-direction': 'normal',
-    });
-
-    setTimeout(function()
-    {
-      $("#configEdit").addClass("slideLeft");
-    }, 100);
-
-    setTimeout(function()
-    {
-      $("#configLink").addClass("slideLeft");
-    }, 150);
-
-    setTimeout(function()
-    {
-      $("#configDelete").addClass("slideLeft");
-      configAnimating = false;
-    }, 200);
-  });
   doneGeneratingNotes = true;
 }
 

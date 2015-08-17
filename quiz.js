@@ -4,7 +4,7 @@ MathJax.Hub.Register.StartupHook("End", function()
   mathJaxReady = true;
   $('.noteLink').click(function()
   {
-    var noteID = '#noteRef-' + $(this).attr('class').split(' ')[2].replace('.', '\\.')
+    var noteID = '#' + $(this).attr('class').split(' ')[2];
     var subjectBody = $(noteID).parent();
     var hideOpenButton = subjectBody.parent().find('.hideOpenButton');
 
