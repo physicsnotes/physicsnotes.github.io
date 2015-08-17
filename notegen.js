@@ -1,8 +1,10 @@
 var doneGeneratingNotes = false;
 var configTaggedObject = null;
 var configAnimating = false;
+
 var json = null;
 var noteData = new Object();
+var subjectData = new Object();
 
 $.getJSON("data.json",
 function(data)
@@ -10,6 +12,55 @@ function(data)
   json = data;
   populate();
 });
+
+function openConfigAt(obj)
+{
+  //Leave early if we are still animating,
+  //Or not hidden and the new tagged object is the same as the old one
+  if(configAnimating || $("#config").is(":visible") && (configTaggedObject != null && configTaggedObject[0] == obj))
+    return;
+
+  configAnimating = true;
+  configTaggedObject = obj;
+
+  updateConfigPos();
+
+  $("#config").show();
+
+  //Remove the animation class from the config bubble options
+  $("#configBubble").children("div").each(function(index)
+  {
+    $(this).removeClass("slideLeft");
+    $(this).css('padding-left', '90px');
+  });
+
+  prepareForAnimation($("#configBubble"));
+
+  $('#configBubble').css
+  ({
+    'animation-name': 'configPopUp',
+    'animation-duration': '0.2s',
+    'animation-timing-function': 'ease-in',
+    'animation-fill-mode': 'forwards',
+    'animation-direction': 'normal',
+  });
+
+  setTimeout(function()
+  {
+    $("#configEdit").addClass("slideLeft");
+  }, 100);
+
+  setTimeout(function()
+  {
+    $("#configLink").addClass("slideLeft");
+  }, 150);
+
+  setTimeout(function()
+  {
+    $("#configDelete").addClass("slideLeft");
+    configAnimating = false;
+  }, 200);
+}
 
 function toggleHideOpen(subjectBody)
 {
@@ -123,54 +174,30 @@ function createNote(subjectName, headerStr, equationStr)
 
   $(noteConfig).click(function()
   {
-    //Leave early if we are still animating,
-    //Or not hidden and the new tagged object is the same as the old one
-    if(configAnimating || $("#config").is(":visible") && (configTaggedObject != null && configTaggedObject[0] == $(this)[0]))
-      return;
-
-    configAnimating = true;
-    configTaggedObject = $(this);
-
-    updateConfigPos();
-
-    $("#config").show();
-
-    //Remove the animation class from the config bubble options
-    $("#configBubble").children("div").each(function(index)
-    {
-      $(this).removeClass("slideLeft");
-      $(this).css('padding-left', '205px');
-    });
-
-    prepareForAnimation($("#configBubble"));
-
-    $('#configBubble').css
-    ({
-      'animation-name': 'configPopUp',
-      'animation-duration': '0.2s',
-      'animation-timing-function': 'ease-in',
-      'animation-fill-mode': 'forwards',
-      'animation-direction': 'normal',
-    });
-
-    setTimeout(function()
-    {
-      $("#configEdit").addClass("slideLeft");
-    }, 100);
-
-    setTimeout(function()
-    {
-      $("#configLink").addClass("slideLeft");
-    }, 150);
-
-    setTimeout(function()
-    {
-      $("#configDelete").addClass("slideLeft");
-      configAnimating = false;
-    }, 200);
+    openConfigAt($(this)[0]);
   });
 
   return note;
+}
+
+function registerNote(note, id, header, equation)
+{
+  note.id = id;
+  noteData[id] =
+  {
+    header: header,
+    equation: equation,
+  };
+}
+
+function registerSubject(subject, id, name)
+{
+  subject.id = id;
+  subjectData[id] =
+  {
+    id: id,
+    name: name,
+  };
 }
 
 function populate()
@@ -190,6 +217,7 @@ function populate()
     //Extract from json
     var subject = subjects[s];
     var subjectTitleStr = subject.name;
+    var subjectID = subject.id;
     var subjectName = subjectTitleStr.replace(' ', '');
     var notes = subject.notes;
 
@@ -197,6 +225,9 @@ function populate()
     var subjectTable = document.createElement("div");
     subjectTable.className = subjectName + "Table subjectTable";
     masterDiv.appendChild(subjectTable);
+
+    //Register the subject
+    registerSubject(subjectTable, subjectID, subjectName);
 
     //Create the title row for the table
     var subjectTitleRow = document.createElement("div");
@@ -235,15 +266,7 @@ function populate()
       var noteObj = notes[n];
 
       var note = createNote(subjectName, noteObj.header, noteObj.equation);
-
-      //Register note object
-      note.id = noteObj.id;
-      noteData[note.id] =
-      {
-        header: noteObj.header,
-        equation: noteObj.equation,
-        subject: subjectName
-      };
+      registerNote(note, noteObj.id, noteObj.header, noteObj.equation);
 
       subjectBody.appendChild(note);
     }
@@ -281,7 +304,7 @@ function updateConfigPos()
 {
   if(configTaggedObject != null)
   {
-    var position = configTaggedObject.offset();
+    var position = $(configTaggedObject).offset();
 
     $("#config").css(
     {

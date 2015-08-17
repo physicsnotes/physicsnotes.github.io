@@ -128,6 +128,9 @@ function createEditor()
 
     if(editorNoteID !== "")
     {
+      //Register the note
+      registerNote(savedNote, editorNoteID, editorHeaderStr, editorEquationStr);
+
       $('#' + editorNoteID).replaceWith(savedNote);
       MathJax.Hub.Queue(["Typeset", MathJax.Hub, savedNote]);
     }
@@ -138,12 +141,46 @@ function createEditor()
   $('#configEdit').click(function()
   {
     var noteID = $(configTaggedObject).parent().parent().attr('id');
+
     editorHeaderStr = noteData[noteID].header;
     editorEquationStr = noteData[noteID].equation;
-    editorSubjectStr = noteData[noteID].subject;
+
+    var subjectID = getSubjectIDFromNoteID(noteID);
+    alert(subjectID);
+    editorSubjectStr = subjectData[subjectID].name;
+
     editorNoteID = noteID;
     showEditor();
   });
+}
+
+function getSubjectNameFromID(subjectID)
+{
+  return subjectData[subjectID].name;
+}
+
+function getSubjectIDFromNoteID(noteID)
+{
+  return noteID.match(/(s.*)n+/)[1];
+}
+
+function getUniqueNoteID(subjectID)
+{
+  var maxID = 0;
+
+  for (var note in noteData)
+  {
+    //Ensure that this is actually a note and not an inherited object property
+    if(noteData.hasOwnProperty(note))
+    {
+      var noteID = note.replace(subjectID + 'a', '');
+      if(noteID !== note)
+      {
+        maxID = Math.max(maxID, parseInt(noteID));
+      }
+    }
+  }
+  return maxID + 1;
 }
 
 createEditor();
