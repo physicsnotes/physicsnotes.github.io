@@ -65,6 +65,18 @@
   animation-direction': normal;
 }
 
+.addNote {
+  position: absolute;;
+  right: 9px;
+  bottom: 9px;
+  font-size: 46px;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 55px;
+  height: 50px;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
 body {
   background-image: url("bgnoise.png");
   background-repeat: repeat;
@@ -291,7 +303,7 @@ body {
   transform: translate(-50%, 0);
 }
 
-#editorCancelButton, #editorSaveButton, #quizNextButton, #quizQuitButton, #quizShowButton {
+#editorCancelButton, #editorSaveButton, #quizNextButton, #quizQuitButton, #quizShowButton, .addNote {
   cursor: pointer;
   border-radius: 8px;
   -webkit-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
@@ -306,8 +318,15 @@ body {
   user-select: none;
 }
 
-#editorCancelButton:active, #editorSaveButton:active, #quizShowButton:active {
-  padding-top: 5px;
+#editorCancelButton:active, #editorSaveButton:active, .addNote:active {
+  padding-bottom: 6px;
+  margin-top: 6px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+#quizShowButton:active {
   padding-bottom: 5px;
   margin-top: 11px;
   -webkit-box-shadow: none;
@@ -315,7 +334,6 @@ body {
   box-shadow: none;
 }
 
-/*These buttons don't need the margin-top the other ones do to look like they went down*/
 #quizNextButton:active, #quizQuitButton:active {
   padding-top: 5px;
   padding-bottom: 5px;
@@ -376,6 +394,8 @@ body {
   padding-right: 35px;
   padding-bottom: 5px;
   padding-top: 5px;
+
+  min-height: 23px;
 
   -webkit-box-shadow: 2px 2px 9px -1px rgba(0,0,0,.5);
   -moz-box-shadow: 2px 2px 9px -1px rgba(0,0,0,.5);
@@ -495,6 +515,7 @@ body {
   padding: 8px;
 
   border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
 
   color: #313131;
   font-family: Arial, Helvetica, serif;
@@ -506,8 +527,9 @@ body {
 }
 
 .subjectBody {
-  display: block;
   overflow: hidden;
+  position:relative; /* Makes absoulute children to be hidden if overflowing*/
+
   margin-top: 10px;
   margin-bottom: 0px;
 }

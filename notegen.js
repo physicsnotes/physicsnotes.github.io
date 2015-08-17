@@ -70,6 +70,7 @@ function toggleHideOpen(subjectBody)
   if(text == "+")
   {
     subjectBody.slideDown(250);
+    subjectBody.find('.addNote').slideDown(250);
 
     subjectBody.css("overflow-x", "auto");
 
@@ -80,6 +81,7 @@ function toggleHideOpen(subjectBody)
   else
   {
     subjectBody.slideUp(250);
+    subjectBody.find('.addNote').slideUp(250);
 
     subjectBody.css("overflow-x", "hidden");
 
@@ -270,6 +272,23 @@ function populate()
 
       subjectBody.appendChild(note);
     }
+
+    //Create the add note object
+    var addNote = document.createElement("div");
+    addNote.className = "addNote " + subjectName + "Equation";
+    addNote.appendChild
+    (document.createTextNode("+"));
+    subjectBody.appendChild(addNote);
+
+    (function()
+    {
+      var si = subjectID;
+
+      $(addNote).click(function()
+      {
+        openEditor(si, '');
+      });
+    })();
   }
 
   $(".quizButton").click(function()

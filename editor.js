@@ -1,17 +1,27 @@
-var editorState = "hidden";
-var editorHeaderStr = "";
-var editorEquationStr = "";
-var editorSubjectStr = "";
-var editorNoteID = "";
+var editorState = 'closed';
+var editorHeaderStr = '';
+var editorEquationStr = '';
+var editorSubjectName = '';
+var editorSubjectID = '';
+var editorNoteID = '';
 var editorUpdateMathJaxTimeout = null;
+
+//objToUpdate is optional
+function updateMathJax(objToUpdate)
+{
+  if(objToUpdate === undefined)
+    MathJax.Hub.Queue(['Typeset', MathJax.Hub]);
+  else
+    MathJax.Hub.Queue(['Typeset', MathJax.Hub, objToUpdate]);
+}
 
 function editorNewNote()
 {
   $('#editorNote').remove();
 
-  var editorNote = createNote(editorSubjectStr, editorHeaderStr, editorEquationStr);
+  var editorNote = createNote(editorSubjectName, editorHeaderStr, editorEquationStr);
   editorNote.id = 'editorNote';
-  $(editorNote).find('.noteConfig').hide();
+  $(editorNote).find('.noteConfig').remove();
 
   $('#editorPreview').append(editorNote);
 
@@ -22,7 +32,7 @@ function editorNewNote()
 
   editorUpdateMathJaxTimeout = setTimeout(function()
   {
-    MathJax.Hub.Queue(["Typeset", MathJax.Hub, $('#editorNote')[0]]);
+    updateMathJax($('#editorNote')[0]);
   }, 500);
 }
 
@@ -32,9 +42,6 @@ function closeEditor()
     return;
 
   editorState = "hidden";
-  editorHeaderStr = "";
-  editorEquationStr = "";
-  editorNoteID = "";
 
   setTimeout(function()
   {
@@ -58,32 +65,41 @@ function closeEditor()
   });
 }
 
-function showEditor()
+//NoteID not required, just pass in an empty string.
+function openEditor(subjectID, noteID)
 {
-  if(editorState === 'active')
+  if(editorState === 'open')
     return;
 
-  editorState = "active";
+  editorState = 'open';
+
+  if(noteID === '')
+  {
+    editorHeaderStr = 'Note Title';
+    editorEquationStr = '\\mbox{Note Body}'
+  }
+  else
+  {
+    editorHeaderStr = noteData[noteID].header;
+    editorEquationStr = noteData[noteID].equation;
+  }
+  $('#editorHeaderInput').val(editorHeaderStr);
+  $('#editorEquationInput').html(editorEquationStr);
+
+  editorNoteID = noteID;
+  editorSubjectID = subjectID;
+  editorSubjectName = getSubjectNameFromID(subjectID);
 
   hideNotesAndSearch();
   $('#config').hide();
 
-  if(editorHeaderStr === '')
-    editorHeaderStr = 'Note Title';
-
-  if(editorEquationStr === '')
-    editorEquationStr = '\\mbox{Note Body}'
-
-  $('#editorPreviewTitle').removeClass().addClass(editorSubjectStr + 'Header');
-  $('#editorPreviewParent').removeClass().addClass(editorSubjectStr + 'Table');
-
-  $('#editorHeaderInput').val(editorHeaderStr);
-  $('#editorEquationInput').html(editorEquationStr);
+  $('#editorPreviewTitle').removeClass().addClass(editorSubjectName + 'Header');
+  $('#editorPreviewParent').removeClass().addClass(editorSubjectName + 'Table');
 
   editorNewNote();
 
   //For whatever reason Mathjax needs a kick in the pants to get the ball rolling
-  MathJax.Hub.Queue(["Typeset", MathJax.Hub, $('#editorNote')[0]]);
+  updateMathJax($('#editorNote')[0]);
 
   setTimeout(function()
   {
@@ -101,7 +117,7 @@ function showEditor()
   }, 600);
 }
 
-function createEditor()
+function initEditor()
 {
   $('#editorHeaderInput').on('input', function()
   {
@@ -117,40 +133,40 @@ function createEditor()
     editorNewNote();
   });
 
-  $('#editorCancelButton').click(function()
-  {
-    closeEditor();
-  });
+  $('#editorCancelButton').click(closeEditor);
 
   $('#editorSaveButton').click(function()
   {
-    var savedNote = createNote(editorSubjectStr, editorHeaderStr, editorEquationStr);
-
-    if(editorNoteID !== "")
-    {
-      //Register the note
-      registerNote(savedNote, editorNoteID, editorHeaderStr, editorEquationStr);
-
-      $('#' + editorNoteID).replaceWith(savedNote);
-      MathJax.Hub.Queue(["Typeset", MathJax.Hub, savedNote]);
-    }
+    if(editorState == 'closed')
+      return;
 
     closeEditor();
+
+    var savedNote = createNote(editorSubjectName, editorHeaderStr, editorEquationStr);
+
+    //Did the note already exist?
+    if(editorNoteID !== '')
+    {
+      //If so, replace the new note with it
+      $('#' + editorNoteID).replaceWith(savedNote);
+      registerNote(savedNote, editorNoteID, editorHeaderStr, editorEquationStr);
+    }
+    else
+    {
+      //The note didn't exist, add it to the subject
+      $('#' + editorSubjectID).find('.subjectBody').append(savedNote);
+      registerNote(savedNote, getUniqueNoteID(editorSubjectID), editorHeaderStr, editorEquationStr);
+    }
+
+    updateMathJax(savedNote);
   });
 
   $('#configEdit').click(function()
   {
     var noteID = $(configTaggedObject).parent().parent().attr('id');
-
-    editorHeaderStr = noteData[noteID].header;
-    editorEquationStr = noteData[noteID].equation;
-
     var subjectID = getSubjectIDFromNoteID(noteID);
-    alert(subjectID);
-    editorSubjectStr = subjectData[subjectID].name;
 
-    editorNoteID = noteID;
-    showEditor();
+    openEditor(subjectID, noteID);
   });
 }
 
@@ -173,14 +189,14 @@ function getUniqueNoteID(subjectID)
     //Ensure that this is actually a note and not an inherited object property
     if(noteData.hasOwnProperty(note))
     {
-      var noteID = note.replace(subjectID + 'a', '');
+      var noteID = note.replace(subjectID + 'n', '');
       if(noteID !== note)
       {
         maxID = Math.max(maxID, parseInt(noteID));
       }
     }
   }
-  return maxID + 1;
+  return subjectID + 'n' + (maxID + 1);
 }
 
-createEditor();
+initEditor();
