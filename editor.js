@@ -38,10 +38,10 @@ function editorNewNote()
 
 function closeEditor()
 {
-  if(editorState === "hidden")
+  if(editorState === 'closed')
     return;
 
-  editorState = "hidden";
+  editorState = 'closed';
 
   setTimeout(function()
   {
@@ -157,6 +157,9 @@ function initEditor()
       $('#' + editorSubjectID).find('.subjectBody').append(savedNote);
       registerNote(savedNote, getUniqueNoteID(editorSubjectID), editorHeaderStr, editorEquationStr);
     }
+
+    //Make the note jiggle, because awesome.
+    savedNote.className += ' jellyPopup';
 
     updateMathJax(savedNote);
   });

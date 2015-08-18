@@ -36,14 +36,7 @@ function openConfigAt(obj)
 
   prepareForAnimation($("#configBubble"));
 
-  $('#configBubble').css
-  ({
-    'animation-name': 'configPopUp',
-    'animation-duration': '0.2s',
-    'animation-timing-function': 'ease-in',
-    'animation-fill-mode': 'forwards',
-    'animation-direction': 'normal',
-  });
+  $('#config').addClass('configPopUp');
 
   setTimeout(function()
   {
@@ -70,7 +63,10 @@ function toggleHideOpen(subjectBody)
   if(text == "+")
   {
     subjectBody.slideDown(250);
-    subjectBody.parent().find('.addNote').slideDown(250);
+
+    var addNote = subjectBody.parent().find('.addNote');
+    addNote.slideDown(250);
+    addNote.show();
 
     subjectBody.css("overflow-x", "auto");
 
@@ -81,7 +77,9 @@ function toggleHideOpen(subjectBody)
   else
   {
     subjectBody.slideUp(250);
-    subjectBody.parent().find('.addNote').slideUp(250);
+
+    var addNote = subjectBody.parent().find('.addNote');
+    addNote.slideUp(250);
 
     subjectBody.css("overflow-x", "hidden");
 
@@ -315,6 +313,11 @@ function populate()
       $("#config").hide();
     }
   });
+
+  //Create the add subject
+  var addSubject = document.createElement("div");
+  addSubject.id = "addSubject";
+  masterDiv.appendChild(addSubject);
 
   doneGeneratingNotes = true;
 }

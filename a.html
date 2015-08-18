@@ -13,6 +13,36 @@
 
 <style>
 
+@keyframes jellyPopupAmim {
+    0% {
+      transform: scale(0.0);
+    }
+
+    70% {
+      transform: scale(1.0);
+    }
+
+    80% {
+      transform: scale(1.1);
+    }
+
+    90% {
+      transform: scale(0.9);
+    }
+
+    100% {
+      transform: scale(1.0);
+    }
+}
+
+.jellyPopup {
+  animation-name: jellyPopupAmim;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+  animation-direction': normal;
+}
+
 @keyframes fadeAndScaleOut {
     0% {
       /*transform: scale(1.0, 1.0);*/
@@ -25,7 +55,7 @@
     }
 }
 
-@keyframes configSlideLeft {
+@keyframes slideLeftAnim {
     0% {
       padding-left: 90px;
     }
@@ -35,16 +65,32 @@
     }
 }
 
-@keyframes configPopUp {
+.slideLeft {
+  animation-name: slideLeftAnim;
+  animation-duration: 0.1s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+  animation-direction': normal;
+}
+
+@keyframes configPopUpAnim {
     0% {
-      height: 20px;
-      margin-top: 60px;
+      opacity: 0.0;
+      transform: translateY(-20px);
     }
 
     100% {
-      height: 80px;
-      margin-top: 0px;
+      opacity: 1.0;
+      transform: translateY(0px);
     }
+}
+
+.configPopUp {
+  animation-name: configPopUpAnim;
+  animation-duration: 0.2s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+  animation-direction: normal;
 }
 
 @keyframes fadeOut {
@@ -57,16 +103,11 @@
     }
 }
 
-.slideLeft {
-  animation-name: configSlideLeft;
-  animation-duration: 0.1s;
-  animation-timing-function: ease-in;
-  animation-fill-mode: forwards;
-  animation-direction': normal;
-}
+
 
 .addNote {
-  position: absolute;;
+  display: none;
+  position: absolute;
   right: 9px;
   bottom: 9px;
   font-size: 46px;
@@ -87,6 +128,17 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+#addSubject {
+  border-image-source: url("http://i.stack.imgur.com/wLdVc.png");
+  border-radius: 5px;
+  border-image-slice: 2;
+  border-image-repeat: round;
+  margin: 10px 10px 10px 10px;
+  padding-bottom: 25px;
+  height: 26px;
+  min-width: 500px;
 }
 
 #masterDiv {
@@ -472,7 +524,6 @@ body {
 }
 
 .subjectTable {
-  display: block;
   position: relative;
 
   border-radius: 5px;
@@ -541,7 +592,6 @@ body {
 }
 
 .note {
-  width: auto;
   float: left;
   margin: 10px;
 }
