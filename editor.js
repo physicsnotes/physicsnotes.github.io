@@ -144,6 +144,12 @@ function initEditor()
 
     openEditor(subjectID, noteID);
   });
+
+  $("#configLink").click(function()
+  {
+    var noteID = $(configTaggedObject).parent().parent().attr('id');
+    window.prompt("Copy to clipboard:", "\\\\linkNote{" + noteID + "}{Message}");
+  });
 }
 
 function saveAndExit()

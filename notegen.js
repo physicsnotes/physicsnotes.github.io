@@ -284,11 +284,6 @@ function populate()
     toggleHideOpen(subjectBody);
   });
 
-  $(".linkHeader").click(function()
-  {
-    window.prompt("Copy to clipboard:", "\\\\linkNote{" + $(this).data('link') + "}{Message}");
-  });
-
   $(document).click(function(e)
   {
     if($(e.target).closest("#config, .noteConfig").length === 0)
