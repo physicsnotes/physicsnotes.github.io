@@ -48,7 +48,7 @@ function toggleHideOpen(subjectBody)
     subjectBody.slideDown(250);
 
     var addNote = subjectBody.parent().find('.addNote');
-    addNote.slideDown(250);
+    //addNote.slideDown(250);
     addNote.show();
 
     subjectBody.css("overflow-x", "auto");
@@ -62,7 +62,7 @@ function toggleHideOpen(subjectBody)
     subjectBody.slideUp(250);
 
     var addNote = subjectBody.parent().find('.addNote');
-    addNote.slideUp(250);
+    //addNote.slideUp(250);
 
     subjectBody.css("overflow-x", "hidden");
 
@@ -173,6 +173,11 @@ function registerNote(note, id, header, equation)
   };
 }
 
+function unregisterNote(note)
+{
+  delete noteData[note.id];
+}
+
 function registerSubject(subject, id, name)
 {
   subject.id = id;
@@ -259,7 +264,7 @@ function populate()
     addNote.className = "addNote " + subjectName + "Header";
     addNote.appendChild
     (document.createTextNode("+"));
-    subjectTable.appendChild(addNote);
+    subjectBody.appendChild(addNote);
 
     (function()
     {

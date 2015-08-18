@@ -150,6 +150,16 @@ function initEditor()
     var noteID = $(configTaggedObject).parent().parent().attr('id');
     window.prompt("Copy to clipboard:", "\\\\linkNote{" + noteID + "}{Message}");
   });
+
+  $("#configDelete").click(function()
+  {
+    $('#config').hide();
+
+    var note = $(configTaggedObject).parent().parent();
+
+    unregisterNote(note[0]);
+    note.remove();
+  });
 }
 
 function saveAndExit()
