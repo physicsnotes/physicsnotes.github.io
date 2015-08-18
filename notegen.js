@@ -3,8 +3,7 @@ var configTaggedObject = null;
 var configAnimating = false;
 
 var json = null;
-var noteData = new Object();
-var subjectData = new Object();
+var saveData = new Object();
 
 $.getJSON("data.json",
 function(data)
@@ -48,7 +47,10 @@ function toggleHideOpen(subjectBody)
     subjectBody.slideDown(250);
 
     var addNote = subjectBody.parent().find('.addNote');
-    //addNote.slideDown(250);
+    if(!addNote.is(":only-child"))
+    {
+      addNote.slideDown(250);
+    }
     addNote.show();
 
     subjectBody.css("overflow-x", "auto");
@@ -62,7 +64,10 @@ function toggleHideOpen(subjectBody)
     subjectBody.slideUp(250);
 
     var addNote = subjectBody.parent().find('.addNote');
-    //addNote.slideUp(250);
+    if(!addNote.is(":only-child"))
+    {
+      addNote.slideUp(250);
+    }
 
     subjectBody.css("overflow-x", "hidden");
 
@@ -166,7 +171,7 @@ function createNote(subjectName, headerStr, equationStr)
 function registerNote(note, id, header, equation)
 {
   note.id = id;
-  noteData[id] =
+  saveData[id] =
   {
     header: header,
     equation: equation,
@@ -175,13 +180,13 @@ function registerNote(note, id, header, equation)
 
 function unregisterNote(note)
 {
-  delete noteData[note.id];
+  delete saveData[note.id];
 }
 
 function registerSubject(subject, id, name)
 {
   subject.id = id;
-  subjectData[id] =
+  saveData[id] =
   {
     id: id,
     name: name,
@@ -297,10 +302,18 @@ function populate()
     }
   });
 
-  //Create the add subject
+  //Create the add subject table
+  var addSubjectTable = document.createElement("div");
+  addSubjectTable.id = "addSubjectTable";
+  masterDiv.appendChild(addSubjectTable);
+
+  //Create the add subject button
   var addSubject = document.createElement("div");
   addSubject.id = "addSubject";
-  masterDiv.appendChild(addSubject);
+  addSubject.appendChild
+  (document.createTextNode("+"));
+  addSubjectTable.appendChild(addSubject);
+
 
   doneGeneratingNotes = true;
 }

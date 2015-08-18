@@ -80,8 +80,8 @@ function openEditor(subjectID, noteID)
   }
   else
   {
-    editorHeaderStr = noteData[noteID].header;
-    editorEquationStr = noteData[noteID].equation;
+    editorHeaderStr = saveData[noteID].header;
+    editorEquationStr = saveData[noteID].equation;
   }
   $('#editorHeaderInput').val(editorHeaderStr);
   $('#editorEquationInput').html(editorEquationStr);
@@ -204,7 +204,7 @@ function saveAndExit()
 
 function getSubjectNameFromID(subjectID)
 {
-  return subjectData[subjectID].name;
+  return saveData[subjectID].name;
 }
 
 function getSubjectIDFromNoteID(noteID)
@@ -216,10 +216,10 @@ function getUniqueNoteID(subjectID)
 {
   var maxID = 0;
 
-  for (var note in noteData)
+  for (var note in saveData)
   {
     //Ensure that this is actually a note and not an inherited object property
-    if(noteData.hasOwnProperty(note))
+    if(saveData.hasOwnProperty(note))
     {
       var noteID = note.replace(subjectID + 'n', '');
       if(noteID !== note)
