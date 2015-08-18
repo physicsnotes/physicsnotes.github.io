@@ -23,11 +23,11 @@
     }
 
     80% {
-      transform: scale(1.1);
+      transform: scale(1.02);
     }
 
     90% {
-      transform: scale(0.9);
+      transform: scale(0.95);
     }
 
     100% {
@@ -53,24 +53,6 @@
       /*transform: scale(0.8, 0.8);*/
       opacity: 0.0;
     }
-}
-
-@keyframes slideLeftAnim {
-    0% {
-      padding-left: 90px;
-    }
-
-    100% {
-      padding-left: 15px;
-    }
-}
-
-.slideLeft {
-  animation-name: slideLeftAnim;
-  animation-duration: 0.1s;
-  animation-timing-function: ease-in;
-  animation-fill-mode: forwards;
-  animation-direction': normal;
 }
 
 @keyframes configPopUpAnim {
@@ -102,8 +84,6 @@
       opacity: 0.0;
     }
 }
-
-
 
 .addNote {
   display: none;
@@ -194,12 +174,7 @@ body {
   box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
 }
 
-#configDisplay  {
-  height: calc(100% - 6px);
-  overflow: hidden;
-}
-
-#configDisplay > div {
+#configBubble > div {
   color: #62666a;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
@@ -208,7 +183,7 @@ body {
   cursor: pointer;
 }
 
-#configDisplay > div:hover {
+#configBubble > div:hover {
   text-decoration: underline;
 }
 
@@ -525,7 +500,7 @@ body {
 
 .subjectTable {
   position: relative;
-
+  overflow: hidden;
   border-radius: 5px;
 
   -webkit-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
@@ -584,9 +559,8 @@ body {
 }
 
 .subjectBody {
-  overflow: hidden;
-  position:relative; /* Makes absoulute children to be hidden if overflowing*/
-
+  overflow: visible;
+  width: calc(100% - 66px);
   margin-top: 10px;
   margin-bottom: 0px;
 }
@@ -804,11 +778,9 @@ body {
 
 <div id="config">
   <div id="configBubble">
-    <div id="configDisplay">
-      <div id="configEdit">Edit</div>
-      <div id="configLink">Link</div>
-      <div id="configDelete">Delete</div>
-    </div>
+    <div id="configEdit">Edit</div>
+    <div id="configLink">Link</div>
+    <div id="configDelete">Delete</div>
   </div>
   <img id="configTail" src="tail.svg"></img>
 </div>

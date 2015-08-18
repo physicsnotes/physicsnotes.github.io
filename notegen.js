@@ -17,42 +17,25 @@ function openConfigAt(obj)
 {
   //Leave early if we are still animating,
   //Or not hidden and the new tagged object is the same as the old one
-  if(configAnimating || $("#config").is(":visible") && (configTaggedObject != null && configTaggedObject[0] == obj))
+  if(configAnimating || $("#config").is(":visible") && (configTaggedObject != null && configTaggedObject[0] === obj))
     return;
 
   configAnimating = true;
   configTaggedObject = obj;
 
   updateConfigPos();
-
-  $("#config").show();
-
-  //Remove the animation class from the config bubble options
-  $("#configDisplay").children("div").each(function(index)
+  $("#config").hide();
+  $('#config').removeClass('configPopUp');
+  setTimeout(function()
   {
-    $(this).removeClass("slideLeft");
-    $(this).css('padding-left', '90px');
-  });
-
-  prepareForAnimation($("#configBubble"));
-
-  $('#config').addClass('configPopUp');
+    $("#config").show();
+    $('#config').addClass('configPopUp');
+  }, 10);
 
   setTimeout(function()
   {
-    $("#configEdit").addClass("slideLeft");
-  }, 200);
-
-  setTimeout(function()
-  {
-    $("#configLink").addClass("slideLeft");
-  }, 250);
-
-  setTimeout(function()
-  {
-    $("#configDelete").addClass("slideLeft");
     configAnimating = false;
-  }, 300);
+  }, 200);
 }
 
 function toggleHideOpen(subjectBody)

@@ -135,34 +135,7 @@ function initEditor()
 
   $('#editorCancelButton').click(closeEditor);
 
-  $('#editorSaveButton').click(function()
-  {
-    if(editorState == 'closed')
-      return;
-
-    closeEditor();
-
-    var savedNote = createNote(editorSubjectName, editorHeaderStr, editorEquationStr);
-
-    //Did the note already exist?
-    if(editorNoteID !== '')
-    {
-      //If so, replace the new note with it
-      $('#' + editorNoteID).replaceWith(savedNote);
-      registerNote(savedNote, editorNoteID, editorHeaderStr, editorEquationStr);
-    }
-    else
-    {
-      //The note didn't exist, add it to the subject
-      $('#' + editorSubjectID).find('.subjectBody').append(savedNote);
-      registerNote(savedNote, getUniqueNoteID(editorSubjectID), editorHeaderStr, editorEquationStr);
-    }
-
-    //Make the note jiggle, because awesome.
-    savedNote.className += ' jellyPopup';
-
-    updateMathJax(savedNote);
-  });
+  $('#editorSaveButton').click(saveAndExit);
 
   $('#configEdit').click(function()
   {
@@ -171,6 +144,46 @@ function initEditor()
 
     openEditor(subjectID, noteID);
   });
+}
+
+function saveAndExit()
+{
+  if(editorState == 'closed')
+    return;
+
+  closeEditor();
+
+  var savedNote = createNote(editorSubjectName, editorHeaderStr, editorEquationStr);
+
+  //Did the note already exist?
+  if(editorNoteID !== '')
+  {
+    //If so, replace the new note with it
+    $('#' + editorNoteID).replaceWith(savedNote);
+  }
+  else
+  {
+    //The note didn't exist, add it to the subject
+    $('#' + editorSubjectID).find('.subjectBody').append(savedNote);
+    editorNoteID = getUniqueNoteID(editorSubjectID);
+  }
+  registerNote(savedNote, editorNoteID, editorHeaderStr, editorEquationStr);
+
+  //Make the note jiggle, because awesome.
+  savedNote.className += ' jellyPopup';
+
+  //Remove the jiggle animation when it's done
+  (function()
+  {
+    //Capture the note id
+    var noteID = editorNoteID;
+    setTimeout(function()
+    {
+      $('#' + noteID).removeClass('jellyPopup');
+    }, 1000);
+  })();
+
+  updateMathJax(savedNote);
 }
 
 function getSubjectNameFromID(subjectID)
