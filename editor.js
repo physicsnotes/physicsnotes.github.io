@@ -6,6 +6,10 @@ var editorSubjectID = '';
 var editorNoteID = '';
 var editorUpdateMathJaxTimeout = null;
 
+var editorHeaderColor;
+var editorEquationColor;
+var editorTableColor;
+
 //objToUpdate is optional
 function updateMathJax(objToUpdate)
 {
@@ -91,22 +95,86 @@ function openEditor()
   }, 600);
 }
 
+function setRandomSubjectColors()
+{
+  var colorR = Math.round(Math.random() * 50 + 200);
+  var colorG = Math.round(Math.random() * 50 + 200);
+  var colorB = Math.round(Math.random() * 50 + 200);
+  
+  editorTableColor = 'rgb(' + colorR + ',' + colorG + ',' + colorB + ')';
+  editorHeaderColor = 'rgb(' + (colorR - 50) + ',' + (colorG - 50) + ',' + (colorB - 50) + ')';
+  editorEquationColor = 'rgb(' + Math.min(colorR + 20, 255) + ',' + Math.min(colorG + 20, 255) + ',' + Math.min(colorB + 20, 255) + ')';
+  
+  updateColors();
+}
+
+function toHex(rgbStr)
+{
+  rgb = rgbStr.match(/rgb\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)+\s*\)/);
+  if(rgb == null)
+    return rgbStr;
+    
+  function hex(x)
+  {
+    return ("0" + parseInt(x).toString(16)).slice(-2);
+  }
+  return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+}
+
+function updateColors()
+{
+  
+  
+  editorHeaderColor = toHex(editorHeaderColor);
+  editorEquationColor = toHex(editorEquationColor);
+  editorTableColor = toHex(editorTableColor);
+  
+  $('#editorPreviewTitle').css('background-color', editorHeaderColor);
+  $('#editorNote').find('.equationHeader').css('background-color', editorHeaderColor);
+  $('#editorNote').find('.equation').css('background-color', editorEquationColor);
+  $('#editorPreviewParent').css('background-color', editorTableColor);
+  $('.editorColorDiv').each(function(index)
+  {
+    var color = editorHeaderColor;
+    if(index == 1)
+      color = editorTableColor;
+    if(index == 2)
+      color = editorEquationColor;
+    
+    $(this).css('background-color', color); 
+  });
+  
+  $('.editorColorInput').each(function(index)
+  {
+    var color = editorHeaderColor;
+    if(index == 1)
+      color = editorTableColor;
+    if(index == 2)
+      color = editorEquationColor;
+
+    $(this).val(color);
+  });
+}
+
 //subjectID not required, just pass in an empty string.
 function openSubjectEditor(subjectID)
 {
   if(editorState === 'open')
     return;
-
-  editorSubjectID = subjectID;
-  
-  $('#subjectEditor').show();
-  $('#noteEditor').hide();
   
   //Make a dummy note
   editorHeaderStr = 'Dummy Note';
   editorEquationStr = '\\mbox{Johnny Bravo!}';
   editorNewNote();
   updateMathJax($('#editorNote')[0]);
+  
+  editorSubjectID = subjectID;
+  
+  if(subjectID == '')
+    setRandomSubjectColors();
+    
+  $('#subjectEditor').show();
+  $('#noteEditor').hide();
   
   openEditor();
 }
@@ -160,31 +228,31 @@ function initEditor()
 
     editorNewNote();
   });
+  
+  $('#editorSubjectTitleInput').on('input', function()
+  {
+    editorSubjectName = $(this).val();
+    $('#editorPreviewTitle').html(editorSubjectName);
+  });
 
   $('.editorColorInput').on('input', function()
   {
     var name = $(this).attr('name');
     var newColor = $(this).val();
     
-    function updateColor(jQueryElem)
-    {
-      jQueryElem.css('background-color', newColor);
-    }
-    
     switch(name)
     {
       case 'titleColor':
-        updateColor($('#editorPreviewTitle'));  
-        updateColor($('#editorNote').find('.equationHeader'));
+        editorHeaderColor = newColor;
         break;  
       case 'noteColor':
-        updateColor($('#editorNote').find('.equation'));
+        editorEquationColor = newColor;
         break;
       case 'subjectColor':
-        updateColor($('#editorPreviewParent'));
+        editorTableColor = newColor;
         break;
     }
-    updateColor($(this).parent().find('.editorColorDiv'));
+    updateColors();
   });
   
   $('#editorCancelButton').click(closeEditor);
