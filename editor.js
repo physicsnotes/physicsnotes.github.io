@@ -65,13 +65,60 @@ function closeEditor()
   });
 }
 
-//NoteID not required, just pass in an empty string.
-function openEditor(subjectID, noteID)
+function openEditor()
+{
+  editorState = 'open';
+  
+  hideNotesAndSearch();
+  $('#config').hide();
+
+  $('#editorPreviewTitle').removeClass().addClass(editorSubjectName + 'Header');
+  $('#editorPreviewParent').removeClass().addClass(editorSubjectName + 'Table');
+  
+  setTimeout(function()
+  {
+    $('#editor').show();
+    prepareForAnimation($('#editor'));
+
+    $('#editor').css
+    ({
+      'animation-name': 'fadeAndScaleOut',
+      'animation-duration': '0.4s',
+      'animation-timing-function': 'ease-in',
+      'animation-fill-mode': 'forwards',
+      'animation-direction': 'reverse'
+    });
+  }, 600);
+}
+
+//subjectID not required, just pass in an empty string.
+function openSubjectEditor(subjectID)
 {
   if(editorState === 'open')
     return;
 
-  editorState = 'open';
+  editorSubjectID = subjectID;
+  
+  $('#subjectEditor').show();
+  $('#noteEditor').hide();
+  
+  //Make a dummy note
+  editorHeaderStr = 'Dummy Note';
+  editorEquationStr = '\\mbox{Johnny Bravo!}';
+  editorNewNote();
+  updateMathJax($('#editorNote')[0]);
+  
+  openEditor();
+}
+
+//noteID not required, just pass in an empty string.
+function openNoteEditor(subjectID, noteID)
+{
+  if(editorState === 'open')
+    return;
+    
+  $('#noteEditor').show();
+  $('#subjectEditor').hide();
 
   if(noteID === '')
   {
@@ -90,31 +137,12 @@ function openEditor(subjectID, noteID)
   editorSubjectID = subjectID;
   editorSubjectName = getSubjectNameFromID(subjectID);
 
-  hideNotesAndSearch();
-  $('#config').hide();
-
-  $('#editorPreviewTitle').removeClass().addClass(editorSubjectName + 'Header');
-  $('#editorPreviewParent').removeClass().addClass(editorSubjectName + 'Table');
-
   editorNewNote();
 
   //For whatever reason Mathjax needs a kick in the pants to get the ball rolling
   updateMathJax($('#editorNote')[0]);
-
-  setTimeout(function()
-  {
-    $('#editor').show();
-    prepareForAnimation($('#editor'));
-
-    $('#editor').css
-    ({
-      'animation-name': 'fadeAndScaleOut',
-      'animation-duration': '0.4s',
-      'animation-timing-function': 'ease-in',
-      'animation-fill-mode': 'forwards',
-      'animation-direction': 'reverse'
-    });
-  }, 600);
+  
+  openEditor();
 }
 
 function initEditor()
@@ -133,6 +161,32 @@ function initEditor()
     editorNewNote();
   });
 
+  $('.editorColorInput').on('input', function()
+  {
+    var name = $(this).attr('name');
+    var newColor = $(this).val();
+    
+    function updateColor(jQueryElem)
+    {
+      jQueryElem.css('background-color', newColor);
+    }
+    
+    switch(name)
+    {
+      case 'titleColor':
+        updateColor($('#editorPreviewTitle'));  
+        updateColor($('#editorNote').find('.equationHeader'));
+        break;  
+      case 'noteColor':
+        updateColor($('#editorNote').find('.equation'));
+        break;
+      case 'subjectColor':
+        updateColor($('#editorPreviewParent'));
+        break;
+    }
+    updateColor($(this).parent().find('.editorColorDiv'));
+  });
+  
   $('#editorCancelButton').click(closeEditor);
 
   $('#editorSaveButton').click(saveAndExit);

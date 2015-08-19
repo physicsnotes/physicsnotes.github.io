@@ -118,6 +118,7 @@ body {
   padding-bottom: 25px;
   height: 56px;
   min-width: 500px;
+
 }
 
 #addSubject {
@@ -132,10 +133,10 @@ body {
   padding-bottom: 10px;
 
   position: relative;
-  left: calc(50%);
   top: 9px;
-  transform: translateX(calc(-50% ));
   margin-bottom: 4px;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 #masterDiv {
@@ -216,6 +217,38 @@ body {
   display: none;
 }
 
+.editorColorDiv {
+  width: 197px;
+  height: 197px;
+  background-color: #e9aa70;
+  box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, Helvetica, serif;
+  font-size: 32px;
+}
+
+.editorColorInput {
+  display: block !important;
+  width: 197px !important;
+  height: 197px !important;
+  position: relative !important;
+  bottom: 197px !important;
+  
+  border: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  
+  opacity: 0 !important;
+}
+
+#subjectEditor {
+  display: flex;
+  justify-content: space-around;
+}
+
 #editorPreviewTitle {
   padding-left: 9px !important;
   padding-right: 9px !important;
@@ -272,9 +305,6 @@ body {
 }
 
 #editorCancelButton {
-  position: absolute;
-  top: calc(100vh - 283px);
-  right: 192px;
   width: 90px;
   height: 35px;
   font-size: 29px;
@@ -286,10 +316,13 @@ body {
   background-color: #f97575;
 }
 
-#editorSaveButton {
+#noteEditor > #editorCancelButton {
   position: absolute;
   top: calc(100vh - 283px);
-  right: 34px;
+  right: 192px;
+}
+
+#editorSaveButton {
   width: 90px;
   height: 35px;
   font-size: 29px;
@@ -299,6 +332,12 @@ body {
   padding: 8px;
   margin: auto 0px;
   background-color: #66dfdf;
+}
+
+#noteEditor > #editorSaveButton {
+  position: absolute;
+  top: calc(100vh - 283px);
+  right: 34px;
 }
 
 #editorPreviewParent {
@@ -780,12 +819,36 @@ body {
     <b id="editorPreviewTitle">Preview</b>
     <div id="editorPreview"></div>
   </div>
-  <div id="editorInputDiv">
-    <input id="editorHeaderInput" placeholder="Note Title" spellcheck="false" value="Note Title" type="text">
-    <textarea id="editorEquationInput" placeholder="Note Body" spellcheck="false" rows="5">\mbox{Note Body}</textarea>
+  <div id="noteEditor">
+    <div id="editorInputDiv">
+      <input id="editorHeaderInput" placeholder="Note Title" spellcheck="false" value="Note Title" type="text">
+      <textarea id="editorEquationInput" placeholder="Note Body" spellcheck="false" rows="5">\mbox{Note Body}</textarea>
+    </div>
+    <div id="editorSaveButton">Save</div>
+    <div id="editorCancelButton">Cancel</div>
   </div>
-  <div id="editorSaveButton">Save</div>
-  <div id="editorCancelButton">Cancel</div>
+  <div id="subjectEditor">
+    <div>
+      <div class="editorColorDiv">
+        Title Color
+      </div>
+      <input class="editorColorInput" type="color" name="titleColor">
+    </div>
+    <div>
+      <div class="editorColorDiv">
+        Subject Color
+      </div>
+      <input class="editorColorInput" type="color" name="subjectColor">
+    </div>
+    <div>
+      <div class="editorColorDiv">
+        Note Color
+      </div>
+      <input class="editorColorInput" type="color" name="noteColor">
+    </div>
+    <div id="editorSaveButton">Save</div>
+    <div id="editorCancelButton">Cancel</div>
+  </div>
 </div>
 
 <div id="searchDiv">

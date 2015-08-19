@@ -277,7 +277,7 @@ function populate()
 
       $(addNote).click(function()
       {
-        openEditor(si, '');
+        openNoteEditor(si, '');
       });
     })();
   }
@@ -314,7 +314,11 @@ function populate()
   (document.createTextNode("+"));
   addSubjectTable.appendChild(addSubject);
 
-
+  $(addSubject).click(function()
+  {
+    openSubjectEditor("");
+  });
+  
   doneGeneratingNotes = true;
 }
 
