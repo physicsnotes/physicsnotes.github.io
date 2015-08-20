@@ -307,7 +307,7 @@ body {
   box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
 }
 
-#editorCancelButton {
+.editorCancelButton {
   width: 90px;
   height: 35px;
   font-size: 29px;
@@ -323,7 +323,7 @@ body {
   right: 192px;
 }
 
-#editorSaveButton {
+.editorSaveButton {
   width: 90px;
   height: 35px;
   font-size: 29px;
@@ -391,7 +391,7 @@ body {
   transform: translate(-50%, 0);
 }
 
-#editorCancelButton, #editorSaveButton, #quizNextButton, #quizQuitButton, #quizShowButton, .addNote, #addSubject {
+.editorCancelButton, .editorSaveButton, #quizNextButton, #quizQuitButton, #quizShowButton, .addNote, #addSubject {
   cursor: pointer;
   border-radius: 8px;
   -webkit-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
@@ -406,7 +406,7 @@ body {
   user-select: none;
 }
 
-#editorCancelButton:active, #editorSaveButton:active, .addNote:active, #addSubject:active {
+.editorCancelButton:active, .editorSaveButton:active, .addNote:active, #addSubject:active {
   padding-bottom: 6px;
   margin-top: 6px;
   -webkit-box-shadow: none;
@@ -823,8 +823,8 @@ body {
       <input id="editorHeaderInput" placeholder="Note Title" spellcheck="false" value="Note Title" type="text">
       <textarea id="editorEquationInput" placeholder="Note Body" spellcheck="false" rows="5">\mbox{Note Body}</textarea>
     </div>
-    <div id="editorSaveButton">Save</div>
-    <div id="editorCancelButton">Cancel</div>
+    <div class="editorSaveButton">Save</div>
+    <div class="editorCancelButton">Cancel</div>
   </div>
   <div id="subjectEditor">
     <input id="editorSubjectTitleInput" placeholder="Title" spellcheck="false" value="" type="text">
@@ -848,8 +848,8 @@ body {
         <input class="editorColorInput" type="color" name="noteColor">
       </div>
     </div>
-    <div id="editorSaveButton">Save</div>
-    <div id="editorCancelButton">Cancel</div>
+    <div class="editorSaveButton">Save</div>
+    <div class="editorCancelButton">Cancel</div>
   </div>
 </div>
 

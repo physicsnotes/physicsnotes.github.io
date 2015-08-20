@@ -69,9 +69,9 @@ function closeEditor()
   });
 }
 
-function openEditor()
+function openEditor(openState)
 {
-  editorState = 'open';
+  editorState = openState;
   
   hideNotesAndSearch();
   $('#config').hide();
@@ -123,8 +123,6 @@ function toHex(rgbStr)
 
 function updateColors()
 {
-  
-  
   editorHeaderColor = toHex(editorHeaderColor);
   editorEquationColor = toHex(editorEquationColor);
   editorTableColor = toHex(editorTableColor);
@@ -159,7 +157,7 @@ function updateColors()
 //subjectID not required, just pass in an empty string.
 function openSubjectEditor(subjectID)
 {
-  if(editorState === 'open')
+  if(editorState === 'subjectEditorOpen')
     return;
   
   //Make a dummy note
@@ -176,13 +174,13 @@ function openSubjectEditor(subjectID)
   $('#subjectEditor').show();
   $('#noteEditor').hide();
   
-  openEditor();
+  openEditor('subjectEditorOpen');
 }
 
 //noteID not required, just pass in an empty string.
 function openNoteEditor(subjectID, noteID)
 {
-  if(editorState === 'open')
+  if(editorState === 'noteEditorOpen')
     return;
     
   $('#noteEditor').show();
@@ -210,7 +208,7 @@ function openNoteEditor(subjectID, noteID)
   //For whatever reason Mathjax needs a kick in the pants to get the ball rolling
   updateMathJax($('#editorNote')[0]);
   
-  openEditor();
+  openEditor('noteEditorOpen');
 }
 
 function initEditor()
@@ -255,9 +253,9 @@ function initEditor()
     updateColors();
   });
   
-  $('#editorCancelButton').click(closeEditor);
+  $('.editorCancelButton').click(closeEditor);
 
-  $('#editorSaveButton').click(saveAndExit);
+  $('.editorSaveButton').click(saveAndExit);
 
   $('#configEdit').click(function()
   {
@@ -286,9 +284,9 @@ function initEditor()
 
 function saveAndExit()
 {
-  if(editorState == 'closed')
+  if(editorState === 'closed')
     return;
-
+  
   closeEditor();
 
   var savedNote = createNote(editorSubjectName, editorHeaderStr, editorEquationStr);
