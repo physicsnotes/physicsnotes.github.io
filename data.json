@@ -4,6 +4,9 @@
     {
       "id":"s1",
       "name":"Chapter 20",
+      "tableColor":"#ddd08d",
+      "headerColor":"#eee49d",
+      "equationColor":"#f6f5cb",
       "notes":
       [
         {
@@ -21,6 +24,9 @@
     {
       "id":"s2",
       "name":"Chapter 21",
+      "tableColor":"#505842",
+      "headerColor":"#768858",
+      "equationColor":"#daf0cf",
       "notes":
       [
         {

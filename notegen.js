@@ -12,6 +12,18 @@ function(data)
   populate();
 });
 
+function getSubjectColors(subjectID)
+{
+  var subjectData = saveData[subjectID];
+  
+  var palette = new Object();
+  palette['tableColor'] = subjectData['tableColor'];
+  palette['headerColor'] = subjectData['headerColor'];
+  palette['equationColor'] = subjectData['equationColor'];
+
+  return palette;
+}
+
 function openConfigAt(obj)
 {
   //Leave early if we are still animating,
@@ -44,14 +56,17 @@ function toggleHideOpen(subjectBody)
 
   if(text == "+")
   {
-    subjectBody.slideDown(250);
-
     var addNote = subjectBody.parent().find('.addNote');
     if(!addNote.is(":only-child"))
     {
       addNote.slideDown(250);
     }
-    addNote.show();
+    else if(!addNote.is(":visible"))
+    {
+      addNote.show();
+    }
+    
+    subjectBody.slideDown(250);
 
     subjectBody.css("overflow-x", "auto");
 
@@ -77,7 +92,14 @@ function toggleHideOpen(subjectBody)
   }
 }
 
-function createNote(subjectName, headerStr, equationStr)
+function createNote(subjectID, headerStr, equationStr)
+{
+  var pallete = getSubjectColors(subjectID);
+
+  return createNoteWithColors(headerStr, equationStr, pallete.headerColor, pallete.equationColor);
+}
+
+function createNoteWithColors(headerStr, equationStr, headerColor, equationColor)
 {
   //Create the div that is a note
   var note = document.createElement("div");
@@ -105,7 +127,8 @@ function createNote(subjectName, headerStr, equationStr)
 
   //Create the header text holding element
   var header = document.createElement("div");
-  header.className = subjectName + "Header equationHeader";
+  header.className = "equationHeader";
+  $(header).css('background-color', headerColor);
   note.appendChild(header);
 
   //Create the header text
@@ -153,7 +176,8 @@ function createNote(subjectName, headerStr, equationStr)
 
   //Create the equation div
   var equation = document.createElement("div");
-  equation.className = subjectName + "Equation equation";
+  equation.className = 'equation';
+  $(equation).css('background-color', equationColor);
   note.appendChild(equation);
 
   //Create the equation text with magic symbols used to tell mathjax that yes, we want it to mess with this
@@ -166,6 +190,69 @@ function createNote(subjectName, headerStr, equationStr)
   });
 
   return note;
+}
+
+function createSubject(subjectName, tableColor, headerColor, equationColor)
+{
+  //Create the subject table holding the notes
+  var subjectTable = document.createElement("div");
+  subjectTable.className = "subjectTable";
+  $(subjectTable).css('background-color', tableColor);
+
+  //Create the title row for the table
+  var subjectTitleRow = document.createElement("div");
+  subjectTable.appendChild(subjectTitleRow);
+
+  //Create the title for the title row
+  var subjectTitle = document.createElement("b");
+  subjectTitle.className = "subjectTitle";
+  $(subjectTitle).css('background-color', headerColor);
+  subjectTitle.appendChild
+  (document.createTextNode(subjectName));
+  subjectTitleRow.appendChild(subjectTitle);
+
+  //Create the hide/open button
+  var hideOpenButton = document.createElement("b");
+  hideOpenButton.className = "hideOpenButton";
+  hideOpenButton.appendChild
+  (document.createTextNode("+"));
+  subjectTitleRow.appendChild(hideOpenButton);
+
+  //Create the quiz button
+  var quizButton = document.createElement("b");
+  quizButton.className = "quizButton";
+  $(quizButton).css('background-color', headerColor);
+  quizButton.appendChild
+  (document.createTextNode("QUIZ"));
+  subjectTitleRow.appendChild(quizButton);
+
+  //Create the body where the notes are going
+  var subjectBody = document.createElement("div");
+  subjectBody.className = "subjectBody";
+  subjectTable.appendChild(subjectBody);
+  $(subjectBody).slideUp(1);
+
+  //Create the add note object
+  var addNote = document.createElement("div");
+  addNote.className = "addNote";
+  $(addNote).css('background-color', headerColor);
+  addNote.appendChild
+  (document.createTextNode("+"));
+  subjectBody.appendChild(addNote);
+  
+  $(quizButton).click(function()
+  {
+    var quizSubjectBody = $(this).parent().parent().find(".subjectBody");
+    startQuiz(quizSubjectBody);
+  });
+
+  $(hideOpenButton).click(function()
+  {
+    var subjectBody = $(this).parent().parent().find(".subjectBody");
+    toggleHideOpen(subjectBody);
+  });
+  
+  return subjectTable;
 }
 
 function registerNote(note, id, header, equation)
@@ -183,20 +270,33 @@ function unregisterNote(note)
   delete saveData[note.id];
 }
 
-function registerSubject(subject, id, name)
+function registerSubject(subject, id, name, tableColor, headerColor, equationColor)
 {
   subject.id = id;
   saveData[id] =
   {
     id: id,
     name: name,
+    tableColor: tableColor,
+    headerColor: headerColor,
+    equationColor: equationColor
   };
+  
+  //Handle the add note click function
+  (function()
+  {
+    //Capture the subjectID
+    var si = id;
+
+    $(subject).find('.addNote').click(function()
+    {
+      openNoteEditor(si, '');
+    });
+  })();
 }
 
 function populate()
 {
-  var curSubjectCount = 0;
-
   var masterDiv = document.createElement("div");
   masterDiv.id = "masterDiv";
   $(masterDiv).hide();
@@ -205,94 +305,35 @@ function populate()
   var subjects = json.subjects;
   for(var s = 0; s < subjects.length; ++s)
   {
-    ++curSubjectCount;
-
     //Extract from json
     var subject = subjects[s];
-    var subjectTitleStr = subject.name;
+    var subjectName = subject.name;
     var subjectID = subject.id;
-    var subjectName = subjectTitleStr.replace(' ', '');
+    var tableColor = subject.tableColor;
+    var headerColor = subject.headerColor;
+    var equationColor = subject.equationColor;
     var notes = subject.notes;
-
-    //Create the subject table holding the notes
-    var subjectTable = document.createElement("div");
-    subjectTable.className = subjectName + "Table subjectTable";
+    
+    //Create the subject
+    var subjectTable = createSubject(subjectName, tableColor, headerColor, equationColor);
     masterDiv.appendChild(subjectTable);
-
+    
     //Register the subject
-    registerSubject(subjectTable, subjectID, subjectName);
-
-    //Create the title row for the table
-    var subjectTitleRow = document.createElement("div");
-    subjectTable.appendChild(subjectTitleRow);
-
-    //Create the title for the title row
-    var subjectTitle = document.createElement("b");
-    subjectTitle.className = "subjectTitle " + subjectName + "Header";
-    subjectTitle.appendChild
-    (document.createTextNode(subjectTitleStr));
-    subjectTitleRow.appendChild(subjectTitle);
-
-    //Create the hide/open button
-    var hideOpenButton = document.createElement("b");
-    hideOpenButton.className = "hideOpenButton";
-    hideOpenButton.appendChild
-    (document.createTextNode("+"));
-    subjectTitleRow.appendChild(hideOpenButton);
-
-    //Create the quiz button
-    var quizButton = document.createElement("b");
-    quizButton.className = "quizButton " + subjectName + "Header";
-    quizButton.appendChild
-    (document.createTextNode("QUIZ"));
-    subjectTitleRow.appendChild(quizButton);
-
-    //Create the body where the notes are going
-    var subjectBody = document.createElement("div");
-    subjectBody.className = "subjectBody";
-    subjectTable.appendChild(subjectBody);
-    $(subjectBody).slideUp(1);
+    registerSubject(subjectTable, subjectID, subjectName, tableColor, headerColor, equationColor);
 
     //Create the notes for the subject
     for(var n = 0; n < notes.length; ++n)
     {
       var noteObj = notes[n];
-
-      var note = createNote(subjectName, noteObj.header, noteObj.equation);
+      
+      //Create the note
+      var note = createNote(subjectID, noteObj.header, noteObj.equation);
+      $(subjectTable).find('.subjectBody').append(note);
+      
+      //Register the note
       registerNote(note, noteObj.id, noteObj.header, noteObj.equation);
-
-      subjectBody.appendChild(note);
     }
-
-    //Create the add note object
-    var addNote = document.createElement("div");
-    addNote.className = "addNote " + subjectName + "Header";
-    addNote.appendChild
-    (document.createTextNode("+"));
-    subjectBody.appendChild(addNote);
-
-    (function()
-    {
-      var si = subjectID;
-
-      $(addNote).click(function()
-      {
-        openNoteEditor(si, '');
-      });
-    })();
   }
-
-  $(".quizButton").click(function()
-  {
-    var quizSubjectBody = $(this).parent().parent().find(".subjectBody");
-    startQuiz(quizSubjectBody);
-  });
-
-  $(".hideOpenButton").click(function()
-  {
-    var subjectBody = $(this).parent().parent().find(".subjectBody");
-    toggleHideOpen(subjectBody);
-  });
 
   $(document).click(function(e)
   {

@@ -23,7 +23,7 @@ function editorNewNote()
 {
   $('#editorNote').remove();
 
-  var editorNote = createNote(editorSubjectName, editorHeaderStr, editorEquationStr);
+  var editorNote = createNoteWithColors(editorHeaderStr, editorEquationStr, editorHeaderColor, editorEquationColor);
   editorNote.id = 'editorNote';
   $(editorNote).find('.noteConfig').remove();
 
@@ -76,9 +76,6 @@ function openEditor(openState)
   hideNotesAndSearch();
   $('#config').hide();
 
-  $('#editorPreviewTitle').removeClass().addClass(editorSubjectName + 'Header');
-  $('#editorPreviewParent').removeClass().addClass(editorSubjectName + 'Table');
-  
   setTimeout(function()
   {
     $('#editor').show();
@@ -160,16 +157,32 @@ function openSubjectEditor(subjectID)
   if(editorState === 'subjectEditorOpen')
     return;
   
+  editorSubjectID = subjectID;
+  
+  if(subjectID === '')
+  {
+    setRandomSubjectColors();
+  }
+  else
+  {
+    //Get and set the name
+    editorSubjectName = saveData[subjectID].name;
+    $('#editorSubjectTitleInput').val(editorSubjectName);
+    $('#editorPreviewTitle').html(editorSubjectName);
+    
+    //Get and set the color
+    var palette = getSubjectColors(editorSubjectID);
+    editorTableColor = palette.tableColor;
+    editorHeaderColor = palette.headerColor;
+    editorEquationColor = palette.equationColor;
+    updateColors();
+  }
+  
   //Make a dummy note
   editorHeaderStr = 'Dummy Note';
   editorEquationStr = '\\mbox{Johnny Bravo!}';
   editorNewNote();
   updateMathJax($('#editorNote')[0]);
-  
-  editorSubjectID = subjectID;
-  
-  if(subjectID == '')
-    setRandomSubjectColors();
     
   $('#subjectEditor').show();
   $('#noteEditor').hide();
@@ -201,13 +214,19 @@ function openNoteEditor(subjectID, noteID)
 
   editorNoteID = noteID;
   editorSubjectID = subjectID;
-  editorSubjectName = getSubjectNameFromID(subjectID);
+  editorSubjectName = saveData[subjectID].name;
 
   editorNewNote();
 
   //For whatever reason Mathjax needs a kick in the pants to get the ball rolling
   updateMathJax($('#editorNote')[0]);
   
+  var palette = getSubjectColors(editorSubjectID);
+  editorTableColor = palette.tableColor;
+  editorHeaderColor = palette.headerColor;
+  editorEquationColor = palette.equationColor;
+  
+  updateColors();
   openEditor('noteEditorOpen');
 }
 
@@ -262,7 +281,7 @@ function initEditor()
     var noteID = $(configTaggedObject).parent().parent().attr('id');
     var subjectID = getSubjectIDFromNoteID(noteID);
 
-    openEditor(subjectID, noteID);
+    openNoteEditor(subjectID, noteID);
   });
 
   $("#configLink").click(function()
@@ -282,14 +301,38 @@ function initEditor()
   });
 }
 
-function saveAndExit()
+function saveSubject()
 {
-  if(editorState === 'closed')
-    return;
+  var savedSubject = createSubject(editorSubjectName, editorTableColor, editorHeaderColor, editorEquationColor);    
   
-  closeEditor();
+  //Was this a new subject?
+  if(editorSubjectID === '')
+  {
+    //Find a new ID then
+    editorSubjectID = getUniqueSubjectID();
+    
+    //Insert it before the add subject element
+    $(savedSubject).insertBefore('#addSubjectTable');
+  }
+  else 
+  {
+    var notes = $('#' + editorSubjectID).find('.subjectBody').children('.note').detach();
+    $('#' + editorSubjectID).replaceWith(savedSubject);
+    $(savedSubject).find('.subjectBody').append(notes);
+    
+    notes.each(function(index)
+    {
+      $(this).find('.equationHeader').css('background-color', editorHeaderColor);
+      $(this).find('.equation').css('background-color', editorEquationColor);
+    });
+  }
+  
+  registerSubject(savedSubject, editorSubjectID, editorSubjectName, editorTableColor, editorHeaderColor, editorEquationColor);
+}
 
-  var savedNote = createNote(editorSubjectName, editorHeaderStr, editorEquationStr);
+function saveNote()
+{
+  var savedNote = createNote(editorSubjectID, editorHeaderStr, editorEquationStr);
 
   //Did the note already exist?
   if(editorNoteID !== '')
@@ -322,14 +365,61 @@ function saveAndExit()
   updateMathJax(savedNote);
 }
 
-function getSubjectNameFromID(subjectID)
+function saveAndExit()
 {
-  return saveData[subjectID].name;
+  if(editorState === 'closed')
+    return;
+  
+  if(editorState === 'noteEditorOpen')
+    saveNote();
+  if(editorState === 'subjectEditorOpen')
+    saveSubject();
+    
+  closeEditor();
 }
 
 function getSubjectIDFromNoteID(noteID)
 {
   return noteID.match(/(s.*)n+/)[1];
+}
+
+function getUniqueSubjectID(subjectID)
+{
+  var maxID = 0;
+
+  for (var data in saveData)
+  {
+    //Ensure that this is actually a subject and not an inherited object property
+    if(saveData.hasOwnProperty(data))
+    {
+      //Ensure that this is not a note ID
+      if(data.indexOf('n') == -1)
+      {
+        var subjectID = data.replace('s', '');
+        maxID = Math.max(maxID, parseInt(subjectID));
+      }
+    }
+  }
+  return 's' + (maxID + 1);
+}
+
+function getUniqueNoteID(subjectID)
+{
+  var maxID = 0;
+
+  for (var data in saveData)
+  {
+    //Ensure that this is actually a note and not an inherited object property
+    if(saveData.hasOwnProperty(data))
+    {
+      var noteID = data.replace(subjectID + 'n', '');
+      if(noteID !== data)
+      {
+        maxID = Math.max(maxID, parseInt(noteID));
+      }
+    }
+  }
+  return subjectID + 'n' + (maxID + 1);
 }
 
 function getUniqueNoteID(subjectID)
