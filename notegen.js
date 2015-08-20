@@ -49,23 +49,29 @@ function openConfigAt(obj)
   }, 200);
 }
 
-function toggleHideOpen(subjectBody)
+function subjectIsOpen(subjectBody)
 {
   var hideOpenButton = subjectBody.parent().find('.hideOpenButton');
   var text = hideOpenButton.html();
+  return text === "-";
+}
 
-  if(text == "+")
+function toggleHideOpen(subjectBody)
+{
+  var hideOpenButton = subjectBody.parent().find('.hideOpenButton');
+
+  if(!subjectIsOpen(subjectBody))
   {
     var addNote = subjectBody.parent().find('.addNote');
     if(!addNote.is(":only-child"))
     {
       addNote.slideDown(250);
+      subjectBody.slideDown(250);
     }
     else if(!addNote.is(":visible"))
     {
       addNote.show();
     }
-    
     subjectBody.slideDown(250);
 
     subjectBody.css("overflow-x", "auto");
@@ -230,8 +236,7 @@ function createSubject(subjectName, tableColor, headerColor, equationColor)
   var subjectBody = document.createElement("div");
   subjectBody.className = "subjectBody";
   subjectTable.appendChild(subjectBody);
-  $(subjectBody).slideUp(1);
-
+  
   //Create the add note object
   var addNote = document.createElement("div");
   addNote.className = "addNote";
@@ -252,6 +257,8 @@ function createSubject(subjectName, tableColor, headerColor, equationColor)
     toggleHideOpen(subjectBody);
   });
   
+  $(subjectBody).slideUp(1);
+
   return subjectTable;
 }
 
@@ -333,6 +340,7 @@ function populate()
       //Register the note
       registerNote(note, noteObj.id, noteObj.header, noteObj.equation);
     }
+    $(subjectTable).find('.subjectBody').slideUp(1);
   }
 
   $(document).click(function(e)

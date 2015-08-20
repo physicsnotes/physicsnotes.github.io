@@ -313,11 +313,16 @@ function saveSubject()
     
     //Insert it before the add subject element
     $(savedSubject).insertBefore('#addSubjectTable');
+    
+    toggleHideOpen($(savedSubject).find('.subjectBody'));
   }
   else 
   {
-    var notes = $('#' + editorSubjectID).find('.subjectBody').children('.note').detach();
-    $('#' + editorSubjectID).replaceWith(savedSubject);
+    var subject = $('#' + editorSubjectID);
+    var subjectBody = subject.find('.subjectBody');
+    var notes = subjectBody.children('.note').detach();
+    
+    subject.replaceWith(savedSubject);
     $(savedSubject).find('.subjectBody').append(notes);
     
     notes.each(function(index)
@@ -325,9 +330,25 @@ function saveSubject()
       $(this).find('.equationHeader').css('background-color', editorHeaderColor);
       $(this).find('.equation').css('background-color', editorEquationColor);
     });
+    
+    toggleHideOpen($(savedSubject).find('.subjectBody'));
   }
   
   registerSubject(savedSubject, editorSubjectID, editorSubjectName, editorTableColor, editorHeaderColor, editorEquationColor);
+  
+  //Make the note jiggle, because awesome.
+  savedSubject.className += ' jellyPopup';
+
+  //Remove the jiggle animation when it's done
+  (function()
+  {
+    //Capture the subject id
+    var subjectID = editorSubjectID;
+    setTimeout(function()
+    {
+      $('#' + subjectID).removeClass('jellyPopup');
+    }, 1000);
+  })();
 }
 
 function saveNote()
