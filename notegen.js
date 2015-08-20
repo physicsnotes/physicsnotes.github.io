@@ -12,6 +12,11 @@ function(data)
   populate();
 });
 
+function saveToFile()
+{
+  return JSON.stringify(saveData);
+}
+
 function getSubjectColors(subjectID)
 {
   var subjectData = saveData[subjectID];
@@ -268,7 +273,7 @@ function registerNote(note, id, header, equation)
   saveData[id] =
   {
     header: header,
-    equation: equation,
+    equation: equation
   };
 }
 
@@ -309,38 +314,43 @@ function populate()
   $(masterDiv).hide();
   document.body.appendChild(masterDiv);
 
-  var subjects = json.subjects;
-  for(var s = 0; s < subjects.length; ++s)
+  for(var subjectID in json)
   {
-    //Extract from json
-    var subject = subjects[s];
-    var subjectName = subject.name;
-    var subjectID = subject.id;
-    var tableColor = subject.tableColor;
-    var headerColor = subject.headerColor;
-    var equationColor = subject.equationColor;
-    var notes = subject.notes;
-    
-    //Create the subject
-    var subjectTable = createSubject(subjectName, tableColor, headerColor, equationColor);
-    masterDiv.appendChild(subjectTable);
-    
-    //Register the subject
-    registerSubject(subjectTable, subjectID, subjectName, tableColor, headerColor, equationColor);
-
-    //Create the notes for the subject
-    for(var n = 0; n < notes.length; ++n)
-    {
-      var noteObj = notes[n];
+    //Ensure that this is not an inherited object property and is a subject
+    if(json.hasOwnProperty(subjectID) && subjectID.indexOf('n') === -1)
+    {  
+      //Extract the data from json
+      var subject = json[subjectID];
+      var subjectName = subject.name;
+      var tableColor = subject.tableColor;
+      var headerColor = subject.headerColor;
+      var equationColor = subject.equationColor;
       
-      //Create the note
-      var note = createNote(subjectID, noteObj.header, noteObj.equation);
-      $(subjectTable).find('.subjectBody').append(note);
+      //Create the subject
+      var subjectTable = createSubject(subjectName, tableColor, headerColor, equationColor);
+      masterDiv.appendChild(subjectTable);
       
-      //Register the note
-      registerNote(note, noteObj.id, noteObj.header, noteObj.equation);
+      //Register the subject
+      registerSubject(subjectTable, subjectID, subjectName, tableColor, headerColor, equationColor);
+            
+      //Create the notes for the subject
+      for(var noteID in json)
+      {
+        //Ensure that this is not an inherited object property and is a note for the subject
+        if(json.hasOwnProperty(noteID) && noteID.indexOf(subjectID) !== -1 && noteID.indexOf('n') !== -1)
+        {
+          var noteData = json[noteID];
+          
+          //Create the note
+          var note = createNote(subjectID, noteData.header, noteData.equation);
+          $(subjectTable).find('.subjectBody').append(note);
+          
+          //Register the note
+          registerNote(note, noteID, noteData.header, noteData.equation);
+        }
+      }
+      $(subjectTable).find('.subjectBody').slideUp(1);
     }
-    $(subjectTable).find('.subjectBody').slideUp(1);
   }
 
   $(document).click(function(e)
