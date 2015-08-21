@@ -2,41 +2,7 @@ var mathJaxReady = false;
 MathJax.Hub.Register.StartupHook("End", function()
 {
   mathJaxReady = true;
-  $('.noteLink').click(function()
-  {
-    var noteID = '#' + $(this).attr('class').split(' ')[2];
-    var subjectBody = $(noteID).parent();
-    var hideOpenButton = subjectBody.parent().find('.hideOpenButton');
-
-    //Show the subject and the note if it's hidden by search
-    subjectBody.parent().show();
-    $(noteID).show();
-
-    if(hideOpenButton.html() == '+')
-    {
-      toggleHideOpen(subjectBody);
-    }
-
-    $('html, body').animate(
-    {
-      scrollTop: $(noteID).offset().top
-    }, 900, 'easeInOutCubic');
-
-    $(noteID).animate(
-    {
-      color: '#29c8de'
-    }, 250, 'swing',
-    function()
-    {
-      setTimeout(function()
-      {
-        $(noteID).animate(
-        {
-          color: '#000000'
-        }, 250);
-      }, 900);
-    });
-  });
+  
   $(masterDiv).show();
 });
 

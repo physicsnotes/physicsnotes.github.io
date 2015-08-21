@@ -117,7 +117,7 @@ function createNoteWithColors(headerStr, equationStr, headerColor, equationColor
   note.className = "note";
 
   //Extract the page reference from the header if it's in the form: (pg *)
-  var pageRegExp = new RegExp('(\\(pg .*\\))');
+  var pageRegExp = new RegExp(/(\(pg .*\))/);
   var regExpResult = headerStr.match(pageRegExp);
   var pageRef = null;
 
@@ -156,11 +156,11 @@ function createNoteWithColors(headerStr, equationStr, headerColor, equationColor
   if(pageRef != null)
     header.appendChild(pageRef);
 
-  //Extract any note links in the form: \\linkNote{CHAPTER_ID.NOTE_ID}{MATH_JAX_EXPRESSION}
-  var noteLinkRegExpExt = new RegExp('\\\\linkNote\\s*\\{\\s*([\\da]+)\\s*\\}\\s*\\{(\\\\.*)\\}');
+  //Extract any note links in the form: \\linkNote{NOTE_ID}{MATH_JAX_EXPRESSION}
+  var noteLinkRegExpExt = new RegExp(/\\linkNote\s*\{\s*(\S+)\s*\}\s*\{(\\.*)\}/);
 
-  //Extract any note links in the form: \\linkNote{CHAPTER_ID.NOTE_ID}{MESSAGE}
-  var noteLinkRegExp = new RegExp('\\\\linkNote\\s*\\{\\s*([\\da]+)\\s*\\}\\s*\\{([^{}]*)\\}');
+  //Extract any note links in the form: \\linkNote{NOTE_ID}{MESSAGE}
+  var noteLinkRegExp = new RegExp(/\\linkNote\s*\{\s*(\S+)\s*\}\s*\{([^{}]*)\}/);
 
   while(true)
   {
@@ -178,7 +178,7 @@ function createNoteWithColors(headerStr, equationStr, headerColor, equationColor
       regExpResult = noteLinkRegExp.exec(equationStr);
       if(regExpResult == null)
         break;
-
+      
       var noteID = regExpResult[1];
       var noteLinkMsg = regExpResult[2];
       equationStr = equationStr.replace(noteLinkRegExp, '\\class{noteLink ' + noteID + '}{\\mbox{' + noteLinkMsg + '}}');
@@ -332,12 +332,12 @@ function populate()
       
       //Register the subject
       registerSubject(subjectTable, subjectID, subjectName, tableColor, headerColor, equationColor);
-            
+
       //Create the notes for the subject
       for(var noteID in json)
       {
         //Ensure that this is not an inherited object property and is a note for the subject
-        if(json.hasOwnProperty(noteID) && noteID.indexOf(subjectID) !== -1 && noteID.indexOf('n') !== -1)
+        if(json.hasOwnProperty(noteID) && noteID.indexOf(subjectID + 'n') !== -1)
         {
           var noteData = json[noteID];
           
@@ -376,6 +376,45 @@ function populate()
   $(addSubject).click(function()
   {
     openSubjectEditor("");
+  });
+  
+  $(document).on('click', '.noteLink', function(e) 
+  {
+    if(editorState !== 'closed' && !quizTime)
+      return;
+    
+    var noteID = '#' + $(this).attr('class').split(' ')[2];
+    var subjectBody = $(noteID).parent();
+    
+    //Show the subject and the note if it's hidden by search
+    subjectBody.parent().show();
+    $(noteID).show();
+    
+    //Open up the subject if it's closed
+    if(!subjectIsOpen(subjectBody))
+    {
+      toggleHideOpen(subjectBody);
+    }
+
+    $('html, body').animate(
+    {
+      scrollTop: $(noteID).offset().top
+    }, 900, 'easeInOutCubic');
+
+    $(noteID).animate(
+    {
+      borderWidth: '5px'
+    }, 700, 'swing',
+    function()
+    {
+      setTimeout(function()
+      {
+        $(noteID).animate(
+        {
+          borderWidth: '0'
+        }, 250);
+      }, 900);
+    });
   });
   
   doneGeneratingNotes = true;
