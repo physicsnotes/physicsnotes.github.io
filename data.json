@@ -958,7 +958,7 @@
   "s12n2":
   {
     "header":"That k constant",
-    "equation":"\\mbox{The one used in say, }\\linkNote{1.1}{Coulomb's law}\\mbox{.}\\\\k = 9.0\\times10^{9}\\frac{N*m^{2}}{C^{2}}"
+    "equation":"\\mbox{The one used in say, }\\linkNote{s0n1}{Coulomb's law}\\mbox{.}\\\\k = 9.0\\times10^{9}\\frac{N*m^{2}}{C^{2}}"
   },
   "s12n3":
   {

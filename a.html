@@ -92,8 +92,8 @@
 
 .addNote:only-child {
   position: relative;
-  left: calc(50% + 33px);
-  width: calc(21% + 16.5px);
+  left: calc(50%);
+  width: calc(21%);
   top: 0px; /*Overrides the bottom in the regular addNote rule*/
   transform: translateX(-50%);
   margin-bottom: 4px;
@@ -494,6 +494,23 @@ body {
   border-top-right-radius: 8px;
 }
 
+.subjectConfig {
+  width: 20px;
+  height: 20px;
+  
+  position: absolute;
+  right: 67px;
+  
+  padding-top: 9px;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-bottom: 9px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  
+  cursor: pointer;
+}
+
 .noteConfig {
   float: right;
   width: 20px;
@@ -502,12 +519,9 @@ body {
   position: relative;
   left: 21px;
 
-  font-size: 12px;
-  font-family: Arial, Helvetica, sans-serif;
-
   cursor: pointer;
 
-  opacity: 0.4;
+  opacity: 0.1;
 }
 
 .noteConfig:hover {
@@ -573,7 +587,7 @@ body {
 .subjectTitle {
   color: #313131;
   padding-left: 35px;
-  padding-right: 5px;
+  padding-right: 6px;
 
   border-top-left-radius: 4px;
   border-bottom-right-radius: 4px;
@@ -616,9 +630,8 @@ body {
 
 .subjectBody {
   overflow: auto;
-  width: calc(100% - 66px);
   margin-top: 10px;
-  margin-bottom: 0px;
+  margin-bottom: 48px;
 }
 
 .note {

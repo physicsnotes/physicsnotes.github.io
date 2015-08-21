@@ -148,7 +148,7 @@ function createNoteWithColors(headerStr, equationStr, headerColor, equationColor
 
   //Create the note config
   var noteConfig = document.createElement("img");
-  noteConfig.src = "circle.svg";
+  noteConfig.src = "gear.svg";
   noteConfig.className = "noteConfig";
   header.appendChild(noteConfig);
 
@@ -228,7 +228,14 @@ function createSubject(subjectName, tableColor, headerColor, equationColor)
   hideOpenButton.appendChild
   (document.createTextNode("+"));
   subjectTitleRow.appendChild(hideOpenButton);
-
+  
+  //Create the subject config
+  var subjectConfig = document.createElement("img");
+  subjectConfig.src = "gear.svg";
+  subjectConfig.className = "subjectConfig";
+  $(subjectConfig).css('background-color', headerColor);
+  subjectTitleRow.appendChild(subjectConfig);
+  
   //Create the quiz button
   var quizButton = document.createElement("b");
   quizButton.className = "quizButton";
