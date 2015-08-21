@@ -10,7 +10,7 @@ $('#search').on('input', function(event)
     //Assume true until proven otherwise
     var allNotesGone = true;
 
-    $(this).find('.subjectBody').children().each(function(ind)
+    $(this).find('.subjectBody').children('.note').each(function(index)
     {
       var headerText = $(this).find('.equationHeader').html().toUpperCase();
       var noteHidden = false;
