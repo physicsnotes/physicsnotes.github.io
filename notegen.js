@@ -256,6 +256,8 @@ function createSubject(subjectName, tableColor, headerColor, equationColor)
   //Create the body where the notes are going
   var subjectBody = document.createElement("div");
   subjectBody.className = "subjectBody";
+  $(subjectBody).sortable({cancel: '.addNote'});
+  $(subjectBody).disableSelection();
   subjectTable.appendChild(subjectBody);
   
   //Create the add note object
@@ -364,6 +366,17 @@ function populate()
   var masterDiv = document.createElement("div");
   masterDiv.id = "masterDiv";
   $(masterDiv).hide();
+  $(masterDiv).sortable(
+  {
+    cancel: '#addSubjectTable',
+    stop:function(event, ui)
+    {
+      $('#masterDiv').append($('#addSubjectTable'));
+    }
+  });
+  
+  $(masterDiv).disableSelection();
+  
   document.body.appendChild(masterDiv);
 
   for(var subjectID in json)
