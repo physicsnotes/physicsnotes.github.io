@@ -6,9 +6,11 @@ $('#search').on('input', function(event)
   var searchKeywords = $(this).val().toUpperCase().split(' ');
   var subjectTables = $('.subjectTable').each(function(index)
   {
-    //A boolean for if all the notes are gone in a subject
     //Assume true until proven otherwise
     var allNotesGone = true;
+    
+    //Assume false until proven otherwise
+    var anyNoteGone = false;
 
     $(this).find('.subjectBody').children('.note').each(function(index)
     {
@@ -21,6 +23,7 @@ $('#search').on('input', function(event)
 
         if(headerText.indexOf(keyword) === -1)
         {
+          anyNoteGone = true;
           noteHidden = true;
           break;
         }
@@ -44,6 +47,15 @@ $('#search').on('input', function(event)
     else
     {
       $(this).show();
+    }
+    
+    if(anyNoteGone)
+    {
+      $('#addSubjectTable').hide();
+    }
+    else
+    {
+      $('#addSubjectTable').show();
     }
   });
 });
