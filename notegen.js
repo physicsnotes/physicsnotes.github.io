@@ -229,21 +229,30 @@ function createSubject(subjectName, tableColor, headerColor, equationColor)
   (document.createTextNode("+"));
   subjectTitleRow.appendChild(hideOpenButton);
   
-  //Create the subject config
-  var subjectConfig = document.createElement("img");
-  subjectConfig.src = "gear.svg";
-  subjectConfig.className = "subjectConfig";
-  $(subjectConfig).css('background-color', headerColor);
-  subjectTitleRow.appendChild(subjectConfig);
-  
   //Create the quiz button
   var quizButton = document.createElement("b");
   quizButton.className = "quizButton";
   $(quizButton).css('background-color', headerColor);
   quizButton.appendChild
-  (document.createTextNode("QUIZ"));
+  (document.createTextNode("Quiz"));
   subjectTitleRow.appendChild(quizButton);
-
+  
+  //Create the subject edit config button
+  var subjectConfigEdit = document.createElement("b");
+  subjectConfigEdit.className = "subjectConfigEdit";
+  $(subjectConfigEdit).css('background-color', headerColor);
+  subjectConfigEdit.appendChild
+  (document.createTextNode("Edit"));
+  subjectTitleRow.appendChild(subjectConfigEdit);
+  
+  //Create the subject delete config button
+  var subjectConfigDelete = document.createElement("b");
+  subjectConfigDelete.className = "subjectConfigDelete";
+  $(subjectConfigDelete).css('background-color', headerColor);
+  subjectConfigDelete.appendChild
+  (document.createTextNode("Delete"));
+  subjectTitleRow.appendChild(subjectConfigDelete);
+  
   //Create the body where the notes are going
   var subjectBody = document.createElement("div");
   subjectBody.className = "subjectBody";
