@@ -266,16 +266,17 @@ function createSubject(subjectName, tableColor, headerColor, equationColor)
   (document.createTextNode("+"));
   subjectBody.appendChild(addNote);
   
-  $(subjectConfigEdit).click(function()
-  {
-    alert(confirm('Are you sure you want to delete this?'));
-  });
-  
   $(subjectConfigDelete).click(function()
   {
     var subject = $(this).parent().parent()[0];
     if(confirm('Are you sure you want to delete ' + saveData[subject.id].name + '?'))
       unregisterSubject(subject);
+  });
+  
+  $(subjectConfigEdit).click(function()
+  {
+    var subjectID = $(this).parent().parent().attr('id');
+    openSubjectEditor(subjectID);
   });
   
   $(quizButton).click(function()

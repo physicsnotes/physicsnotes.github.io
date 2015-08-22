@@ -336,20 +336,6 @@ function saveSubject()
   }
   
   registerSubject(savedSubject, editorSubjectID, editorSubjectName, editorTableColor, editorHeaderColor, editorEquationColor);
-  
-  //Make the note jiggle, because awesome.
-  savedSubject.className += ' jellyPopup';
-
-  //Remove the jiggle animation when it's done
-  (function()
-  {
-    //Capture the subject id
-    var subjectID = editorSubjectID;
-    setTimeout(function()
-    {
-      $('#' + subjectID).removeClass('jellyPopup');
-    }, 1000);
-  })();
 }
 
 function saveNote()
