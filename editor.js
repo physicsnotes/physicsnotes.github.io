@@ -292,12 +292,13 @@ function initEditor()
 
   $("#configDelete").click(function()
   {
-    $('#config').hide();
+    if(confirm('Are you sure you want to delete this note?'))
+    {
+      $('#config').hide();
 
-    var note = $(configTaggedObject).parent().parent();
-
-    unregisterNote(note[0]);
-    note.remove();
+      var note = $(configTaggedObject).parent().parent();
+      unregisterNote(note[0]);
+    }
   });
 }
 

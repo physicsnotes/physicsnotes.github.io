@@ -266,6 +266,18 @@ function createSubject(subjectName, tableColor, headerColor, equationColor)
   (document.createTextNode("+"));
   subjectBody.appendChild(addNote);
   
+  $(subjectConfigEdit).click(function()
+  {
+    alert(confirm('Are you sure you want to delete this?'));
+  });
+  
+  $(subjectConfigDelete).click(function()
+  {
+    var subject = $(this).parent().parent()[0];
+    if(confirm('Are you sure you want to delete ' + saveData[subject.id].name + '?'))
+      unregisterSubject(subject);
+  });
+  
   $(quizButton).click(function()
   {
     var quizSubjectBody = $(this).parent().parent().find(".subjectBody");
@@ -294,8 +306,31 @@ function registerNote(note, id, header, equation)
 }
 
 function unregisterNote(note)
-{
+{  
   delete saveData[note.id];
+  
+  $(note).remove();
+}
+
+function unregisterSubject(subject)
+{
+  //Unregister notes first
+  for (var note in saveData)
+  {
+    //Ensure that this is actually a subject and not an inherited object property
+    if(saveData.hasOwnProperty(note))
+    {
+      //Ensure that this is the subject's note
+      if(note.indexOf(subject.id + 'n') !== -1)
+      {
+        unregisterNote($('#' + note)[0]);
+      }
+    }
+  }
+  
+  delete saveData[subject.id];
+  
+  $(subject).remove();
 }
 
 function registerSubject(subject, id, name, tableColor, headerColor, equationColor)
