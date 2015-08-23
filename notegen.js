@@ -36,6 +36,20 @@ function isMovingSomething()
 
 function saveToFile()
 {
+  //Save the subject's positions
+  $('#masterDiv').children('.subjectTable').each(function(index)
+  {
+    var subjectID = $(this).attr('id');
+    saveData[subjectID].pos = index;
+    
+    //Save this subject's note positions
+    $(this).find('.subjectBody').children('.note').each(function(noteIndex)
+    {
+      var noteID = $(this).attr('id');
+      saveData[noteID].pos = noteIndex;
+    });
+  });
+  
   return JSON.stringify(saveData);
 }
 
