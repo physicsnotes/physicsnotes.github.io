@@ -57,6 +57,7 @@ function prepareForAnimation(jQueryElem)
   if you have to, please ask the wonderful people designing
   CSS why we can't have nice things like the ability to play another animation after the first
   */
+
   var newElem = jQueryElem.clone(true);
   jQueryElem.before(newElem);
   jQueryElem.remove();
@@ -66,7 +67,7 @@ function quit()
 {
   if(quizTime === false)
     return;
-
+  
   $('.noteConfig').show();
 
   quizTime = false;
@@ -97,6 +98,8 @@ function quit()
     'animation-direction': 'normal',
     'cursor': 'default'
   });
+  
+  enableSorting();
 }
 
 $(quizNextButton).click(showRandomNote);
@@ -120,6 +123,7 @@ function showRandomNote()
     quit();
     return;
   }
+  
   if(quizNotes.length === 1)
     $('#quizNextButton').html("Done");
 
@@ -148,16 +152,13 @@ function hideNotesAndSearch()
     $('#masterDiv').hide();
     $('#searchDiv').hide();
   }, 600);
-
-  prepareForAnimation($('#masterDiv'));
-  $('#masterDiv').css
+  
+  //Don't use straight css animation with the masterDiv because
+  //jquery has very bad problems with it while making the masterDiv user sortable
+  $('#masterDiv').animate
   ({
-    'animation-name': 'fadeAndScaleOut',
-    'animation-duration': '0.4s',
-    'animation-timing-function': 'ease-in',
-    'animation-fill-mode': 'forwards',
-    'animation-direction': 'normal'
-  });
+    opacity: 0.0,
+  }, 200);
 
   prepareForAnimation($('#searchDiv'));
   $('#searchDiv').css
@@ -175,16 +176,13 @@ function showNotesAndSearch()
   $('#masterDiv').show();
   $('#searchDiv').show();
 
-  prepareForAnimation($('#masterDiv'));
-  $('#masterDiv').css
+  //Don't use straight css animation with the masterDiv because
+  //jquery has very bad problems with it while making the masterDiv user sortable
+  $('#masterDiv').animate
   ({
-    'animation-name': 'fadeAndScaleOut',
-    'animation-duration': '0.4s',
-    'animation-timing-function': 'ease-in',
-    'animation-fill-mode': 'forwards',
-    'animation-direction': 'reverse'
-  });
-
+    opacity: 1.0,
+  }, 200);
+  
   prepareForAnimation($('#searchDiv'));
   $('#searchDiv').css
   ({
@@ -194,19 +192,15 @@ function showNotesAndSearch()
     'animation-fill-mode': 'forwards',
     'animation-direction': 'reverse'
   });
-
-  $('#masterDiv').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e)
-  {
-    alert("done");
-    $('#masterDiv').show();
-  });
 }
 
 function startQuiz(quizSubjectBody)
 {
-  if(!doneGeneratingNotes || !mathJaxReady || quizTime)
+  if(!doneGeneratingNotes || !mathJaxReady || quizTime || isMovingSomething())
     return;
-
+    
+  disableSorting();
+  
   quizTime = true;
 
   $('#quizNextButton').html("Next");

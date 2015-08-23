@@ -67,12 +67,15 @@ function closeEditor()
     'animation-fill-mode': 'forwards',
     'animation-direction': 'normal'
   });
+  
+  enableSorting();
 }
 
 function openEditor(openState)
 {
   editorState = openState;
-  
+  disableSorting();
+
   hideNotesAndSearch();
   $('#config').hide();
 
@@ -154,7 +157,7 @@ function updateColors()
 //subjectID not required, just pass in an empty string.
 function openSubjectEditor(subjectID)
 {
-  if(editorState === 'subjectEditorOpen')
+  if(editorState === 'subjectEditorOpen' || isMovingSomething())
     return;
   
   editorSubjectID = subjectID;
@@ -193,7 +196,7 @@ function openSubjectEditor(subjectID)
 //noteID not required, just pass in an empty string.
 function openNoteEditor(subjectID, noteID)
 {
-  if(editorState === 'noteEditorOpen')
+  if(editorState === 'noteEditorOpen' || isMovingSomething())
     return;
     
   $('#noteEditor').show();
@@ -335,6 +338,7 @@ function saveSubject()
     toggleHideOpen($(savedSubject).find('.subjectBody'));
   }
   
+  updateSorting();
   registerSubject(savedSubject, editorSubjectID, editorSubjectName, editorTableColor, editorHeaderColor, editorEquationColor);
 }
 
@@ -369,8 +373,9 @@ function saveNote()
       $('#' + noteID).removeClass('jellyPopup');
     }, 1000);
   })();
-
+  
   updateMathJax(savedNote);
+  updateSorting();
 }
 
 function saveAndExit()

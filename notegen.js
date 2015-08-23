@@ -12,6 +12,28 @@ function(data)
   populate();
 });
 
+//Returns true if the user is moving a subject or note
+function isMovingSomething()
+{
+  var movingSomething = false;
+  
+  $('.subjectTable').each(function()
+  {
+    //Subject tables aren't normally absolute
+    if($(this).css('position') === 'absolute')
+      movingSomething = true;
+  });
+  
+  $('.note').each(function()
+  {
+    //Notes aren't normally absolute
+    if($(this).css('position') === 'absolute')
+      movingSomething = true;
+  });
+  
+  return movingSomething
+}
+
 function saveToFile()
 {
   return JSON.stringify(saveData);
@@ -63,6 +85,8 @@ function subjectIsOpen(subjectBody)
 
 function toggleHideOpen(subjectBody)
 {
+  disableSorting();
+  
   var hideOpenButton = subjectBody.parent().find('.hideOpenButton');
 
   if(!subjectIsOpen(subjectBody))
@@ -77,7 +101,7 @@ function toggleHideOpen(subjectBody)
     {
       addNote.show();
     }
-    subjectBody.slideDown(250);
+    subjectBody.slideDown(250, enableSorting);
 
     subjectBody.css("overflow-x", "auto");
 
@@ -87,7 +111,7 @@ function toggleHideOpen(subjectBody)
   }
   else
   {
-    subjectBody.slideUp(250);
+    subjectBody.slideUp(250, enableSorting);
 
     var addNote = subjectBody.parent().find('.addNote');
     if(!addNote.is(":only-child"))
@@ -256,7 +280,6 @@ function createSubject(subjectName, tableColor, headerColor, equationColor)
   //Create the body where the notes are going
   var subjectBody = document.createElement("div");
   subjectBody.className = "subjectBody";
-  $(subjectBody).sortable({cancel: '.addNote'});
   $(subjectBody).disableSelection();
   subjectTable.appendChild(subjectBody);
   
@@ -295,6 +318,13 @@ function createSubject(subjectName, tableColor, headerColor, equationColor)
   
   $(subjectBody).slideUp(1);
 
+  $(subjectBody).sortable
+  ({
+    disabled: false,
+    cursor: 'move',
+    cancel: '.addNote'
+  });
+  
   return subjectTable;
 }
 
@@ -366,19 +396,9 @@ function populate()
   var masterDiv = document.createElement("div");
   masterDiv.id = "masterDiv";
   $(masterDiv).hide();
-  $(masterDiv).sortable(
-  {
-    cancel: '#addSubjectTable',
-    stop:function(event, ui)
-    {
-      $('#masterDiv').append($('#addSubjectTable'));
-    }
-  });
-  
   $(masterDiv).disableSelection();
-  
   document.body.appendChild(masterDiv);
-
+  
   for(var subjectID in json)
   {
     //Ensure that this is not an inherited object property and is a subject
@@ -482,7 +502,47 @@ function populate()
     });
   });
   
+  enableSorting();
+  
   doneGeneratingNotes = true;
+}
+
+function updateSorting()
+{
+  $('.subjectBody').sortable('refresh');  
+  $('.subjectBody').sortable('refreshPositions');  
+
+  $('#masterDiv').sortable('refresh');
+  $('#masterDiv').sortable('refreshPositions');
+}
+
+function enableSorting()
+{
+  $('.subjectBody').sortable
+  ({
+    disabled: false,
+    cursor: 'move',
+    cancel: '.addNote'
+  });
+  
+  $('#masterDiv').sortable
+  ({
+    disabled: false,
+    axis: 'y',
+    cursor: 'move',
+    cancel: '#addSubjectTable',
+    stop:function(event, ui)
+    {
+      $('#masterDiv').append($('#addSubjectTable'));
+    }
+  });
+}
+
+function disableSorting()
+{
+  $('.subjectBody').sortable({disabled: true});
+  
+  $('#masterDiv').sortable({disabled: true});
 }
 
 function updateConfigPos()
