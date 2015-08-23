@@ -70,6 +70,12 @@ function saveToFile()
   $('#downloadWork').show();
   prepareForAnimation($('#downloadWork'));
   $('#downloadWork').addClass('jellyPopup');
+
+  //Remove the jiggle
+  setTimeout(function()
+  {
+    $('#downloadWork').removeClass('jellyPopup');
+  }, 1000);
 }
 
 function getSubjectColors(subjectID)
