@@ -1,0 +1,1147 @@
+{
+  "s0":
+  {
+    "name":"Chapter 20",
+    "tableColor":"#ddd08d",
+    "headerColor":"#eee49d",
+    "equationColor":"#f6f5cb"
+  },
+  "s0n1":
+  {
+    "header":"Coulomb's Law",
+    "equation":"\\overrightarrow{F_{12}} = \\frac{kq_{1}q_{2}}{r^2}\\hat{r}\\\\\\mbox{Where }\\overrightarrow{F_{12}}\\mbox{ is the force }q_{1}\\mbox{ exerts on }q_{2}\\\\k \\mbox{ is a }\\linkNote{s12n2}{constant}\\mbox{.}\\\\\\hat{r}\\mbox{ is the normal of the direction between the charges.}"
+  },
+  "s0n2":
+  {
+    "header":"Charge Conservation",
+    "equation":"\\mbox{The net charge in a closed system is constant.}"
+  },
+  "s0n3":
+  {
+    "header":"Superposition Principle",
+    "equation":"\\mbox{The superposition principle entends for electric forces as well meaning}\\\\\\mbox{the net force is the sum of the independent individual electrical forces.}"
+  },
+  "s0n4":
+  {
+    "header":"Electric Field",
+    "equation":"\\mbox{The electric field at any point is the force per unit charge that a charge would experience at that point.}\\\\\\overrightarrow{E}=\\frac{\\overrightarrow{F}}{q} = \\frac{kq_{source}}{r^{2}}\\hat{r}"
+  },
+  "s0n5":
+  {
+    "header":"Electric Dipole Moment",
+    "equation":"p=qd\\\\\\mbox{Where } d \\mbox{ is the distance between the two charges making up the dipole.}"
+  },
+  "s0n6":
+  {
+    "header":"Continuous Electric Field",
+    "equation":"\\overrightarrow{E}=\\int{d\\overrightarrow{E}}=\\int{\\frac{k\\ dq}{r^{2}}\\hat{r}}"
+  },
+  "s0n7":
+  {
+    "header":"Dipole field on perpendicular bisector",
+    "equation":"\\overrightarrow{E}=-\\frac{kp}{y^{3}}\\hat{i}\\\\\\mbox{ When } y \\gg \\mbox{ dipole charge distance.}"
+  },
+  "s0n8":
+  {
+    "header":"Dipole field on dipole axis",
+    "equation":"\\overrightarrow{E}=\\frac{2kp}{x^{3}}\\hat{i}\\\\\\mbox{ When } x \\gg \\mbox{ dipole charge distance.}"
+  },
+  "s0n9":
+  {
+    "header":"Torque on a dipole in an electric field",
+    "equation":"\\overrightarrow{\\tau} = \\overrightarrow{p} \\times \\overrightarrow{E} = qdE\\sin(\\theta)"
+  },
+  "s0n10":
+  {
+    "header":"Potential energy for a dipole in an electric field",
+    "equation":"U = -\\overrightarrow{p}\\cdot\\overrightarrow{E}"
+  },
+  "s0n11":
+  {
+    "header":"Insulator",
+    "equation":"\\mbox{A material in which charges are not free to move around.}"
+  },
+  "s0n12":
+  {
+    "header":"Dielectric",
+    "equation":"\\mbox{Insulating materials that when an electric field is applied, the contained molecules polarize creating dipoles.}"
+  },
+  "s0n13":
+  {
+    "header":"Conductor",
+    "equation":"\\mbox{A material with charges that can move freely throughout the material.}"
+  },
+  "s1":
+  {
+    "name":"Chapter 21",
+    "tableColor":"#505842",
+    "headerColor":"#768858",
+    "equationColor":"#daf0cf"
+  },
+  "s1n1":
+  {
+    "header":"Electric Flux",
+    "equation":"\\Phi_E = \\overrightarrow{E} \\cdot \\overrightarrow{A} = EA\\cos(\\theta)\\\\\\Phi_E = \\int^{}_{surface}{\\overrightarrow{E} \\cdot d\\overrightarrow{A}}\\\\\\mbox{Where } \\overrightarrow{A} \\mbox{ is the outward pointing normal to the surface and has the magnitude of the surface's area.}"
+  },
+  "s1n2":
+  {
+    "header":"Gauss's Law for Electric Flux",
+    "equation": "\\Phi_E = \\oint{\\overrightarrow{E} \\cdot d\\overrightarrow{A}} = \\frac{q_{enclosed}}{\\epsilon_{0}}\\\\\\mbox{Where the charge must be enclosed inside the closed surface.}"
+  },
+  "s1n3":
+  {
+    "header":"Electrostatic Equilibrium",
+    "equation":"\\mbox{The electric field is zero inside a conductor in electrostatic equilibrium.}\\\\\\mbox{Any net charge must be on the conductor's surface.}\\\\\\mbox{Also see this }\\linkNote{s1n4}{note}\\mbox{.}"
+  },
+  "s1n4":
+  {
+    "header":"Electric Field for a surface of a conductor in Electrostatic Equilibrium (365)",
+    "equation":"E=\\frac{\\sigma}{\\epsilon_{0}}\\\\\\mbox{Where }\\sigma \\mbox{ is the surface charge density.}\\\\\\mbox{E is perpendicular to the surface of the conductor}"
+  },
+  "s1n5":
+  {
+    "header":"Electric Field for charged sphere",
+    "equation":"\\mbox{Outside: }E = \\frac{kQ}{r^2}\\\\\\mbox{Inside: }E = \\frac{kQr}{r_{sphere}^3}\\\\\\mbox{Inside hollow: }E = 0"
+  },
+  "s1n6":
+  {
+    "header":"Electric Field for charged line",
+    "equation":"\\mbox{The line must be assumed infinite in length.}\\\\\\mbox{This works well when we are checking the field close to the line and not near the edges.}\\\\\\mbox{Outside: }E = \\frac{\\lambda}{2\\pi\\epsilon_{0}r}\\mbox{ (}\\lambda\\mbox{ Is the charge density in }C/m\\mbox{)}\\\\\\mbox{Inside hollow: }E = 0"
+  },
+  "s1n7":
+  {
+    "header":"Electic Field for charged plane",
+    "equation":"\\mbox{Outside: }E=\\frac{\\sigma}{2\\epsilon_0}\\mbox{ (}\\sigma\\mbox{ Is the charge density in } C/m^2 \\mbox{)}"
+  },
+  "s2":
+  {
+    "name":"Chapter 22",
+    "tableColor":"#3f5243",
+    "headerColor":"#468352",
+    "equationColor":"#dbf4ce"
+  },
+  "s2n1":
+  {
+    "header":"Electric Potential Energy",
+    "equation":"\\mbox{Electric potential energy is the potential energy the charge in question has that is gained by an electric field.}"
+  },
+  "s2n2":
+  {
+    "header":"Electric Potential Difference",
+    "equation":"\\mbox{Electric potential difference is the potential energy per unit charge in moving some from A to B.}\\\\\\mbox{Positive means more electric potential energy for a positive charge moving from A to B, negative means less.}\\\\\\Delta V_{AB} = \\frac{\\Delta U_{AB}}{q} = -\\int^{B}_{A}{\\overrightarrow{E} \\cdot d \\overrightarrow{r}}"
+  },
+  "s2n3":
+  {
+    "header":"Electric Potential Difference from a charged Point",
+    "equation":"\\Delta V_{AB} = kq(\\frac{1}{r_B} - \\frac{1}{r_A})\\\\\\mbox{Where } r_A \\mbox{ and } r_B \\mbox{ are the distances from the charge to A and B respectively.}"
+  },
+  "s2n4":
+  {
+    "header":"Electric Potential Superposition",
+    "equation":"\\mbox{The resulting Electic Potential can be calculated from the sum of the independent individual electric potentials.}"
+  },
+  "s2n5":
+  {
+    "header":"Zero of Potential",
+    "equation":"\\mbox{A point used as a implicit reference to find differences in potential.}\\\\\\mbox{When someone says find the potential of a point they mean with respect to the zero of potential.}"
+  },
+  "s2n6":
+  {
+    "header":"Potential of a point charge",
+    "equation":"\\mbox{The zero of potential is usually defined to be infinitely away from our point of interest, in that case.}\\\\V = \\frac{kq}{r}"
+  },
+  "s2n7":
+  {
+    "header":"Potential of a sphere",
+    "equation":"\\mbox{The zero of potential is infinitely away from our sphere.}\\\\V = \\frac{kq}{r}"
+  },
+  "s2n8":
+  {
+    "header":"Potential of a dipole",
+    "equation":"\\mbox{Where the zero of potential is infinitely away from our point of interest}\\\\\\mbox{and that point's distance from the dipole is much larger than the dipole's length.}\\\\V = \\frac{kp\\cos{\\theta}}{r^2}\\\\\\mbox{Where }p = qd \\mbox{ and } \\theta \\mbox{ is measured from (or at least near) the center of the dipole to the point with respect to the dipole's axis.}"
+  },
+  "s2n9":
+  {
+    "header":"Potential integral",
+    "equation":"\\mbox{Using the Potential of a point charge note,}\\\\\\mbox{we can find the potential made by a more complex shape as a bunch of point charge potentials, giving.}\\\\V = \\int{\\frac{k\\ dq}{r}}"
+  },
+  "s2n10":
+  {
+    "header":"Equipotentials",
+    "equation":"\\mbox{Two points are equipotentials to each other if their is no electric potential difference between them.}"
+  },
+  "s2n11":
+  {
+    "header":"Electric Field from Electric Potential",
+    "equation":"\\overrightarrow{E} = -(\\frac{\\delta V}{\\delta x}\\hat{i} + \\frac{\\delta V}{\\delta y}\\hat{j} + \\frac{\\delta V}{\\delta z}\\hat{k})"
+  },
+  "s3":
+  {
+    "name":"Chapter 23",
+    "tableColor":"#f66647",
+    "headerColor":"#f4aba6",
+    "equationColor":"#f7e5e4"
+  },
+  "s3n1":
+  {
+    "header":"Capacitors",
+    "equation":"\\mbox{The most common is called the parallel-plate capacitor, described below.}\\\\\\mbox{Two conducting plates help close to one another which}\\\\\\mbox{can store charge using the potential difference between the plates.}\\\\\\mbox{In circuit diagrams, they are drawn as two parallel lines.}"
+  },
+  "s3n2":
+  {
+    "header":"Capacitance",
+    "equation":"C = \\frac{Q}{V} \\mbox{ (} V \\mbox{ is electrical potential difference between the plates)}\\\\\\mbox{The capacitance unit is the }\\linkNote{s13n8}{farad}\\mbox{.}"
+  },
+  "s3n3":
+  {
+    "header":"The Dielectric Constant for Capacitors",
+    "equation":"\\mbox{In the equation, } C = \\frac{Q}{V}\\mbox{ an insulating dielectric can weaken the electric field making } V \\mbox{ smaller and thus } C \\mbox{ bigger.}\\\\\\mbox{This factor varies with the material and is called the dielectric constant } \\kappa \\mbox{.}"
+  },
+  "s3n4":
+  {
+    "header":"Capacitance for capacitors",
+    "equation":"\\mbox{This is for parallel-plate capacitors.}\\\\C = \\frac{\\epsilon_0 A}{d} \\mbox{(} d \\mbox{ is the distance beween the plates)}"
+  },
+  "s3n5":
+  {
+    "header":"Potential Energy for a Capacitor",
+    "equation":"U=\\frac{1}{2}CV^2"
+  },
+  "s3n6":
+  {
+    "header":"Potential Energy (U) for a Parallel-Plate capacitor",
+    "equation":"U=\\frac{Q^2d}{2\\epsilon_0 A}"
+  },
+  "s3n7":
+  {
+    "header":"Working Voltage for a Capacitor",
+    "equation":"\\mbox{The working voltage is the minimum safe potential difference that when pushed past may cause dielectric breakdown.}"
+  },
+  "s3n8":
+  {
+    "header":"Electric field for a Capacitor (pg 390)",
+    "equation":"\\mbox{This is the field between the plates for parallel-plate capacitors.}\\\\\\\\E = \\frac{V}{d} \\mbox{ (} d \\mbox{ is the distance between the plates)}"
+  },
+  "s3n9":
+  {
+    "header":"Capacitance for parallel capacitors",
+    "equation":"\\mbox{See page 393 if instructions unclear.}\\\\C_{total} = C_1 + C_2 + ..."
+  },
+  "s3n10":
+  {
+    "header":"Capacitance for a series of capacitors",
+    "equation":"\\mbox{See page 393/394 if instructions unclear.}\\\\\\frac{1}{C_{total}} = \\frac{1}{C_1} + \\frac{1}{C_2} + ...\\\\\\mbox{For two capacitors you can say, } C_{total} = \\frac{C_1 C_2}{C_1 + C_2}"
+  },
+  "s3n11":
+  {
+    "header":"Property of parallel capacitors",
+    "equation":"\\mbox{Parallel capacitors have the same voltage.}"
+  },
+  "s3n12":
+  {
+    "header":"Property of a series of capacitors",
+    "equation":"\\mbox{A series of capacitors have the same charge.}"
+  },
+  "s3n13":
+  {
+    "header":"Electric Field Energy Density",
+    "equation":"u_E = \\frac{1}{2}\\epsilon_0 E^2\\\\\\mbox{Only works if the field is uniform.}\\\\\\mbox{Multiply this by the volume of the object to get the energy stored.}"
+  },
+  "s3n14":
+  {
+    "header":"Electric Field Energy",
+    "equation":"U = \\frac{1}{2}\\epsilon_0\\int{E^2 dV}"
+  },
+  "s4":
+  {
+    "name":"Chapter 24",
+    "tableColor":"#a8a6f4",
+    "headerColor":"#827dd9",
+    "equationColor":"#ebdaf5"
+  },
+  "s4n1":
+  {
+    "header":"Electric Current (pg 404)",
+    "equation":"\\mbox{Current is in the direction that positive charges flow,}\\\\\\mbox{if only negative charges are moving then the current's direction is opposite the flow.}\\\\I = \\frac{\\Delta Q}{\\Delta t} (A)\\mbox{, } I = \\frac{dQ}{dt} (A)\\\\\\mbox{Where } \\Delta Q \\mbox{ or } dQ \\mbox{ is the charge crossing a given area over } \\Delta t \\mbox{ or } dt"
+  },
+  "s4n2":
+  {
+    "header":"Electric Current in a conductor (pg 404)",
+    "equation":"I = n*A*q*v_d\\\\\\mbox{Tip: }I \\mbox{ = nack-vid}\\\\n\\mbox{ is the number of charges per unit volume.}\\\\A \\mbox{ is the cross-sectional area of the conductor.}\\\\q \\mbox{ is the charge of each charge.}\\\\v_d \\mbox{ is the drift speed of a charge.}"
+  },
+  "s4n3":
+  {
+    "header":"Relation of resistivity and resistance",
+    "equation":"R = \\frac{\\rho L}{A}\\mbox{ (} L \\mbox{ is length, } A \\mbox{ is the cross-sectional area)}"
+  },
+  "s4n4":
+  {
+    "header":"Current Density (pg 405)",
+    "equation":"\\overrightarrow{J} = \\frac{\\overrightarrow{I}}{A} = nq\\overrightarrow{v_d}"
+  },
+  "s4n5":
+  {
+    "header":"Ohm's Law (pg 406)",
+    "equation":"\\overrightarrow{J} = \\sigma \\overrightarrow{E}\\mbox{ ( } \\sigma \\mbox{ is a conductor's conductivity)}\\\\\\overrightarrow{J} = \\frac{\\overrightarrow{E}}{\\rho}\\mbox{(} \\rho \\mbox{ is a conductor's resistivity)}\\\\\\rho \\mbox{ is the reciprocal of } \\sigma \\mbox{ and has unit ohm (}\\Omega \\mbox{).}"
+  },
+  "s4n6":
+  {
+    "header":"Ohm's Law, again (pg 410)",
+    "equation":"I=\\frac{V}{R} \\mbox{ (} R \\mbox{ is an object's resistance, not resistivity)}"
+  },
+  "s4n7":
+  {
+    "header":"Ohmic materials (pg 406)",
+    "equation":"\\mbox{A material used in meditation.}\\\\\\mbox{A material in which it's conductivity (}\\sigma \\mbox{) is independent of the electric field.}\\\\\\mbox{This means that }\\overrightarrow{J} \\mbox{ in Ohm's Law is linearly proportional to }\\overrightarrow{E}"
+  },
+  "s4n8":
+  {
+    "header":"Nonohmic(Non-Ohmic) materials (pg 406)",
+    "equation":"\\mbox{A material not used in meditation.}\\\\\\mbox{A material in which it's conductivity (}\\sigma \\mbox{) changes with the electric field.}\\\\\\mbox{This means that }\\overrightarrow{J} \\mbox{ in Ohm's Law is not linearly proportional to }\\overrightarrow{E}"
+  },
+  "s4n9":
+  {
+    "header":"A metal's resistivity and it's temperature (pg 407)",
+    "equation":"\\mbox{Resistivity is almost linear with the temperature.}"
+  },
+  "s4n10":
+  {
+    "header":"Electric Power (pg 412)",
+    "equation":"\\mbox{The power (in watts) from an electric current turned into other forms of energy.}\\\\P = IV \\Rightarrow P = I^2 R \\Rightarrow P = \\frac{V^2}{R}"
+  },
+  "s5":
+  {
+    "name":"Chapter 25",
+    "tableColor":"#f2a6f4",
+    "headerColor":"#d38cdb",
+    "equationColor":"#f5ebfb"
+  },
+  "s5n1":
+  {
+    "header":"Electromotive Force (EMF)",
+    "equation":"\\mbox{Ignore the force part of the name, it's seems like a misnomer.}\\\\\\mbox{EMF is the potential voltage difference between a source like a battery.}\\\\\\mbox{It is measured in volts and a capital cursive E is used to denote it: }\\mathcal{E}"
+  },
+  "s5n2":
+  {
+    "header":"Electric Current using a battery",
+    "equation":"\\linkNote{s4n6}{Nothing new}\\mbox{, but it's used throughout this chapter.}\\\\I = \\frac{\\mathcal{E}}{R}\\mbox{ (}\\mathcal{E} \\mbox{ is the voltage of the battery)}"
+  },
+  "s5n3":
+  {
+    "header":"Resistance for resistors in series",
+    "equation":"R_{total} = R_1 + R_2 + ..."
+  },
+  "s5n4":
+  {
+    "header":"Resistance for resistors in parallel",
+    "equation":"\\frac{1}{R_{total}} = \\frac{1}{R_1} + \\frac{1}{R_2} + ...\\\\\\mbox{For two resistors you can say, }R_{total} = \\frac{R_1 R_2}{R_1 + R_2}"
+  },
+  "s5n5":
+  {
+    "header":"Kirchhoff's Laws (pg 426)",
+    "equation":"\\mbox{1. The sum of voltage changes in a closed circuit is zero.}\\\\\\mbox{2. The sum of currents at any node is zero (A node is a point where 3+ wires meet).}\\\\\\mbox{Example 25.4 is great, notice } I_2 \\mbox{ is backwards, direction doesn't matter (it gets fixed by the sign).}"
+  },
+  "s5n6":
+  {
+    "header":"Voltmeter (pg 428)",
+    "equation":"\\mbox{Measures the voltage across two points.}\\\\\\mbox{Must be placed parallel to the circuit, an ideal voltmeter has infinite resistance.}"
+  },
+  "s5n7":
+  {
+    "header":"Ammeter (pg 429)",
+    "equation":"\\mbox{Measures the current flowing through itself.}\\\\\\mbox{Must be placed in series to the circuit, an ideal ammeter has no resistance.}"
+  },
+  "s5n8":
+  {
+    "header":"Ohmmeter (pg 429)",
+    "equation":"\\mbox{Measures the resistance.}\\\\\\mbox{You can use an ammeter with a known voltage to the same effect.}"
+  },
+  "s5n9":
+  {
+    "header":"Multimeters (pg 429)",
+    "equation":"\\mbox{Does what a voltmeter, ammeter, and ohmmeter all do.}\\\\\\mbox{This is like the triforce of electrical instruments.}"
+  },
+  "s5n10":
+  {
+    "header":"RC Circuit (pg 240)",
+    "equation":"\\mbox{RC stands for resistor capacitor.}\\\\\\mbox{A battery connected to a capacitor with a resistor somewhere and a switch.}"
+  },
+  "s5n11":
+  {
+    "header":"RC Charging Current (pg 430-431)",
+    "equation":"I = \\frac{\\mathcal{E}}{R}e^{-\\frac{t}{RC}}"
+  },
+  "s5n12":
+  {
+    "header":"RC Charging Voltage (pg 431)",
+    "equation":"V_C = \\mathcal{E} (1 - e^{-\\frac{t}{RC}})"
+  },
+  "s5n13":
+  {
+    "header":"RC Discharging Current (pg 432)",
+    "equation":"I = \\frac{V_0}{R}e^{-\\frac{t}{RC}}\\mbox{ (} V_0 \\mbox{ is the capacitor's initial voltage)}"
+  },
+  "s5n14":
+  {
+    "header":"RC Discharging Voltage (pg 432)",
+    "equation":"V = V_0 e^{-\\frac{t}{RC}} \\mbox{ (} V_0 \\mbox{ is the capacitor's initial voltage)}"
+  },
+  "s6":
+  {
+    "name":"Chapter 26",
+    "tableColor":"#e3e285",
+    "headerColor":"#f1f477",
+    "equationColor":"#f9f5e2"
+  },
+  "s6n1":
+  {
+    "header":"The Phenomena of Magnetism",
+    "equation":"\\mbox{The phenomena of magnetism involve moving electric charge.}"
+  },
+  "s6n2":
+  {
+    "header":"Permeability",
+    "equation":"\\mbox{Thus far, it's never really mentioned explicitly in this book but this is what I could gather from wikipedia.}\\\\\\mbox{The permeability is related to a material's ability to create and support magnetic fields within itself.}"
+  },
+  "s6n3":
+  {
+    "header":"Direction of magnetic field",
+    "equation":"\\mbox{If you point your thumb in the direction of the current,}\\\\\\mbox{your other fingers curl in the magnetic field's direction.}"
+  },
+  "s6n4":
+  {
+    "header":"Magnetic Force (pg 440)",
+    "equation":"\\overrightarrow{F_B} = q\\overrightarrow{v} \\times \\overrightarrow{B}\\\\q \\mbox{ is the charge's charge.}\\\\\\overrightarrow{v} \\mbox{ is the velocity of the charge.}\\\\\\overrightarrow{B}\\mbox{ is the magnetic field and has unit Tesla (T).}"
+  },
+  "s6n5":
+  {
+    "header":"Particle moving perpendicularly to a uniform magnetic field (pg 442)",
+    "equation":"\\mbox{The partical experiences uniform circular motion.}\\\\r = \\frac{mv}{qB}"
+  },
+  "s6n6":
+  {
+    "header":"Period and frequency of particle in a uniform magnetic field (pg 442)",
+    "equation":"T = \\frac{2\\pi m}{qB}\\Rightarrow f = \\frac{qB}{2\\pi m}\\\\f \\mbox{ is called the cyclotron frequency.}"
+  },
+  "s6n7":
+  {
+    "header":"Magnetic force on a current (pg 444)",
+    "equation":"\\overrightarrow{F} = I\\overrightarrow{l} \\times \\overrightarrow{B}\\\\\\overrightarrow{l} \\mbox{ has magnitude equal to the wire's length and direction of the current.}"
+  },
+  "s6n8":
+  {
+    "header":"Perm",
+    "equation":"\\overrightarrow{F_B} = q\\overrightarrow{v} \\times \\overrightarrow{B}\\\\q \\mbox{ is the charge's charge.}\\\\\\overrightarrow{v} \\mbox{ is the velocity of the charge.}\\\\\\overrightarrow{B}\\mbox{ is the magnetic field and has unit Tesla (T).}"
+  },
+  "s6n9":
+  {
+    "header":"The Biot-Savart Law (pg 446)",
+    "equation":"\\mbox{Pronounced like Bee-O Sav-var.}\\\\\\overrightarrow{B} = \\frac{\\mu_0}{4\\pi}\\int{\\frac{I d\\overrightarrow{l} \\times \\hat{r}}{r^2}}\\\\\\mu_0 \\mbox{ is the permeability constant.}\\\\d\\overrightarrow{l} \\mbox{ is the vector along the current.}\\\\\\hat{r} \\mbox{ is the unit vector from the source to the point where we are evaluating the field.}"
+  },
+  "s6n10":
+  {
+    "header":"Magnetic field of infinitely long wire",
+    "equation":"\\mbox{See page 447-448 for deriviation (it's really good practice).}\\\\B = \\frac{\\mu_0 I}{2\\pi y}"
+  },
+  "s6n11":
+  {
+    "header":"Magnetic Dipole Moment (pg 449)",
+    "equation":"\\overrightarrow{\\mu} = NI\\overrightarrow{A}\\\\N \\mbox{ is how many current loops there are.}\\\\\\overrightarrow{A} \\mbox{ is the loop area pointing perpendicular to the loop.}"
+  },
+  "s6n12":
+  {
+    "header":"Magnetic Field for Dipole on Dipole Axis (pg 449)",
+    "equation":"B = \\frac{\\mu_0}{2\\pi} \\frac{\\mu}{x^3} \\mbox{(}\\mu\\mbox{ is the magnetic dipole moment)}"
+  },
+  "s6n13":
+  {
+    "header":"Magnetic Flux",
+    "equation":"\\mbox{This is kinda implicit but it's nice if you forget.}\\\\\\Phi_B=\\int{\\overrightarrow{B} \\cdot d\\overrightarrow{A}}\\mbox{ (} d\\overrightarrow{A} \\mbox{ is the normal of the surface)}"
+  },
+  "s6n14":
+  {
+    "header":"Gauss' Law for Magnetic Flux (pg 450)",
+    "equation":"\\mbox{Neat law, from thiss we can say all magnetic fields have no beginning or end.}\\\\\\mbox{From this we can say that the magnetic flux emerging from any } \\textbf{closed}\\mbox{ surface is zero.}\\\\\\Phi_B =\\oint{\\overrightarrow{B} \\cdot d\\overrightarrow{A}} = 0 \\mbox{ (} d\\overrightarrow{A} \\mbox{ is the normal of the surface)} "
+  },
+  "s6n15":
+  {
+    "header":"Torque on a Magnetic Dipole (pg 450)",
+    "equation":"\\overrightarrow{\\tau} = \\overrightarrow{\\mu} \\times \\overrightarrow{B}"
+  },
+  "s6n16":
+  {
+    "header":"Potential energy for a Magnetic Dipole (pg 450)",
+    "equation":"U = -\\overrightarrow{\\mu} \\cdot \\overrightarrow{B}"
+  },
+  "s6n17":
+  {
+    "header":"Ferromagnetism Overview (pg 452)",
+    "equation":"\\mbox{The book goes way more in depth by the way.}\\\\\\mbox{Magnetism caused by a group of atoms (called a magnetic domain) with magnetic moments all aligned the same direction.}\\\\\\mbox{You can achieve this effect by applying an external magnetic field to the metal causing the atoms to align with the field.}\\\\\\mbox{If the material is still magnetic after the magnetic field is removed, the material is a hard ferromagnet. It is a soft ferromagnet otherwise.}"
+  },
+  "s6n18":
+  {
+    "header":"Ampere's Law 1.0 (pg 454-455)",
+    "equation":"\\mbox{For steady currents only.}\\\\\\oint{\\overrightarrow{B} \\cdot d\\overrightarrow{r}} = \\mu_0 I_{encircled}\\mbox{ (} d\\overrightarrow{r} \\mbox{ runs along an enclosing loop.)}\\\\I_{encircled} \\mbox{ is the current going through any open surface bounded by the loop.}\\\\\\mbox{Note: See page 512 to see what 'bounded by the loop' means.}"
+  },
+  "s6n19":
+  {
+    "header":"Solenoids (pg 458-459)",
+    "equation":"\\mbox{A tightly wound coil with current going through it.}\\\\\\mbox{In a perfect solenoid, the outside the magnetic field is zero.}\\\\\\mbox{In a perfect solenoid, the inside magnetic field is constant: }\\\\B = \\mu_0nI\\mbox{ (}n \\mbox{ is how many loops there are per unit length)}"
+  },
+  "s6n20":
+  {
+    "header":"Magnetic Field for a Solenoid (pg 458)",
+    "equation":"B = \\mu_0nI\\mbox{ (}n \\mbox{ is how many loops there are per unit length)}"
+  },
+  "s7":
+  {
+    "name":"Chapter 27",
+    "tableColor":"#d8a3ed",
+    "headerColor":"#a685e3",
+    "equationColor":"#e9e2f9"
+  },
+  "s7n1":
+  {
+    "header":"Flux through a Solenoid",
+    "equation":"\\Phi_B = BA = \\mu_0 nI\\pi R^2"
+  },
+  "s7n2":
+  {
+    "header":"Mechanical Power supplied to pull loop (pg 472-473)",
+    "equation":"\\mbox{You really should check the book on this one.}\\\\P = \\frac{B^2 l^2 v^2}{R}\\\\l\\mbox{ is the length of the side perpendicular to v.}"
+  },
+  "s7n3":
+  {
+    "header":"Lenz's Law (pg 471-473)",
+    "equation":"\\mbox{The direction of an induced emf's or current's magnetic field}\\\\\\mbox{will oppose the change in the magnetic flux of the creator.}"
+  },
+  "s7n4":
+  {
+    "header":"Faraday's Law of Induction (for circuits) (pg 472)",
+    "equation":"\\mathcal{E} = -\\frac{d\\Phi_B}{dt}\\\\\\mathcal{E} \\mbox{ is the induced EMF for a} \\textbf{ circuit}\\mbox{.}"
+  },
+  "s7n5":
+  {
+    "header":"Eddy Currents (pg 474-475)",
+    "equation":"\\mbox{A conductive material moving in a magnetic field will create a large induced current and thus a large loss of power.}\\\\\\mbox{What this does is makes it very hard to move it in or out of a magnetic field, essentially sapping kinetic energy.}"
+  },
+  "s7n6":
+  {
+    "header":"Inductance (pg 476)",
+    "equation":"\\mbox{Inductance is changing the magnetic flux by way of changing the current of the source}\\\\\\mbox{which in turn would change the magnetic field it produces and thus the magnetic flux.}"
+  },
+  "s7n7":
+  {
+    "header":"Mutual Inductance (pg 476)",
+    "equation":"\\mbox{Take two coils next to each other, a changing current in one of the coils causes an induced emf in the other one.}"
+  },
+  "s7n8":
+  {
+    "header":"Self Inductance (pg 476)",
+    "equation":"\\mbox{An ironic property of inductance.}\\\\\\mbox{Self inductance is when a circuit's own magnetic field opposes it's own change.}\\\\\\mbox{This makes it harder to change the current in a circuit.}"
+  },
+  "s7n9":
+  {
+    "header":"An Inductor (pg 476)",
+    "equation":"\\mbox{A device used to help cause self-inductance by creating a more concentrated magnetic flux.}\\\\\\mbox{An ideal inductor would have zero resistance.}\\\\\\mbox{In circuit diagrams, they are drawn as multiple loop-the-loops.}"
+  },
+  "s7n10":
+  {
+    "header":"Self Inductance Formula (pg 477)",
+    "equation":"L = \\frac{\\Phi}{I} (H)\\\\\\Phi \\mbox{ is the magnetic flux through the inductor.}\\\\I \\mbox{ is the current through the inductor.}"
+  },
+  "s7n11":
+  {
+    "header":"Faraday's Law of Induction (for inductors) (pg 477)",
+    "equation":"\\mathcal{E}_L = -L \\frac{dI}{dt}\\\\\\mbox{The inductor's emf opposes the change in current as expected.}\\\\\\mbox{Because of this, it's sometimes called the }\\textbf{back emf}\\mbox{.}"
+  },
+  "s7n12":
+  {
+    "header":"Charge in a RL circuit (pg 479)",
+    "equation":"\\mbox{RL stands for Resistor-Inductor (Since L is used for inductors)}\\\\I = \\frac{\\mathcal{E}}{R} (1 - e^{-\\frac{Rt}{L}}) \\mbox{ (} \\mathcal{E} \\mbox{ is the voltage of the source)}"
+  },
+  "s7n13":
+  {
+    "header":"Inductor's power (pg 481)",
+    "equation":"P = LI \\frac{dI}{dt}"
+  },
+  "s7n14":
+  {
+    "header":"Potential Energy for an Inductor (pg 482)",
+    "equation":"U = \\frac{1}{2} L I^2"
+  },
+  "s7n15":
+  {
+    "header":"Magnetic Field Energy Density (pg 482)",
+    "equation":"u_B = \\frac{B^2}{2\\mu_0}"
+  },
+  "s7n16":
+  {
+    "header":"Induced Electric Field (pg 483-484)",
+    "equation":"\\mbox{A changing magnetic field always creates an induced electric field.}\\\\\\mbox{The electric field then creates the induced current } \\textbf{if}\\mbox{ there is a circuit.}\\\\\\mbox{These electric fields are usually closed loops which means they're nonconservative.}"
+  },
+  "s7n17":
+  {
+    "header":"Faraday's Law of Induction (pg 483)",
+    "equation":"\\mbox{This is the most general form and applies to any changing magnetic field.}\\\\\\oint_{loop}{E \\cdot d\\overrightarrow{r}} = -\\frac{d\\Phi_B}{dt}\\\\d\\overrightarrow{r} \\mbox{ runs along the loop of the lefthand integral.}\\\\\\overrightarrow{E}\\mbox{ is the induced electric field (see note on induced electric fields).}\\\\\\Phi_B \\mbox{ is the magnetic flux of any open surface contained in the loop.}"
+  },
+  "s7n18":
+  {
+    "header":"Diamagnetism (pg 485)",
+    "equation":"\\mbox{All materials are diamagnetic to some extent.}\\\\\\mbox{Diamagnetism is the phenomena of when you apply a magnetic field to it,}\\\\\\mbox{it creates an induced magnetic field and gets repelled from the original magnetic field.}\\\\\\mbox{It's best to just read the small page on it.}"
+  },
+  "s8":
+  {
+    "name":"Chapter 28",
+    "tableColor":"#e9c149",
+    "headerColor":"#fce16a",
+    "equationColor":"#f9f8e2"
+  },
+  "s8n1":
+  {
+    "header":"Sinusoidal AC Current and Voltage (pg 492)",
+    "equation":"V = V_p\\sin(\\omega t + \\phi_v)\\\\I = I_p\\sin(\\omega t + \\phi_I)"
+  },
+  "s8n2":
+  {
+    "header":"Root-Mean-Square (RMS) (pg 491)",
+    "equation":"\\mbox{}\\\\a_{rms} = \\sqrt{\\frac{1}{n}(a_1^2 + a_2^2 + ... + a_n^2)}"
+  },
+  "s8n3":
+  {
+    "header":"Peak value and RMS relation for a sine wave (pg 491)",
+    "equation":"\\mbox{The peak value for a sine wave is related to the RMS:}\\\\a_{peak} = \\sqrt{2} \\cdot a_{rms}"
+  },
+  "s8n4":
+  {
+    "header":"Resistor in AC (pg 492)",
+    "equation":"I = \\frac{V}{R} = \\frac{V_p}{R}\\sin(\\omega t + \\phi)"
+  },
+  "s8n5":
+  {
+    "header":"Capacitor Current in AC (pg 493)",
+    "equation":"I = \\omega CV_p \\sin(\\omega t + \\frac{\\pi}{2})\\\\I_p = \\omega C V_p = \\frac{V_p}{1 / {\\omega C}} = \\frac{V_p}{X_C}"
+  },
+  "s8n6":
+  {
+    "header":"Capacitive Reactance (pg 493)",
+    "equation":"X_C = \\frac{1}{\\omega C} (\\Omega)"
+  },
+  "s8n7":
+  {
+    "header":"Inductor Current in AC (pg 494)",
+    "equation":"I = \\frac{V_p}{\\omega L}\\sin(\\omega t - \\frac{\\pi}{2})\\\\I_P = \\frac{V_P}{\\omega L} = \\frac{V_P}{X_L}"
+  },
+  "s8n8":
+  {
+    "header":"Inductive Reactance (pg 494)",
+    "equation":"X_L = \\omega L (\\Omega)"
+  },
+  "s8n9":
+  {
+    "header":"Phasor Diagrams (pg 495)",
+    "equation":"\\mbox{A vector representing the phase and amplitude in AC circuits.}\\\\\\mbox{A phasor is a vector rotating counterclockwise with the angular frequency and whose length is the amplitude.}\\\\\\mbox{Taking the y component of the phasor gives you V(t) or I(t) at that moment.}"
+  },
+  "s8n10":
+  {
+    "header":"Ideal LC Circuits (pg 497-498)",
+    "equation":"\\mbox{A LC Circuit stands for Inductor-Capacitor circuit and is similar to the mass-spring system,}\\\\\\mbox{oscillating from potential energy to kinetic energy, back and forth.}\\\\\\mbox{Since this is ideal, the total energy (}U \\mbox{) is constant thus } \\frac{dU}{dt} = 0 \\mbox{, from this we can say:}\\\\q = q_P \\cos(\\omega t)\\mbox{, and, }\\omega = \\frac{1}{\\sqrt{LC}}"
+  },
+  "s8n11":
+  {
+    "header":"RLC Circuits (pg 499-501)",
+    "equation":"\\mbox{A RLC Circuit stands for Resistor-Inductor-Capacitor circuit.}\\\\q(t) = q_P \\cdot e^{-\\frac{Rt}{2L}}\\cos(\\omega t)"
+  },
+  "s8n12":
+  {
+    "header":"RLC Resonant Frequency (pg 499-501)",
+    "equation":"\\mbox{Connecting an AC generator to the circuit, the}\\\\\\mbox{resonant frequency for the generator is: } \\omega = \\frac{1}{\\sqrt{LC}}"
+  },
+  "s8n13":
+  {
+    "header":"RLC Peak Voltage and Current (pg 500)",
+    "equation":"V_P = \\sqrt{V_{RP}^2 + (V_{LP} - V_{CP})^2}\\\\I_P = \\frac{V_P}{\\sqrt{R^2 + (X_L - X_C)^2}} = \\frac{V_P}{Z}"
+  },
+  "s8n14":
+  {
+    "header":"Impedance (pg 500)",
+    "equation":"\\mbox{A measure of resistance including the effects of capacitance and inductance.}\\\\Z = \\sqrt{R^2 + (X_L - X_C)^2} (\\Omega)"
+  },
+  "s8n15":
+  {
+    "header":"Phase difference and Reactance/Resistance relation (pg 501)",
+    "equation":"\\tan(\\phi) = \\frac{X_L - X_C}{R}\\\\\\mbox{ Where } \\phi = \\phi_V - \\phi_I \\mbox{ and is the phase difference between voltage and current.}\\\\\\mbox{A positive }\\phi \\mbox{ means voltage leads current, negative means current leads voltage.}"
+  },
+  "s8n16":
+  {
+    "header":"Power in AC Circuits (pg 502)",
+    "equation":"\\langle P \\rangle = I_{rms} V_{rms} \\cos(\\phi)\\\\\\mbox{Where }\\langle \\rangle \\mbox{ mean time average over one cycle.}\\\\\\mbox{Thus } \\langle P \\rangle \\mbox{ is the average power over one cycle.}\\\\\\cos(\\phi) \\mbox{ is called the }\\textbf{power factor}\\mbox{.}"
+  },
+  "s8n17":
+  {
+    "header":"Transformer (pg 503)",
+    "equation":"\\mbox{Transformers consist of two wires wrapped opposite of another usually around a magnetic core.}\\\\\\mbox{One of the coils will have an AC current going through it, that one is the primary.}\\\\\\mbox{Using the power of induced emf the primary will create a current in the other one, known as the secondary.}\\\\\\mbox{A step-up transformer increases the voltage from primary to secondary, a step-down transformer does the opposite.}\\\\\\mbox{In circuit diagrams they are drawn as two parallel multiple loop-the-loops with two also parallel bars in the middle.}\\\\\\mbox{Also they're robots in disguise.}"
+  },
+  "s8n18":
+  {
+    "header":"Transformer Voltages Change (pg 503)",
+    "equation":"V_{secondary} = \\frac{N_{secondary}}{N_{primary}}V_{primary}\\\\N\\mbox{ is the amount of coil turns}"
+  },
+  "s9":
+  {
+    "name":"Chapter 29",
+    "tableColor":"#5abdcf",
+    "headerColor":"#a2e2de",
+    "equationColor":"#e2f9f0"
+  },
+  "s9n1":
+  {
+    "header":"Ampere's Law (2.0) (pg 512)",
+    "equation":"\\mbox{Addition made by Maxwell, allowing for non-steady currents.}\\\\\\mbox{See other note on }\\linkNote{s6n18}{Ampere's Law}\\mbox{ for proper usage.}\\\\\\oint{\\overrightarrow{E} \\cdot d\\overrightarrow{r}} = \\mu_0 I_{encircled} + \\mu_0\\epsilon_0 \\frac{d\\Phi_E}{dt}\\\\\\mbox{Where } \\Phi_E \\mbox{ is the electric field flux through the bounded open surface.}\\\\\\mbox{Historically, }\\epsilon_0 \\frac{d\\Phi_E}{dt}\\mbox{ is called the } \\textbf{displacement current}\\mbox{.}"
+  },
+  "s9n2":
+  {
+    "header":"Maxwell's notes (pg 513)",
+    "equation":"\\mbox{For making }\\linkNote{s9n1}{Ampere's Law (2.0)}\\mbox{, the following notes are called Maxwell's notes in his honor:}\\\\\\linkNote{s1n2}{Gauss's Law for Electric Flux}\\\\\\linkNote{s6n14}{Gauss's Law for Magnetic Flux}\\\\\\linkNote{s7n17}{Faraday's Law of Induction} \\\\\\linkNote{s9n1}{Ampere's Law (2.0)}"
+  },
+  "s9n3":
+  {
+    "header":"Maxwell's notes in a Vacuum (pg 513)",
+    "equation":"\\mbox{These are for }\\textbf{vacuums}\\mbox{.}\\\\\\oint{\\overrightarrow{E} \\cdot d\\overrightarrow{A}} = 0 \\linkNote{s1n2}{\\mbox{ (Gauss, }\\overrightarrow{E} \\mbox{)}}\\mbox{, }\\oint{\\overrightarrow{B} \\cdot d\\overrightarrow{A}} = 0 \\linkNote{s6n14}{\\mbox{ (Gauss, } \\overrightarrow{B}\\mbox{)}}\\\\\\oint{\\overrightarrow{E}\\cdot d \\overrightarrow{r}} = -\\frac{d\\Phi_B}{dt}\\linkNote{s7n17}{\\mbox{ (Faraday)}}\\mbox{, }\\oint{\\overrightarrow{B}\\cdot d\\overrightarrow{r}} = \\mu_0 \\epsilon_0 \\frac{d\\Phi_E}{dt}\\linkNote{s9n1}{\\mbox{ (Ampere)}}"
+  },
+  "s9n4":
+  {
+    "header":"Electromagnetic Wave (pg 514-520)",
+    "equation":"\\mbox{A changing electric field induces a magnetic field and a mangetic field induces an electric field.}\\\\\\mbox{This can possibly create a wave called an electromagnetic wave that propagates through space.}\\\\\\mbox{The wave itself is a }\\linkNote{s14n8}{transverse wave}\\mbox{.}"
+  },
+  "s9n5":
+  {
+    "header":"Electromagnetic Plane Wave (pg 514-520)",
+    "equation":"\\mbox{Please read the book, this note skips over a lot.}\\\\\\mbox{The plane wave's electric and magnetic field are perpendicular to the direction of the wave and each other.}\\\\\\mbox{The electric and magnetic field also both share a sinusoidal structure as well as being in phase with each other.}\\\\\\mbox{Figure 29.3a is only a cross-section, it would look the same anywhere along the plane made by }z\\mbox{ and } y \\mbox{.}"
+  },
+  "s9n6":
+  {
+    "header":"Electromagnetic Plane Wave Fields (pg 515)",
+    "equation":"\\overrightarrow{E}(x, t) = E_p \\sin(kx - \\omega t)\\hat{e}\\\\\\overrightarrow{B}(x, t) = B_p \\sin(kx - \\omega t)\\hat{b}\\\\k \\mbox{ is the }\\linkNote{s14n6}{wavenumber}\\mbox{.}\\\\\\mbox{The direction of } \\hat{e} \\mbox{ and }\\hat{b} \\mbox{ could be anything except that }\\hat{e} \\mbox{ and }\\hat{b}\\\\\\mbox{ must be perpendicular to each other and to the direction the wave is traveling.}\\\\\\hat{e} \\times \\hat{b} = \\mbox{the direction the wave is traveling.}"
+  },
+  "s9n7":
+  {
+    "header":"Conditions for Electromagnetic Plane Wave Fields (pg 517)",
+    "equation":"\\mbox{The following two notes must hold for an electromagnetic plane wave to exist:}\\\\kE_p=\\omega B_p\\\\kB_p = \\epsilon_0\\mu_0\\omega E_p\\\\k \\mbox{ is the }\\linkNote{s14n6}{wavenumber}\\mbox{.}"
+  },
+  "s9n8":
+  {
+    "header":"Electromagnetic Wave Speed In Vacuum (pg 517-518)",
+    "equation":"\\mbox{wave speed} = \\frac{\\omega}{k} = \\frac{1}{\\sqrt{\\epsilon_0 \\mu_0}} = \\linkNote{11.9}{c}"
+  },
+  "s9n9":
+  {
+    "header":"Magnetic and Electric relation for Electromagnetic Waves  (pg 518)",
+    "equation":"\\mbox{This is true at anytime on the wave, not just at the peaks.}\\\\E = cB"
+  },
+  "s9n10":
+  {
+    "header":"Polarization (pg 519-520)",
+    "equation":"\\mbox{The orientation of the wave's fields are arbitrary, but can be polarized into an orientation.}\\\\\\mbox{This direction known as the }\\textbf{polarization}\\mbox{ is the direction of the electric field.}\\\\\\mbox{When light hits a surface it becomes polarized as well as when it passes through certain materials.}"
+  },
+  "s9n11":
+  {
+    "header":"Polarizer (pg 519-520)",
+    "equation":"\\mbox{A polarizer is like a filter that only allows light with certain polarization to pass.}\\\\\\mbox{See }\\linkNote{s9n12}{transmission axis}\\mbox{ as well.}"
+  },
+  "s9n12":
+  {
+    "header":"Transmission Axis (pg 520)",
+    "equation":"\\mbox{An axis on a polarizer that is like a fuzzy slit in which light thats electric field kinda matches up with the slit will let pass.}\\\\\\mbox{See the }\\linkNote{s9n13}{Law of Malus}\\mbox{ note.}"
+  },
+  "s9n13":
+  {
+    "header":"Law of Malus (Polarization and Intensity) (pg 520)",
+    "equation":"S = S_0 \\cos^2(\\theta)\\\\S \\mbox{ is the intensity coming out.}\\\\S_0 \\mbox{ is the intensity coming in.}\\\\\\theta \\mbox{ is the angle between the electric field and the } \\linkNote{s9n12}{transmission axis}\\mbox{.}"
+  },
+  "s9n14":
+  {
+    "header":"Producing Electromagnetic Waves (pg 522)",
+    "equation":"\\mbox{All that's needed is an alternating electric or mangetic wave, from that induction does the rest.}\\\\\\mbox{Perferable wavelengths (giving and receiving) are close to the same size as the system.}"
+  },
+  "s9n15":
+  {
+    "header":"Electromagnetic Wave Intensity (pg 523)",
+    "equation":"\\overrightarrow{S} = \\frac{\\overrightarrow{E} \\times \\overrightarrow{B}}{\\mu_0}\\\\\\overrightarrow{S} \\mbox{ is called the }\\textbf{Poynting vector}\\mbox{.}"
+  },
+  "s9n16":
+  {
+    "header":"Average Electromagnetic Wave Intensity (pg 524)",
+    "equation":"\\bar{S} = \\frac{E_p B_p}{2 \\mu_0}\\\\\\mbox{Replacing B: } \\bar{S} = \\frac{E_{p}^2}{2\\mu_0 c}\\\\\\mbox{Replacing E: }\\bar{S} = \\frac{cB_{p}^2}{2\\mu_0}"
+  },
+  "s9n17":
+  {
+    "header":"Electromagnetic Wave Intensity for Localized Sources (pg 524-525)",
+    "equation":"S = \\frac{P}{4\\pi r^2} \\mbox{(Where }S \\mbox{ and }P\\mbox{ could be either peak or average intensity and power)}"
+  },
+  "s9n18":
+  {
+    "header":"Radiation Pressure (pg 525)",
+    "equation":"P_{rad} = \\frac{\\bar{S}}{c}\\\\\\mbox{It is double if the object reflects electromagnetic waves.}"
+  },
+  "s10":
+  {
+    "name":"Chapter 30",
+    "tableColor":"#5e3826",
+    "headerColor":"#955a3f",
+    "equationColor":"#d2bfb7"
+  },
+  "s10n1":
+  {
+    "header":"The Law of Reflection (Light Reflection) (pg 532)",
+    "equation":"\\mbox{The angle with respect to the normal of the surface where the light}\\\\\\mbox{hits is equal to the light coming out's angle with respect to the normal:}\\\\\\theta = \\theta' \\\\\\theta \\mbox{ is the angle of incidence (the light coming in).}\\\\\\theta' \\mbox{ is the angle of reflection (the light coming out).}"
+  },
+  "s10n2":
+  {
+    "header":"Specular Reflection (pg 533)",
+    "equation":"\\mbox{A material has specular reflection if the entire light beam is reflected without distortions.}\\\\\\mbox{Smooth surfaces have specular reflection.}"
+  },
+  "s10n3":
+  {
+    "header":"Diffuse Reflection (pg 533)",
+    "equation":"\\mbox{A material has diffuse reflection if the light beam gets scattered.}\\\\\\linkNote{s10n1}{The Law of Reflection}\\mbox{ still holds for the individual rays however.}\\\\\\mbox{Rough surfaces have diffuse reflection.}"
+  },
+  "s10n4":
+  {
+    "header":"Partial Reflection (pg 533)",
+    "equation":"\\mbox{A material has partial reflection if the light will usually not reflect under certain conditions.}\\\\\\mbox{The least reflection occurs when the rays are close to the normal and increases with larger angles.}\\\\\\mbox{Glass is a surface with partial reflection behavior.}"
+  },
+  "s10n5":
+  {
+    "header":"Refraction (pg 534-536)",
+    "equation":"\\mbox{Light passing through a material with different }\\linkNote{s10n6}{index of refraction}\\mbox{ will cause the light to change direction.}"
+  },
+  "s10n6":
+  {
+    "header":"Index of Refraction (pg 534)",
+    "equation":"n\\mbox{(index)} = \\frac{c}{v}\\\\\\mbox{From this: }\\lambda = \\frac{c}{nf}\\\\\\mbox{See also the }\\linkNote{s12n10}{Indices of Refraction}\\mbox{.}"
+  },
+  "s10n7":
+  {
+    "header":"Snell's Law (Refraction Angles) (pg 534-535)",
+    "equation":"n_1 \\sin(\\theta_1) = n_2 \\sin(\\theta_2)\\\\\\theta_1 \\mbox{ and } \\theta_2 \\mbox{ are with respect to the normal and the ray.}\\\\\\mbox{Passing through a material with greater }n\\mbox{ will cause the angle to get closer to the normal.}"
+  },
+  "s10n8":
+  {
+    "header":"Brewster's Angle (Angle of Refraction) (pg 536)",
+    "equation":"\\textbf{Read the book, this part I'm not fully confident about.}\\\\\\mbox{Questions: If rays whose electric fields that are on the same plane are refracted only,}\\\\\\mbox{and rays whose electric field are perpendicular to the plane are reflected;}\\\\\\mbox{what about rays that are neither?}"
+  },
+  "s10n9":
+  {
+    "header":"Total Internal Reflection (pg 536-537)",
+    "equation":"\\mbox{Sometimes calculating }\\theta_2 \\mbox{ in } \\linkNote{s10n7}{Snell's law} \\mbox{ will yield an angle that is greater or equal to 90°} \\mbox{.}\\\\\\mbox{When this happens, the ray goes back into the material it was coming from.}\\\\\\mbox{When }\\theta_2 = 90° \\mbox{, }\\theta_1 \\mbox{ is called the }\\textbf{critical angle.}"
+  },
+  "s10n10":
+  {
+    "header":"Calculating the Critical Angle (pg 536)",
+    "equation":"\\mbox{See }\\linkNote{s10n9}{this} \\mbox{ for definition.}\\\\\\sin(\\theta_c) = \\frac{n_1}{n_2}"
+  },
+  "s10n11":
+  {
+    "header":"Dispersion (pg 538-539)",
+    "equation":"\\mbox{A light ray's refraction angle also depends on the wavelength of the ray.}\\\\\\mbox{Light with a smaller wavelength refracts more.}"
+  },
+  "s11":
+  {
+    "name":"Chapter 31",
+    "tableColor":"#85ad51",
+    "headerColor":"#a8c97d",
+    "equationColor":"#e4f0da"
+  },
+  "s11n1":
+  {
+    "header":"Other Sources",
+    "equation":"\\mbox{Khan Academy has a }\\textbf{great} \\mbox{ playlist for this chapter.}\\\\\\mbox{https://www.khanacademy.org/science/physics/geometric-optics/mirrors-and-lenses/v/virtual-image}"
+  },
+  "s11n2":
+  {
+    "header":"Parabola Axis",
+    "equation":"\\mbox{The parabolic axis is the axis that would make the parabola symmetrical.}"
+  },
+  "s11n3":
+  {
+    "header":"Parabola Vertex / Parabola Apex",
+    "equation":"\\mbox{The book calls this point the } \\textbf{apex}\\mbox{.}\\\\\\mbox{The only point on a parabola that intersects with it's axis.}"
+  },
+  "s11n4":
+  {
+    "header":"Parabola Focus / Focal Point",
+    "equation":"\\mbox{The focus or focal point is a point inside the concave part of a parabola.}\\\\\\mbox{The }\\textbf{focal length}\\mbox{ is the distance the focal is from the vertex.}\\\\\\mbox{Regardless if the parabola is concave or convex, the following are true:}\\\\\\begin{matrix}1. & \\mbox{Light rays coming parallel to the axis reflect on an axis through the focus.}\\\\2. & \\mbox{Light rays whose direction goes through the focus reflect parrallel to the axis.}\\end{matrix}"
+  },
+  "s11n5":
+  {
+    "header":"Parabola Center of Curvature",
+    "equation":"\\mbox{A point on the parabola's axis that is twice the distance the focal point is from the vertex.}"
+  },
+  "s11n6":
+  {
+    "header":"Paraxial Rays",
+    "equation":"\\mbox{A ray that runs close to and is nearly parallel to the parabola's axis.}"
+  },
+  "s11n7":
+  {
+    "header":"Image (pg 544-545)",
+    "equation":"\\mbox{An image is the observer's view of an object even if that view is changed by a mirror or lense.}"
+  },
+  "s11n8":
+  {
+    "header":"Virtual Image (pg 544)",
+    "equation":"\\mbox{If where your brain thinks the light rays are coming from are not where the light rays are, it is a virtual image.}\\\\\\mbox{Flat mirrors create virtual images, see figure 31.1a.}"
+  },
+  "s11n9":
+  {
+    "header":"Real Image (pg 544)",
+    "equation":"\\mbox{If where your brain thinks the light rays are coming from are where the light rays are, it is a real image.}\\\\\\mbox{Convex parabolic mirrors create real images, see figure 31.6a.}"
+  },
+  "s11n10":
+  {
+    "header":"Flat Mirrors (pg 545)",
+    "equation":"\\mbox{An image and the corresponding object both have the same distance from the mirror.}\\\\\\mbox{The image is reversed from front to back, not left to right.}"
+  },
+  "s11n11":
+  {
+    "header":"Concave Mirrors (pg 545-547)",
+    "equation":"\\mbox{Most concave mirrors are actually spherical creating an error called }\\textbf{spherical aberration}\\mbox{.}\\\\\\mbox{If the mirror is on the right side and you read out left to right what comes and,}\\\\O \\mbox{ is for the object, } C \\mbox{ for center, and } F \\mbox{ is for focus. One of the following will happen:}\\\\OCF \\mbox{: Image is real, inverted and reduced.}\\\\COF \\mbox{: Image is real, inverted and enlarged.}\\\\CFO \\mbox{: Image is virtual, upright and enlarged.}"
+  },
+  "s11n12":
+  {
+    "header":"Convex Mirrors (pg 547-548)",
+    "equation":"\\mbox{A convex mirror gives a wide angle view.}\\\\\\mbox{Convex mirrors create virtual, upright, reduced images.}"
+  },
+  "s11n13":
+  {
+    "header":"Magnification (pg 547)",
+    "equation":"M \\mbox{ (magnification)} = \\frac{h'}{h} = -\\frac{s'}{s}\\\\h' \\mbox { is the height of the image.}\\\\h \\mbox { is the height of the object.}\\\\s' \\mbox { is the image's distance from the vertex.}\\\\s \\mbox { is the object's distance from the vertex.}\\\\\\mbox{A negative }M \\mbox{ means the image is inverted.}"
+  },
+  "s11n14":
+  {
+    "header":"The Mirror Equation (pg 547-548)",
+    "equation":"\\frac{1}{s} + \\frac{1}{s'} = \\frac{1}{f}\\\\s \\mbox { is the object's distance from the vertex.}\\\\s' \\mbox{ is the image's distance from the vertex and is negative if the image is behind the mirror.}\\\\ f \\mbox{ is the focal length and is negative if the mirror is convex.}"
+  },
+  "s11n15":
+  {
+    "header":"Lens",
+    "equation":"\\mbox{Lenses let light pass through but may refract the light.}\\\\\\mbox{An obvious example would be a contact lens.}\\\\\\mbox{Lenses can be convex and concave or even both(LINKKKKK).}"
+  },
+  "s11n16":
+  {
+    "header":"Lens Axis",
+    "equation":"\\mbox{Your finger points along the axis when you put on a contact lens.}"
+  },
+  "s11n17":
+  {
+    "header":"Thin Lens Approximation",
+    "equation":"\\mbox{This approximation is assumed for all lenses except explicitly stated.}\\\\\\mbox{The following things are true when assuming it:}\\\\\\begin{matrix}1.&\\mbox{A ray parallel to the lens axis refracts through the focal point.}\\\\2.&\\mbox{A ray that passes through the focal point refracts parallel to the lens axis.}\\\\3.&\\mbox{A ray through the center does not refract.}\\end{matrix}"
+  },
+  "s11n18":
+  {
+    "header":"The Lens Equation",
+    "equation":"\\frac{1}{s} + \\frac{1}{s'} = \\frac{1}{f}\\\\s \\mbox { is the object's distance from the lens.}\\\\s' \\mbox{ is the image's distance from the lens and is negative if the image is on the same side as the object.}\\\\ f \\mbox{ is the focal length and is negative if the lens is a diverging lens.}"
+  },
+  "s12":
+  {
+    "name":"Constants",
+    "tableColor":"#ba4874",
+    "headerColor":"#de79a0",
+    "equationColor":"#f5dbf6"
+  },
+  "s12n1":
+  {
+    "header":"Elementary Charge",
+    "equation":"\\mbox{It's defined as the charge of a single electron or proton.}\\\\e = 1.60 \\times 10^{-19} C"
+  },
+  "s12n2":
+  {
+    "header":"That k constant",
+    "equation":"\\mbox{The one used in say, }\\linkNote{s0n1}{Coulomb's law}\\mbox{.}\\\\k = 9.0\\times10^{9}\\frac{N*m^{2}}{C^{2}}"
+  },
+  "s12n3":
+  {
+    "header":"Permittivity Constant",
+    "equation":"\\epsilon_{0} = \\frac{1}{4 \\pi k} = \\frac{1}{\\mu_0c^2} = 8.85 \\times 10^{-12}"
+  },
+  "s12n4":
+  {
+    "header":"Electron Mass",
+    "equation":"m_e = 9.11 \\times 10^{-31} kg"
+  },
+  "s12n5":
+  {
+    "header":"Proton Mass",
+    "equation":"m_p = 1.67 \\times 10^{-27} kg"
+  },
+  "s12n6":
+  {
+    "header":"Dielectric Constants and Dielectric Breakdown",
+    "equation":"\\begin{matrix} \\textbf{Dielectric Material} & \\textbf{Dielectric Constant} & \\textbf{Breakdown Field (MV/m)} \\\\\\mbox{Air} & 1.0006 & 3 \\\\\\mbox{Aluminum Oxide} & 8.4 & 670 \\\\\\mbox{Glass (Pyrex)} & 5.6 & 14 \\\\\\mbox{Paper} & 3.5 & 14 \\\\\\mbox{Plexiglass} & 3.4 & 40 \\\\\\mbox{Polyethylene} & 2.3 & 50 \\\\\\mbox{Polystyrene} & 2.6 & 25 \\\\\\mbox{Quartz} & 3.8 & 8 \\\\\\mbox{Tantalum Oxide} & 26 & 500 \\\\\\mbox{Teflon} & 2.1 & 60 \\\\\\mbox{Water} & 80 & \\mbox{depends on time and purity} \\end{matrix}"
+  },
+  "s12n7":
+  {
+    "header":"Resistivity for some Materials",
+    "equation":"\\begin{matrix}\\textbf{Material} & \\textbf{Resistivity (}\\bf{\\Omega \\cdot m}\\textbf{)}\\\\\\mbox{Aluminum} & 2.65\\times10^{-8}\\\\\\mbox{Copper} & 1.68\\times10^{-8}\\\\\\mbox{Gold} & 2.24\\times10^{-8}\\\\\\mbox{Iron} & 9.71\\times10^{-8}\\\\\\mbox{Mercury} & 9.84\\times10^{-7}\\\\\\mbox{Silver} & 1.59\\times10^{-8}\\\\\\mbox{1-molar CuSO}_4 & 3.9\\times10^{-4}\\\\\\mbox{1-molar HCl} & 1.7\\times10^{-2}\\\\\\mbox{1-molar NaCl} & 1.4\\times10^{-4} \\\\\\mbox{H}_2\\mbox{O} & 2.6\\times10^{5}\\\\\\mbox{Human BlooOoOd} & 0.70\\\\\\mbox{Seawater (typical)} & 0.22\\\\\\mbox{Ceramics} & 10^{11}-10^{14}\\\\\\mbox{Glass} & 10^{10}-10^{14}\\\\\\mbox{Polystyrene} & 10^{15}-10^{17}\\\\\\mbox{Rubber} & 10^{13}-10^{16}\\\\\\mbox{Wood (dry)} & 10^{8}-10^{14}\\end{matrix}"
+  },
+  "s12n8":
+  {
+    "header":"Permeability Constant",
+    "equation":"\\mbox{The measure of permeability inside a vacuum.}\\\\\\mu_0 = 4\\pi \\times 10^{-7} \\frac{N}{A^2}"
+  },
+  "s12n9":
+  {
+    "header":"The Speed of Light",
+    "equation":"c = \\frac{1}{\\sqrt{\\epsilon_0 \\mu_0}} = 3.00 \\times 10^8 \\frac{m}{s}"
+  },
+  "s12n10":
+  {
+    "header":"Indices of Refraction (pg 534)",
+    "equation":"\\begin{matrix}\\textbf{Substance} & \\textbf{Index of Refraction}\\\\\\mbox{Air} & 1.000293 \\\\\\mbox{Carbon Dioxide} & 1.00045 \\\\\\mbox{Water} & 1.333 \\\\\\mbox{Ethyl Alcohol} & 1.361 \\\\\\mbox{Glycerine} & 1.473 \\\\\\mbox{Benzene} & 1.501 \\\\\\mbox{Diiodomethane} & 1.738 \\\\\\mbox{Ice} & 1.309 \\\\\\mbox{Polystyrene} & 1.49 \\\\\\mbox{Glass} & 1.5-1.9 \\\\\\mbox{Sodium Chloride} & 1.544 \\\\\\mbox{Diamond} & 2.419 \\\\\\mbox{Rutile} & 2.62 \\end{matrix}"
+  },
+  "s13":
+  {
+    "name":"Units",
+    "tableColor":"#4d5175",
+    "headerColor":"#767fd5",
+    "equationColor":"#dbe4f6"
+  },
+  "s13n1":
+  {
+    "header":"Hertz",
+    "equation":"\\mbox{Hz} = \\frac{cycle}{s}"
+  },
+  "s13n2":
+  {
+    "header":"Coulomb",
+    "equation":"C = 6.25\\times10^{18} \\cdot e"
+  },
+  "s13n3":
+  {
+    "header":"Electric Field",
+    "equation":"\\overrightarrow{E} = \\frac{N}{C} =\\frac{V}{m}"
+  },
+  "s13n4":
+  {
+    "header":"Newton",
+    "equation":"N = \\frac{kg}{m/s^2}"
+  },
+  "s13n5":
+  {
+    "header":"Joule",
+    "equation":"J = N \\cdot m"
+  },
+  "s13n6":
+  {
+    "header":"Volt",
+    "equation":"V = \\frac{J}{C}"
+  },
+  "s13n7":
+  {
+    "header":"Electronvolt (eV)",
+    "equation":"\\mbox{One elementary charge times one volt:}\\\\eV = 1.6 \\times 10^{-19}J"
+  },
+  "s13n8":
+  {
+    "header":"Farad",
+    "equation":"F=\\frac{C}{V}"
+  },
+  "s13n9":
+  {
+    "header":"Ampere (Amp)",
+    "equation":"A=\\frac{C}{s}"
+  },
+  "s13n10":
+  {
+    "header":"Ohm",
+    "equation":"\\Omega = \\frac{V}{A}"
+  },
+  "s13n11":
+  {
+    "header":"Tesla",
+    "equation":"T = \\frac{N \\cdot s}{C \\cdot m}"
+  },
+  "s13n12":
+  {
+    "header":"Gauss",
+    "equation":"G = 10^{-4} \\cdot T"
+  },
+  "s13n13":
+  {
+    "header":"Henry",
+    "equation":"H = \\frac{T \\cdot m^2}{A}"
+  },
+  "s13n14":
+  {
+    "header":"Watt",
+    "equation":"W = \\frac{J}{s}"
+  },
+  "s14":
+  {
+    "name":"Old Stuff",
+    "tableColor":"#323030",
+    "headerColor":"#797979",
+    "equationColor":"#bebebe"
+  },
+  "s14n1":
+  {
+    "header":"Circular Motion",
+    "equation":"a = \\frac{v^{2}}{r}"
+  },
+  "s14n2":
+  {
+    "header":"Angular Frequency",
+    "equation":"\\omega = 2\\pi f"
+  },
+  "s14n3":
+  {
+    "header":"Momentum",
+    "equation":"p = mv"
+  },
+  "s14n4":
+  {
+    "header":"Relation of frequency and period",
+    "equation":"f = \\frac{1}{T}"
+  },
+  "s14n5":
+  {
+    "header":"Wavelength",
+    "equation":"\\mbox{The distance between any two points on the wave with the same phase.}\\\\\\lambda = \\frac{v}{f} \\mbox{(Where }v \\mbox{ is the wave's phase velocity.}"
+  },
+  "s14n6":
+  {
+    "header":"Wavenumber",
+    "equation":"k = \\frac{2\\pi}{\\lambda}"
+  },
+  "s14n7":
+  {
+    "header":"Wave speed",
+    "equation":"\\mbox{speed} = \\frac{\\omega}{k} \\implies \\mbox{speed} = f\\lambda"
+  },
+  "s14n8":
+  {
+    "header":"Transverse Waves",
+    "equation":"\\mbox{A wave that oscillates perpendicular to the direction it is traveling.}\\\\\\mbox{Water ripples are transverse waves.}"
+  },
+  "s14n9":
+  {
+    "header":"Longitudinal Waves",
+    "equation":"\\mbox{A wave that oscillates parallel to the direction it is traveling.}\\\\\\mbox{Imagine dominos that can stand back up.}"
+  },
+  "s14n10":
+  {
+    "header":"Intensity",
+    "equation":"\\mbox{Intensity is the rate that power goes through an area.}\\\\\\mbox{The unit for intensity is: } \\frac{W}{m^2}"
+  },
+  "s14n11":
+  {
+    "header":"Pressure",
+    "equation":"p = \\frac{F}{A}"
+  },
+  "s14n12":
+  {
+    "header":"The Force of Gravity",
+    "equation":"F = \\frac{GM_1 M_2}{r^2}"
+  }
+}
