@@ -4,6 +4,7 @@ MathJax.Hub.Register.StartupHook("End", function()
   mathJaxReady = true;
   
   $(masterDiv).show();
+  $('#headerDiv').show();
 });
 
 var quizTime = false;
@@ -150,7 +151,7 @@ function hideNotesAndSearch()
   setTimeout(function()
   {
     $('#masterDiv').hide();
-    $('#searchDiv').hide();
+    $('#headerDiv').hide();
   }, 600);
   
   //Don't use straight css animation with the masterDiv because
@@ -160,8 +161,8 @@ function hideNotesAndSearch()
     opacity: 0.0,
   }, 200);
 
-  prepareForAnimation($('#searchDiv'));
-  $('#searchDiv').css
+  prepareForAnimation($('#headerDiv'));
+  $('#headerDiv').css
   ({
     'animation-name': 'fadeOut',
     'animation-duration': '0.4s',
@@ -174,8 +175,8 @@ function hideNotesAndSearch()
 function showNotesAndSearch()
 {
   $('#masterDiv').show();
-  $('#searchDiv').show();
-
+  $('#headerDiv').show();
+  
   //Don't use straight css animation with the masterDiv because
   //jquery has very bad problems with it while making the masterDiv user sortable
   $('#masterDiv').animate
@@ -183,8 +184,8 @@ function showNotesAndSearch()
     opacity: 1.0,
   }, 200);
   
-  prepareForAnimation($('#searchDiv'));
-  $('#searchDiv').css
+  prepareForAnimation($('#headerDiv'));
+  $('#headerDiv').css
   ({
     'animation-name': 'fadeOut',
     'animation-duration': '0.4s',

@@ -50,7 +50,26 @@ function saveToFile()
     });
   });
   
-  return JSON.stringify(saveData);
+  var oldURL = $('#downloadWork').attr('href');
+  if(oldURL !== undefined)
+  {
+    //Release up old URL
+    window.URL.revokeObjectURL(oldURL);
+  }
+  
+  //Blobs take arrays as arguemnts so wrap in an array
+  var jsonSaveData = [JSON.stringify(saveData)];
+  
+  //Create the blob and get a url for it
+  var blob = new Blob(jsonSaveData, {type: "application/json"});
+  var url = window.URL.createObjectURL(blob);
+  
+  //Show the download link
+  $('#downloadWork').attr('href', url);
+  $('#downloadWork').attr('download', 'data.json');
+  $('#downloadWork').show();
+  prepareForAnimation($('#downloadWork'));
+  $('#downloadWork').addClass('jellyPopup');
 }
 
 function getSubjectColors(subjectID)
@@ -409,8 +428,11 @@ function populate()
 {
   var masterDiv = document.createElement("div");
   masterDiv.id = "masterDiv";
-  $(masterDiv).hide();
   $(masterDiv).disableSelection();
+  
+  $(masterDiv).hide();
+  $('#headerDiv').hide();
+
   document.body.appendChild(masterDiv);
   
   var curSubjectPos = 0;
@@ -541,6 +563,8 @@ function populate()
       }, 900);
     });
   });
+  
+  $('#saveWork').click(saveToFile);
   
   enableSorting();
   

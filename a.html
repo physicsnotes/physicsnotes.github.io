@@ -77,6 +77,14 @@
     }
 }
 
+#headerDiv {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  min-width: 780px;
+}
+
 .addNote {
   display: none;
   position: absolute;
@@ -108,10 +116,10 @@ body {
   border: 2px #313131 dashed;
   border-radius: 4px;
   
-  margin: 10px 10px 10px 10px;
   padding-bottom: 25px;
   height: 56px;
-  min-width: 500px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 #addSubject {
@@ -134,21 +142,20 @@ body {
 
 #masterDiv {
   padding: 0;
+  min-width: 780px;
+  margin: 10px;
 }
 
-#searchDiv img {
-  position: absolute;
-  left: 25px;
-  top: 11px;
+#searchSpan img {
+  position: relative;
+  right: 391px;
+  top: 8px;
 }
 
 #search {
-  margin: auto auto;
   height: 30px;
   width: 345px;
   border: 1.2px;
-  margin-bottom: 10px;
-  margin-left: 10px;
   color: #62666a;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 23px;
@@ -372,7 +379,7 @@ body {
 }
 
 #editorPreview {
-  display:flex;
+  display: flex;
   justify-content:center;
   align-items:center;
   
@@ -409,7 +416,38 @@ body {
   transform: translate(-50%, 0);
 }
 
-.editorCancelButton, .editorSaveButton, #quizNextButton, #quizQuitButton, #quizShowButton, .addNote, #addSubject {
+#saveWork {
+  position: relative;
+  bottom: 5px;
+  float: right;
+  width: 90px;
+  height: 35px;
+  font-size: 29px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #d4ffff;
+  padding: 8px;
+  background-color: #66dfdf;
+}
+
+#downloadWork {
+  display: none;
+  position: relative;
+  bottom: 5px;
+  float: right;
+  width: 131px;
+  height: 35px;
+  font-size: 29px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #f3f9ef;
+  padding: 8px;
+  background-color: #92ec99;
+  margin-left: 20px;
+  text-decoration: none; /*Override the link underline*/
+}
+
+.editorCancelButton, .editorSaveButton, #quizNextButton, #quizQuitButton, #quizShowButton, .addNote, #addSubject, #saveWork, #downloadWork {
   cursor: pointer;
   border-radius: 8px;
   -webkit-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
@@ -417,7 +455,7 @@ body {
   box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
 }
 
-.editorCancelButton:active, .editorSaveButton:active, .addNote:active, #addSubject:active {
+.editorCancelButton:active, .editorSaveButton:active, .addNote:active, #addSubject:active, #saveWork:active, #downloadWork:active {
   padding-bottom: 6px;
   margin-top: 6px;
   -webkit-box-shadow: none;
@@ -569,12 +607,11 @@ body {
   -webkit-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
   -moz-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
   box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
-  margin: 10px 10px 10px 10px;
   padding-bottom: 25px;
   background-image: url("noise.png");
   background-repeat: repeat;
-
-  min-width: 500px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .subjectTitle {
@@ -865,9 +902,14 @@ body {
   </div>
 </div>
 
-<div id="searchDiv">
-  <input type="text" placeholder="Search..." id="search">
-  <img src="search.svg">
+<div id="headerDiv">
+  <span id="searchSpan">
+    <input type="text" placeholder="Search..." id="search">
+    <img src="search.svg">
+  </span>
+  
+  <a id="downloadWork">Download</a>
+  <span id="saveWork">Save</span>
 </div>
 
 <div id="config">
