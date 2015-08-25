@@ -6,6 +6,7 @@
 
   <script type="text/javascript" src="jquery-1.11.3.min.js"></script>
   <script type="text/javascript" src="jquery-ui.min.js"></script>
+
   <title>Physics Notes</title>
 </head>
 <body>
@@ -409,11 +410,12 @@ body {
 }
 
 #quizNoteHolder {
-  z-index: 200;
   position: fixed;
-  top: calc(50% - 70px);
-  left: 50%;
-  transform: translate(-50%, 0);
+  width: calc(100%);
+  height: calc(100vh - 132px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #saveWork {

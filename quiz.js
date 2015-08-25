@@ -4,6 +4,7 @@ MathJax.Hub.Register.StartupHook("End", function()
   mathJaxReady = true;
   
   $(masterDiv).show();
+  $('#quizNoteHolder').hide();
   $('#headerDiv').show();
 });
 
@@ -70,7 +71,8 @@ function quit()
     return;
   
   $('.noteConfig').show();
-
+  $('#quizNoteHolder').hide();
+  
   quizTime = false;
 
   quizNotes = [];
@@ -200,13 +202,14 @@ function startQuiz(quizSubjectBody)
   if(!doneGeneratingNotes || !mathJaxReady || quizTime || isMovingSomething())
     return;
     
+  $('#quizNoteHolder').show();
   disableSorting();
   
   quizTime = true;
 
   $('#quizNextButton').html("Next");
 
-  quizNotes = quizSubjectBody.children();
+  quizNotes = quizSubjectBody.children('.note');
 
   hideNotesAndSearch();
 
