@@ -272,7 +272,8 @@ function createSubject(subjectName, tableColor, headerColor, equationColor)
   var subjectTable = document.createElement("div");
   subjectTable.className = "subjectTable";
   $(subjectTable).css('background-color', tableColor);
-
+  $(subjectTable)
+  
   //Create the title row for the table
   var subjectTitleRow = document.createElement("div");
   subjectTable.appendChild(subjectTitleRow);
@@ -432,6 +433,8 @@ function registerSubject(subject, id, name, tableColor, headerColor, equationCol
 
 function populate()
 {
+  $('body').disableSelection();
+
   var masterDiv = document.createElement("div");
   masterDiv.id = "masterDiv";
   $(masterDiv).disableSelection();
