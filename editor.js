@@ -213,7 +213,7 @@ function openNoteEditor(subjectID, noteID)
     editorEquationStr = saveData[noteID].equation;
   }
   $('#editorHeaderInput').val(editorHeaderStr);
-  $('#editorEquationInput').html(editorEquationStr);
+  $('#editorEquationInput').val(editorEquationStr);
 
   editorNoteID = noteID;
   editorSubjectID = subjectID;
