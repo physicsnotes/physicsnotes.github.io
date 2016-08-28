@@ -5,6 +5,7 @@ MathJax.Hub.Register.StartupHook("End", function()
 	$(masterDiv).show();
 	$('#quizNoteHolder').hide();
 	$('#headerDiv').show();
+    $('#loading').hide();
 });
 
 var quizTime = false;
@@ -222,6 +223,6 @@ function startQuiz(quizSubjectBody)
 		'animation-direction': 'reverse',
 		'cursor': 'pointer'
 	});
-    
+
 	setTimeout(showRandomNote, 520);
 }
