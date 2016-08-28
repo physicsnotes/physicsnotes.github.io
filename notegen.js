@@ -7,8 +7,8 @@ var saveData = new Object();
 $.getJSON("data.json",
 function(data)
 {
-	json = data;
-	populate();
+    json = data;
+    populate();
 });
 
 //Returns true if the user is moving a subject or note
@@ -29,7 +29,7 @@ function isMovingSomething()
 			movingSomething = true;
 	});
 
-	return movingSomething
+	return movingSomething;
 }
 
 function saveToFile()
@@ -425,11 +425,13 @@ function populate()
 	$('#headerDiv').hide();
 	document.body.appendChild(masterDiv);
 	var curSubjectPos = 0;
+
 	var foundSubjectAtPos = true;
 	while(foundSubjectAtPos)
 	for(var subjectID in json)
 	{
 		foundSubjectAtPos = false;
+
 		//Ensure that this is not an inherited object property and is a subject
 		if(json.hasOwnProperty(subjectID) && subjectID.indexOf('n') === -1)
 		{
@@ -438,21 +440,26 @@ function populate()
 				continue;
 			foundSubjectAtPos = true;
 			++curSubjectPos;
+
 			//Extract the data from json
 			var subjectName = subject.name;
 			var tableColor = subject.tableColor;
 			var headerColor = subject.headerColor;
 			var equationColor = subject.equationColor;
+
 			//Create the subject
 			var subjectTable = createSubject(subjectName, tableColor, headerColor, equationColor);
 			masterDiv.appendChild(subjectTable);
+
 			//Register the subject
 			registerSubject(subjectTable, subjectID, subjectName, tableColor, headerColor, equationColor);
 			var curNotePos = 0;
 			var foundNoteAtPos = true;
+
 			//Create the notes for the subject
 			while(foundNoteAtPos)
-			for(var noteID in json)
+
+            for(var noteID in json)
 			{
 				foundNoteAtPos = false;
 				//Ensure that this is not an inherited object property and is a note for the subject
@@ -463,9 +470,11 @@ function populate()
 						continue;
 					foundNoteAtPos = true;
 					++curNotePos;
+
 					//Create the note
 					var note = createNote(subjectID, noteData.header, noteData.equation);
 					$(subjectTable).find('.subjectBody').append(note);
+
 					//Register the note
 					registerNote(note, noteID, noteData.header, noteData.equation);
 					break;
