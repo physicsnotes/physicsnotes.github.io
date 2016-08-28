@@ -1,936 +1,626 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-
-  <script type="text/javascript" src="jquery-1.11.3.min.js"></script>
-  <script type="text/javascript" src="jquery-ui.min.js"></script>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="jquery-ui.min.js"></script>
 	<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-  <title>Physics Notes</title>
+	<title>Physics Notes</title>
 </head>
 <body>
 <script type="text/javascript" src="notegen.js"></script>
-
 <style>
-
 .MathJax span {
-    border-left-style: none !important;
+		border-left-style: none !important;
 }
-
 @keyframes jellyPopupAmim {
-    0% {
-      visibility: hidden;
-      transform: scale(0.0);
-    }
-
-    70% {
-      transform: scale(1.0);
-    }
-
-    80% {
-      transform: scale(1.02);
-    }
-
-    90% {
-      transform: scale(0.95);
-    }
-
-    100% {
-      visibility: visible;
-      transform: scale(1.0);
-    }
+		0% {
+			visibility: hidden;
+			transform: scale(0.0);
+		}
+		70% {
+			transform: scale(1.0);
+		}
+		80% {
+			transform: scale(1.02);
+		}
+		90% {
+			transform: scale(0.95);
+		}
+		100% {
+			visibility: visible;
+			transform: scale(1.0);
+		}
 }
-
 .jellyPopup {
-  animation-name: jellyPopupAmim;
-  animation-duration: 0.5s;
-  animation-timing-function: ease-in;
-  animation-fill-mode: forwards;
-  animation-direction': normal;
+	animation-name: jellyPopupAmim;
+	animation-duration: 0.5s;
+	animation-timing-function: ease-in;
+	animation-fill-mode: forwards;
+	animation-direction': normal;
 }
-
 .configPopUp {
-  animation-name: jellyPopupAmim;
-  animation-duration: 0.3s;
-  animation-timing-function: ease-in;
-  animation-fill-mode: forwards;
-  animation-direction: normal;
+	animation-name: jellyPopupAmim;
+	animation-duration: 0.3s;
+	animation-timing-function: ease-in;
+	animation-fill-mode: forwards;
+	animation-direction: normal;
 }
-
 @keyframes fadeAndScaleOut {
-    0% {
-      transform: scale(1.0, 1.0);
-      opacity: 1.0;
-      visibility: visible;
-    }
-
-    100% {
-      transform: scale(0.8, 0.8);
-      opacity: 0.0;
-      visibility: hidden;
-    }
+		0% {
+			transform: scale(1.0, 1.0);
+			opacity: 1.0;
+			visibility: visible;
+		}
+		100% {
+			transform: scale(0.8, 0.8);
+			opacity: 0.0;
+			visibility: hidden;
+		}
 }
-
 @keyframes fadeOut {
-    0% {
-      opacity: 1.0;
-    }
-
-    100% {
-      opacity: 0.0;
-    }
+		0% {
+			opacity: 1.0;
+		}
+		100% {
+			opacity: 0.0;
+		}
 }
-
 #headerDiv {
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  min-width: 780px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	min-width: 780px;
 }
-
 .addNote {
-  display: none;
-  position: absolute;
-  right: 9px;
-  bottom: 9px;
-  font-size: 46px;
-  font-family: Arial, Helvetica, sans-serif;
-  width: 55px;
-  height: 50px;
-  text-align: center;
-  padding-bottom: 10px;
+	display: none;
+	position: absolute;
+	right: 9px;
+	bottom: 9px;
+	font-size: 46px;
+	font-family: Arial, Helvetica, sans-serif;
+	width: 55px;
+	height: 50px;
+	text-align: center;
+	padding-bottom: 10px;
 }
-
 .addNote:only-child {
-  position: relative;
-  left: calc(50%);
-  width: calc(21%);
-  top: 0px; /*Overrides the bottom in the regular addNote rule*/
-  transform: translateX(-50%);
-  margin-bottom: 4px;
+	position: relative;
+	left: calc(50%);
+	width: calc(21%);
+	top: 0px; /*Overrides the bottom in the regular addNote rule*/
+	transform: translateX(-50%);
+	margin-bottom: 4px;
 }
-
 body {
-  background-image: url("bgnoise.png");
-  background-repeat: repeat;
+	background-image: url("bgnoise.png");
+	background-repeat: repeat;
 }
-
 #addSubjectTable {
-  border: 2px #313131 dashed;
-  border-radius: 4px;
-  
-  padding-bottom: 25px;
-  height: 56px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+	border: 2px #313131 dashed;
+	border-radius: 4px;
+	padding-bottom: 25px;
+	height: 56px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
-
 #addSubject {
-  font-size: 46px;
-  font-family: Arial, Helvetica, sans-serif;
-  text-align: center;
-
-  width: 21%;
-  height: 50px;
-
-  background-color: #878787;
-  padding-bottom: 10px;
-
-  position: relative;
-  top: 9px;
-  margin-bottom: 4px;
-  margin-left:auto;
-  margin-right:auto;
+	font-size: 46px;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+	width: 21%;
+	height: 50px;
+	background-color: #878787;
+	padding-bottom: 10px;
+	position: relative;
+	top: 9px;
+	margin-bottom: 4px;
+	margin-left:auto;
+	margin-right:auto;
 }
-
 #masterDiv {
-  padding: 0;
-  min-width: 780px;
-  margin: 10px;
+	padding: 0;
+	min-width: 780px;
+	margin: 10px;
 }
-
 #searchSpan img {
-  position: relative;
-  right: 391px;
-  top: 8px;
+	position: relative;
+	right: 391px;
+	top: 8px;
 }
-
 #search {
-  height: 30px;
-  width: 345px;
-  border: 1.2px;
-  color: #62666a;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 23px;
-  padding-left: 42px;
-  padding-right: 5px;
-  padding-bottom: 10px;
-  border-radius: 8px;
-
-  -webkit-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
-  -moz-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
-  box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+	height: 30px;
+	width: 345px;
+	border: 1.2px;
+	color: #62666a;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 23px;
+	padding-left: 42px;
+	padding-right: 5px;
+	padding-bottom: 10px;
+	border-radius: 8px;
+	-webkit-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+	-moz-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+	box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
 }
-
 #search:focus {
-  background-color: #92bacd;
-  outline: 0;
+	background-color: #92bacd;
+	outline: 0;
 }
-
 .subjectConfigDelete, .subjectConfigEdit {
-  float: right;
-  
-  width: 63px;
-  
-  color: #313131;
-  font-family: Arial, Helvetica, serif;
-  font-size: 19px;
-  text-align: center;
-
-  padding-top: 7px;
-  padding-bottom: 9px;
-  margin-right: 20px;
-
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-  
-  cursor: pointer;
+	float: right;
+	width: 63px;
+	color: #313131;
+	font-family: Arial, Helvetica, serif;
+	font-size: 19px;
+	text-align: center;
+	padding-top: 7px;
+	padding-bottom: 9px;
+	margin-right: 20px;
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+	cursor: pointer;
 }
-
 .subjectConfigDelete:hover, .subjectConfigEdit:hover {
-  text-decoration: underline;
+	text-decoration: underline;
 }
-
 #config {
-  position: absolute;
-
-  display: none;
-
-  z-index: 20;
+	position: absolute;
+	display: none;
+	z-index: 20;
 }
-
 #configBubble {
-  border-radius: 8px;
-  background-color: #f1f0f0;
-  width: 200px;
-  height: 80px;
-  -webkit-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
-  -moz-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
-  box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+	border-radius: 8px;
+	background-color: #f1f0f0;
+	width: 200px;
+	height: 80px;
+	-webkit-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+	-moz-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+	box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
 }
-
 #configBubble > div {
-  color: #62666a;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 18px;
-  padding-left: 15px;
-  height: 25px;
-  cursor: pointer;
+	color: #62666a;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	padding-left: 15px;
+	height: 25px;
+	cursor: pointer;
 }
-
 #configBubble > div:hover {
-  text-decoration: underline;
+	text-decoration: underline;
 }
-
 #configTail {
-  z-index: -1;
-  display: block;
-  position: relative;
-  top: -4px;
-  left: 9px
+	z-index: -1;
+	display: block;
+	position: relative;
+	top: -4px;
+	left: 9px
 }
-
 #editor {
-  display: none;
+	display: none;
 }
-
 .editorColorDiv {
-  width: 197px;
-  height: 197px;
-  
-  background-color: #e9aa70;
-  color: #313131;
-  
-  border: 2px #313131 dashed;
-  border-radius: 4px;
-  
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-  font-family: Arial, Helvetica, serif;
-  font-size: 32px;
+	width: 197px;
+	height: 197px;
+	background-color: #e9aa70;
+	color: #313131;
+	border: 2px #313131 dashed;
+	border-radius: 4px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: Arial, Helvetica, serif;
+	font-size: 32px;
 }
-
 .editorColorInput {
-  display: block !important;
-  width: 197px !important;
-  height: 197px !important;
-  position: relative !important;
-  bottom: 197px !important;
-  
-  border: 0 !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  
-  opacity: 0 !important;
+	display: block !important;
+	width: 197px !important;
+	height: 197px !important;
+	position: relative !important;
+	bottom: 197px !important;
+	border: 0 !important;
+	padding: 0 !important;
+	margin: 0 !important;
+	opacity: 0 !important;
 }
-
 #subjectEditor {
-  margin-top: 22px;
+	margin-top: 22px;
 }
-
 #editorPreviewTitle {
-  padding-left: 9px !important;
-  padding-right: 9px !important;
-  z-index: -1 !important;
-
-  border-top-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-
-  font-family: Arial, Helvetica, serif;
-
-  font-size: 40px;
+	padding-left: 9px !important;
+	padding-right: 9px !important;
+	z-index: -1 !important;
+	border-top-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+	font-family: Arial, Helvetica, serif;
+	font-size: 40px;
 }
-
 #editorEquationInput {
-  resize: none;
-  white-space: nowrap;
-  display: block;
-  width: calc(100vw - 50px);
-  height: 200px;
-  border: 1.2px;
-  margin-left: 10px;
-  color: #62666a;
-  font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier;
-  font-size: 23px;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-bottom: 10px;
-  border-radius: 8px;
-
-  -webkit-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
-  -moz-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
-  box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+	resize: none;
+	white-space: nowrap;
+	display: block;
+	width: calc(100vw - 50px);
+	height: 200px;
+	border: 1.2px;
+	margin-left: 10px;
+	color: #62666a;
+	font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier;
+	font-size: 23px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-bottom: 10px;
+	border-radius: 8px;
+	-webkit-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+	-moz-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+	box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
 }
-
 #editorHeaderInput, #editorSubjectTitleInput {
-  display: block;
-  margin: auto auto;
-  height: 30px;
-  width: calc(100vw - 358px);
-  border: 1.2px;
-  margin-bottom: 10px;
-  margin-left: 10px;
-  color: #62666a;
-  font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier;
-  font-size: 23px;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-bottom: 10px;
-  border-radius: 8px;
-
-  -webkit-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
-  -moz-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
-  box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+	display: block;
+	margin: auto auto;
+	height: 30px;
+	width: calc(100vw - 358px);
+	border: 1.2px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+	color: #62666a;
+	font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier;
+	font-size: 23px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-bottom: 10px;
+	border-radius: 8px;
+	-webkit-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+	-moz-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+	box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
 }
-
 .editorCancelButton {
-  width: 90px;
-  height: 35px;
-  font-size: 29px;
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #ffd6d6;
-  padding: 8px;
-  margin: auto 0px;
-  background-color: #f97575;
-  
-  position: absolute;
-  top: calc(100vh - 283px);
-  right: 192px;
+	width: 90px;
+	height: 35px;
+	font-size: 29px;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #ffd6d6;
+	padding: 8px;
+	margin: auto 0px;
+	background-color: #f97575;
+	position: absolute;
+	top: calc(100vh - 283px);
+	right: 192px;
 }
-
 .editorSaveButton {
-  width: 90px;
-  height: 35px;
-  font-size: 29px;
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #d4ffff;
-  padding: 8px;
-  margin: auto 0px;
-  background-color: #66dfdf;
-
-  position: absolute;
-  top: calc(100vh - 283px);
-  right: 34px;
+	width: 90px;
+	height: 35px;
+	font-size: 29px;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #d4ffff;
+	padding: 8px;
+	margin: auto 0px;
+	background-color: #66dfdf;
+	position: absolute;
+	top: calc(100vh - 283px);
+	right: 34px;
 }
-
 #editorPreviewParent {
-  border-radius: 8px;
-
-  width: 100%;
-
-  height: calc(100vh - 299px);
-  background-image: url("noise.png");
-
-  -webkit-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
-  -moz-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
-  box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
-  overflow: hidden;
+	border-radius: 8px;
+	width: 100%;
+	height: calc(100vh - 299px);
+	background-image: url("noise.png");
+	-webkit-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+	-moz-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+	box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+	overflow: hidden;
 }
-
 #editorPreview {
-  display: flex;
-  justify-content:center;
-  align-items:center;
-  
-  width: calc(100vw - 37px);
-  max-width: calc(100vw - 37px);
-
-  height: calc(100vh - 305px);
-  max-height: calc(100vh - 305px);
-
-  margin-left: 10px;
-
-  overflow: auto;
+	display: flex;
+	justify-content:center;
+	align-items:center;
+	width: calc(100vw - 37px);
+	max-width: calc(100vw - 37px);
+	height: calc(100vh - 305px);
+	max-height: calc(100vh - 305px);
+	margin-left: 10px;
+	overflow: auto;
 }
-
 #editorNote {
-  padding-left: 25px !important; /*Used to counteract weird padding on right side*/
-  float: none !important;
-  max-height: inherit;
-  max-width: inherit;
+	padding-left: 25px !important; /*Used to counteract weird padding on right side*/
+	float: none !important;
+	max-height: inherit;
+	max-width: inherit;
 }
-
 #editorInputDiv {
-  position: fixed;
-  top: calc(100vh - 276px);
-  text-align: center;
-  width: 100%;
+	position: fixed;
+	top: calc(100vh - 276px);
+	text-align: center;
+	width: 100%;
 }
-
 #quizNoteHolder {
-  position: fixed;
-  width: calc(100%);
-  height: calc(100vh - 132px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	position: fixed;
+	width: calc(100%);
+	height: calc(100vh - 132px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
-
 #saveWork {
-  position: relative;
-  bottom: 5px;
-  float: right;
-  width: 90px;
-  height: 35px;
-  font-size: 29px;
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #d4ffff;
-  padding: 8px;
-  background-color: #66dfdf;
+	position: relative;
+	bottom: 5px;
+	float: right;
+	width: 90px;
+	height: 35px;
+	font-size: 29px;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #d4ffff;
+	padding: 8px;
+	background-color: #66dfdf;
 }
-
 #downloadWork {
-  display: none;
-  position: relative;
-  bottom: 5px;
-  float: right;
-  width: 131px;
-  height: 35px;
-  font-size: 29px;
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #f3f9ef;
-  padding: 8px;
-  background-color: #92ec99;
-  margin-left: 20px;
-  text-decoration: none; /*Override the link underline*/
+	display: none;
+	position: relative;
+	bottom: 5px;
+	float: right;
+	width: 131px;
+	height: 35px;
+	font-size: 29px;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #f3f9ef;
+	padding: 8px;
+	background-color: #92ec99;
+	margin-left: 20px;
+	text-decoration: none; /*Override the link underline*/
 }
-
 .editorCancelButton, .editorSaveButton, #quizNextButton, #quizQuitButton, #quizShowButton, .addNote, #addSubject, #saveWork, #downloadWork {
-  cursor: pointer;
-  border-radius: 8px;
-  -webkit-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
-  -moz-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
-  box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+	cursor: pointer;
+	border-radius: 8px;
+	-webkit-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+	-moz-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+	box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
 }
-
 .editorCancelButton:active, .editorSaveButton:active, .addNote:active, #addSubject:active, #saveWork:active, #downloadWork:active {
-  padding-bottom: 6px;
-  margin-top: 6px;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
+	padding-bottom: 6px;
+	margin-top: 6px;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
 }
-
 #quizShowButton:active {
-  padding-bottom: 5px;
-  margin-top: 11px;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
+	padding-bottom: 5px;
+	margin-top: 11px;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
 }
-
 #quizNextButton:active, #quizQuitButton:active {
-  padding-top: 5px;
-  padding-bottom: 5px;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
 }
-
 #quizShowButton {
-  font-size: 29px;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #d4ffff;
-  padding: 8px;
-  margin: 5px 0px;
-  background-color: #66dfdf;
-  text-align: center;
+	font-size: 29px;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #d4ffff;
+	padding: 8px;
+	margin: 5px 0px;
+	background-color: #66dfdf;
+	text-align: center;
 }
-
 #quizNextButton {
-  z-index: 200;
-  position: fixed;
-  top: 100%;
-  font-size: 29px;
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  width: 70px;
-  left: 50%;
-  color: #e0fbf8;
-  padding: 8px;
-  margin: auto 0px;
-  background-color: #75d5f9;
-  transform: translate(calc(50px), calc(-100% - 70px));
+	z-index: 200;
+	position: fixed;
+	top: 100%;
+	font-size: 29px;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	width: 70px;
+	left: 50%;
+	color: #e0fbf8;
+	padding: 8px;
+	margin: auto 0px;
+	background-color: #75d5f9;
+	transform: translate(calc(50px), calc(-100% - 70px));
 }
-
 #quizQuitButton {
-  z-index: 200;
-  position: fixed;
-  top: 100%;
-  font-size: 29px;
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  width: 70px;
-  left: 50%;
-  color: #ffd6d6;
-  padding: 8px;
-  margin: auto 0px;
-  background-color: #f97575;
-  transform: translate(calc(-100% - 50px), calc(-100% - 70px));
+	z-index: 200;
+	position: fixed;
+	top: 100%;
+	font-size: 29px;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	width: 70px;
+	left: 50%;
+	color: #ffd6d6;
+	padding: 8px;
+	margin: auto 0px;
+	background-color: #f97575;
+	transform: translate(calc(-100% - 50px), calc(-100% - 70px));
 }
-
 .equationHeader {
-  text-align: center;
-  font-size: 20px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
-
-  padding-left: 35px;
-  padding-right: 35px;
-  padding-bottom: 5px;
-  padding-top: 5px;
-
-  min-height: 23px;
-
-  -webkit-box-shadow: 2px 2px 9px -1px rgba(0,0,0,.5);
-  -moz-box-shadow: 2px 2px 9px -1px rgba(0,0,0,.5);
-  box-shadow: 2px 2px 9px -1px rgba(0,0,0,.5);
-
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+	text-align: center;
+	font-size: 20px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	padding-left: 35px;
+	padding-right: 35px;
+	padding-bottom: 5px;
+	padding-top: 5px;
+	min-height: 23px;
+	-webkit-box-shadow: 2px 2px 9px -1px rgba(0,0,0,.5);
+	-moz-box-shadow: 2px 2px 9px -1px rgba(0,0,0,.5);
+	box-shadow: 2px 2px 9px -1px rgba(0,0,0,.5);
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
 }
-
 .noteConfig {
-  float: right;
-  width: 20px;
-  height: 20px;
-
-  position: relative;
-  left: 21px;
-
-  cursor: pointer;
-
-  opacity: 0.1;
+	float: right;
+	width: 20px;
+	height: 20px;
+	position: relative;
+	left: 21px;
+	cursor: pointer;
+	opacity: 0.1;
 }
-
 .noteConfig:hover {
-  opacity: 0.9;
+	opacity: 0.9;
 }
-
 .pageReference {
-  position: relative;
-  font-size: 14px;
-  bottom: 2px;
+	position: relative;
+	font-size: 14px;
+	bottom: 2px;
 }
-
 .noteLink {
-  color: #258693;
-  cursor: pointer;
+	color: #258693;
+	cursor: pointer;
 }
-
 .noteLink:hover {
-  text-decoration: underline !important;
+	text-decoration: underline !important;
 }
-
 .equation {
-  font-size: 19px;
-
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-
-  background-image: url("hatchShade.svg");
-  background-repeat: repeat-x;
-  background-position: left bottom;
-
-  padding-top: 1px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-bottom: 2px;
-
-  -webkit-box-shadow: 2px 2px 9px -1px rgba(0,0,0,.5);
-  -moz-box-shadow: 2px 2px 9px -1px rgba(0,0,0,.5);
-  box-shadow: 2px 2px 9px -1px rgba(0,0,0,.5);
+	font-size: 19px;
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
+	background-image: url("hatchShade.svg");
+	background-repeat: repeat-x;
+	background-position: left bottom;
+	padding-top: 1px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 2px;
+	-webkit-box-shadow: 2px 2px 9px -1px rgba(0,0,0,.5);
+	-moz-box-shadow: 2px 2px 9px -1px rgba(0,0,0,.5);
+	box-shadow: 2px 2px 9px -1px rgba(0,0,0,.5);
 }
-
 .equation > .MathJax_Display {
-  margin-top: 0 !important;
-  padding-top: 16px !important;
+	margin-top: 0 !important;
+	padding-top: 16px !important;
 }
-
 .subjectTable {
-  position: relative;
-  overflow: hidden;
-  border-radius: 5px;
-
-  -webkit-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
-  -moz-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
-  box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
-  padding-bottom: 25px;
-  background-image: url("noise.png");
-  background-repeat: repeat;
-  margin-top: 10px;
-  margin-bottom: 10px;
+	position: relative;
+	overflow: hidden;
+	border-radius: 5px;
+	-webkit-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+	-moz-box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+	box-shadow: inset 0px -6px 0px 0px rgba(0,0,0,0.2);
+	padding-bottom: 25px;
+	background-image: url("noise.png");
+	background-repeat: repeat;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
-
 .subjectTitle {
-  color: #313131;
-  padding-left: 35px;
-  padding-right: 6px;
-
-  border-top-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-
-  font-family: Arial, Helvetica, serif;
-
-  font-size: 40px;
+	color: #313131;
+	padding-left: 35px;
+	padding-right: 6px;
+	border-top-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+	font-family: Arial, Helvetica, serif;
+	font-size: 40px;
 }
-
 .hideOpenButton {
-  position: absolute;
-  top: 0;
-  left: 0;
-  color: #313131;
-  padding-left: 5px;
-  padding-right: 5px;
-
-  font-family: Arial, Helvetica, serif;
-
-  font-size: 40px;
-  cursor: pointer;
+	position: absolute;
+	top: 0;
+	left: 0;
+	color: #313131;
+	padding-left: 5px;
+	padding-right: 5px;
+	font-family: Arial, Helvetica, serif;
+	font-size: 40px;
+	cursor: pointer;
 }
-
 .quizButton {
-  float: right;
-  cursor: pointer;
-  padding: 8px;
-
-  border-top-right-radius: 4px;
-  border-bottom-left-radius: 4px;
-
-  color: #313131;
-  font-family: Arial, Helvetica, serif;
-  font-size: 19px;
+	float: right;
+	cursor: pointer;
+	padding: 8px;
+	border-top-right-radius: 4px;
+	border-bottom-left-radius: 4px;
+	color: #313131;
+	font-family: Arial, Helvetica, serif;
+	font-size: 19px;
 }
-
 .quizButton:hover {
-  text-decoration: underline;
+	text-decoration: underline;
 }
-
 .subjectBody {
-  overflow: auto;
-  margin-top: 10px;
-  margin-bottom: 48px;
+	overflow: auto;
+	margin-top: 10px;
+	margin-bottom: 48px;
 }
-
 .note {
-  float: left;
-  margin: 10px;
-  
-  /*Note link highlight*/
-  border-style: dashed;
-  border-color: #ffffff;
-  border-width: 0px
+	float: left;
+	margin: 10px;
+	/*Note link highlight*/
+	border-style: dashed;
+	border-color: #ffffff;
+	border-width: 0px
 }
-
-.Chapter20Table {
-  background-color: #ddd08d;
-}
-
-.Chapter20Header {
-  background-color: #eee49d;
-}
-
-.Chapter20Equation {
-  background-color: #f6f5cb;
-}
-
-.Chapter21Table {
-  background-color: #505842;
-}
-
-.Chapter21Header {
-  background-color: #768858;
-}
-
-.Chapter21Equation {
-  background-color: #daf0cf;
-}
-
-.Chapter22Table {
-  background-color: #3f5243;
-}
-
-.Chapter22Header {
-  background-color: #468352;
-}
-
-.Chapter22Equation {
-  background-color: #dbf4ce;
-}
-
-.Chapter23Table {
-  background-color: #f66647;
-}
-
-.Chapter23Header {
-  background-color: #f4aba6;
-}
-
-.Chapter23Equation {
-  background-color: #f7e5e4;
-}
-
-.Chapter24Table {
-  background-color: #a8a6f4;
-}
-
-.Chapter24Header {
-  background-color: #827dd9;
-}
-
-.Chapter24Equation {
-  background-color: #ebdaf5;
-}
-
-.Chapter25Table {
-  background-color: #f2a6f4;
-}
-
-.Chapter25Header {
-  background-color: #d38cdb;
-}
-
-.Chapter25Equation {
-  background-color: #f5ebfb;
-}
-
-.Chapter26Table {
-  background-color: #e3e285;
-}
-
-.Chapter26Header {
-  background-color: #f1f477;
-}
-
-.Chapter26Equation {
-  background-color: #f9f5e2;
-}
-
-.Chapter27Table {
-  background-color: #d8a3ed;
-}
-
-.Chapter27Header {
-  background-color: #a685e3;
-}
-
-.Chapter27Equation {
-  background-color: #e9e2f9;
-}
-
-.Chapter28Table {
-  background-color: #e9c149;
-}
-
-.Chapter28Header {
-  background-color: #fce16a;
-}
-
-.Chapter28Equation {
-  background-color: #f9f8e2;
-}
-
-.Chapter29Table {
-  background-color: #5abdcf;
-}
-
-.Chapter29Header {
-  background-color: #a2e2de;
-}
-
-.Chapter29Equation {
-  background-color: #e2f9f0;
-}
-
-.Chapter30Table {
-  background-color: #5e3826;
-}
-
-.Chapter30Header {
-  background-color: #955a3f;
-}
-
-.Chapter30Equation {
-  background-color: #d2bfb7;
-}
-
-.Chapter31Table {
-  background-color: #85ad51;
-}
-
-.Chapter31Header {
-  background-color: #a8c97d;
-}
-
-.Chapter31Equation {
-  background-color: #e4f0da;
-}
-
-.UnitsTable {
-  background-color: #4d5175;
-}
-
-.UnitsHeader {
-  background-color: #767fd5;
-}
-
-.UnitsEquation {
-  background-color: #dbe4f6;
-}
-
-.ConstantsTable {
-  background-color: #ba4874;
-}
-
-.ConstantsHeader {
-  background-color: #de79a0;
-}
-
-.ConstantsEquation {
-  background-color: #f5dbf6;
-}
-
-.OldStuffTable {
-  background-color: #323030;
-}
-
-.OldStuffHeader {
-  background-color: #797979;
-}
-
-.OldStuffEquation {
-  background-color: #bebebe;
-}
-
 .MathJax .merror {
-  background-color: transparent  !important;
-  color: #ed4848 !important;
-  border: none !important;
+	background-color: transparent	!important;
+	color: #ed4848 !important;
+	border: none !important;
 }
-
 </style>
-
 <div id="editor">
-  <div id="editorPreviewParent">
-    <b id="editorPreviewTitle">Preview</b>
-    <div id="editorPreview"></div>
-  </div>
-  <div id="noteEditor">
-    <div id="editorInputDiv">
-      <input id="editorHeaderInput" placeholder="Note Title" spellcheck="false" value="Note Title" type="text">
-      <textarea id="editorEquationInput" placeholder="Note Body" spellcheck="false" rows="5">\mbox{Note Body}</textarea>
-    </div>
-    <div class="editorSaveButton">Save</div>
-    <div class="editorCancelButton">Cancel</div>
-  </div>
-  <div id="subjectEditor">
-    <input id="editorSubjectTitleInput" placeholder="Title" spellcheck="false" value="" type="text">
-    <div style="display: flex; height:198px; justify-content: space-around;">
-      <div>
-        <div class="editorColorDiv">
-          Title Color
-        </div>
-        <input class="editorColorInput" type="color" name="titleColor">
-      </div>
-      <div>
-        <div class="editorColorDiv">
-          Subject Color
-        </div>
-        <input class="editorColorInput" type="color" name="subjectColor">
-      </div>
-      <div>
-        <div class="editorColorDiv">
-          Note Color
-        </div>
-        <input class="editorColorInput" type="color" name="noteColor">
-      </div>
-    </div>
-    <div class="editorSaveButton">Save</div>
-    <div class="editorCancelButton">Cancel</div>
-  </div>
+	<div id="editorPreviewParent">
+		<b id="editorPreviewTitle">Preview</b>
+		<div id="editorPreview"></div>
+	</div>
+	<div id="noteEditor">
+		<div id="editorInputDiv">
+			<input id="editorHeaderInput" placeholder="Note Title" spellcheck="false" value="Note Title" type="text">
+			<textarea id="editorEquationInput" placeholder="Note Body" spellcheck="false" rows="5">\mbox{Note Body}</textarea>
+		</div>
+		<div class="editorSaveButton">Save</div>
+		<div class="editorCancelButton">Cancel</div>
+	</div>
+	<div id="subjectEditor">
+		<input id="editorSubjectTitleInput" placeholder="Title" spellcheck="false" value="" type="text">
+		<div style="display: flex; height:198px; justify-content: space-around;">
+			<div>
+				<div class="editorColorDiv">
+					Title Color
+				</div>
+				<input class="editorColorInput" type="color" name="titleColor">
+			</div>
+			<div>
+				<div class="editorColorDiv">
+					Subject Color
+				</div>
+				<input class="editorColorInput" type="color" name="subjectColor">
+			</div>
+			<div>
+				<div class="editorColorDiv">
+					Note Color
+				</div>
+				<input class="editorColorInput" type="color" name="noteColor">
+			</div>
+		</div>
+		<div class="editorSaveButton">Save</div>
+		<div class="editorCancelButton">Cancel</div>
+	</div>
 </div>
-
 <div id="headerDiv">
-  <span id="searchSpan">
-    <input type="text" placeholder="Search..." id="search">
-    <img src="search.svg">
-  </span>
-  
-  <a id="downloadWork">Download</a>
-  <span id="saveWork">Save</span>
+	<span id="searchSpan">
+		<input type="text" placeholder="Search..." id="search">
+		<img src="search.svg">
+	</span>
+	<a id="downloadWork">Download</a>
+	<span id="saveWork">Save</span>
 </div>
-
 <div id="config">
-  <div id="configBubble">
-    <div id="configEdit">Edit</div>
-    <div id="configLink">Link</div>
-    <div id="configDelete">Delete</div>
-  </div>
-  <img id="configTail" src="tail.svg"></img>
+	<div id="configBubble">
+		<div id="configEdit">Edit</div>
+		<div id="configLink">Link</div>
+		<div id="configDelete">Delete</div>
+	</div>
+	<img id="configTail" src="tail.svg"></img>
 </div>
-
 <script type="text/javascript" src="/MathJax/MathJax.js?config=default"></script>
 <script type="text/javascript" src="search.js"></script>
 <script type="text/javascript" src="quiz.js"></script>
 <script type="text/javascript" src="editor.js"></script>
-
 </body>
 </html>
